@@ -1,0 +1,45 @@
+<div mat-dialog-content>
+  <h1>Add New Site</h1>
+  <form>
+    <br />
+    <div class="form-group">
+      <label>Site Name</label>
+      <input
+        [value]="siteName"
+        [(ngModel)]="siteName"
+        class="form-control"
+        name="siteName"
+      />
+    </div>
+    <div class="form-group">
+      <label>Site Address</label>
+      <input
+        [value]="siteAddress"
+        [(ngModel)]="siteAddress"
+        class="form-control"
+        name="siteAddress"
+      />
+    </div>
+    <div class="form-group">
+      <label>Site Geo</label>
+      <input
+        [value]="siteGeo"
+        [(ngModel)]="siteGeo"
+        class="form-control"
+        name="siteGeo"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Condition Type</label>
+      <select [(value)]="conditionType">
+        <option *ngFor="let condition of conditionsArray" [value]="condition">
+          {{ condition }}
+        </option>
+      </select>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button class="submit-button" (click)="submitNew()">Submit</button>
+</div>

@@ -1,0 +1,14 @@
+.query-card {
+	cursor: pointer;
+	.button-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	mat-card-title {
+		padding-bottom: 1rem;
+	}
+	mat-card-content {
+		padding: 1rem 0;
+	}
+}

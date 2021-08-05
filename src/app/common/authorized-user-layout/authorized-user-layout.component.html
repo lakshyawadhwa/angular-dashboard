@@ -1,0 +1,30 @@
+<mat-drawer-container [hasBackdrop]="false" autosize="true">
+	<mat-drawer #drawer mode="side" [opened]="true" disableClose="true">
+		<div class="header">
+			<section class="menu">
+				<span
+					mat-mini-fab
+					(click)="isExpanded = !isExpanded"
+					class="material-icons"
+					>{{ isExpanded ? "menu_open" : "menu" }}</span
+				>
+			</section>
+		</div>
+
+		<mat-nav-list> </mat-nav-list>
+	</mat-drawer>
+	<mat-drawer-content>
+		<mat-toolbar>
+			<span>Admin Panel</span>
+			<span class="toolbar-spacer"></span>
+			<button mat-icon-button>
+				<mat-icon>person_outline</mat-icon>
+			</button>
+		</mat-toolbar>
+		<main>
+			<div class="route-content">
+				<router-outlet></router-outlet>
+			</div>
+		</main>
+	</mat-drawer-content>
+</mat-drawer-container>

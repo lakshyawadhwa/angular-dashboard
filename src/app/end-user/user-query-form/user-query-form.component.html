@@ -1,0 +1,45 @@
+<div mat-dialog-content>
+  <h1>Add New Query</h1>
+  <form>
+    <div class="form-group">
+      <label> Select Site </label>
+      <select
+        [(value)]="selectedSite"
+        [(ngModel)]="selectedSite"
+        name="selectedSite"
+      >
+        <option *ngFor="let site of sites" [value]="site">
+          {{ site }}
+        </option>
+      </select>
+    </div>
+    <br />
+    <div class="form-group">
+      <label>Query text</label>
+      <input
+        [(value)]="queryText"
+        [(ngModel)]="queryText"
+        class="form-control"
+        name="queryText"
+      />
+    </div>
+    <div class="form-group">
+      <label> Select Master Concern </label>
+      <select
+        [(value)]="masterConcern"
+        [(ngModel)]="masterConcern"
+        name="selectedSite"
+      >
+        <option
+          *ngFor="let concern of masterConcerns"
+          [value]="concern.concernName"
+        >
+          {{ concern.concernName }}
+        </option>
+      </select>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button class="submit-button" (click)="submitQuery()">Submit</button>
+</div>
