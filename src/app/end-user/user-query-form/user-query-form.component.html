@@ -9,7 +9,7 @@
         name="selectedSite"
       >
         <option *ngFor="let site of sites" [value]="site">
-          {{ site }}
+          {{ site.siteName }} - {{ site.siteAddress }}
         </option>
       </select>
     </div>

@@ -31,8 +31,7 @@ export class BaseService {
 
   post(url, params): Observable<any> {
     const headers = new HttpHeaders()
-      .set("Content-Type", "application/json")
-      .set("client", "bridge_web");
+      .set("Content-Type", "application/json");
     return this.httpClient
       .post(`${url}`, JSON.stringify(params), {
         headers,

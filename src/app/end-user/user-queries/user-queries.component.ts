@@ -37,6 +37,7 @@ export class UserQueriesComponent implements OnInit {
   ngOnInit(): void {
     let url = apiUrl + APIConfig.getClientQueries + this.clientInfo.clientId;
     this.baseService.get(url).subscribe((res) => {
+        console.log("Assigning Queries: " + res)
       this.queryArray = res;
     });
   }

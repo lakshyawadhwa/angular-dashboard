@@ -7,6 +7,7 @@ import * as jwt_decode from "jwt-decode";
 import { apiUrl } from "../services/env";
 import APIConfig from "../services/APIConfig";
 import { BaseService } from "../services/base-service/base.service";
+import { catchError, tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
@@ -25,21 +26,33 @@ export class AuthService {
       clientId: 8,
       password: "password",
     };
-    this.baseService.post(url, body).subscribe((res) => {
-      authBody = res;
-    });
-    if (
-      loginReq.get("username") === "admin" &&
-      loginReq.get("password") === "admin"
-    ) {
-      return new Observable<boolean>((observer) => {
-        this.setSession(authBody, { expiresIn: 24 * 60 * 60, id_token: "123" });
-        observer.next(true);
-      });
-    }
-    return new Observable<boolean>((observer) => {
-      observer.error(false);
-    });
+
+    return this.baseService.post(url, body).pipe(
+          tap(async (response) => {
+            console.log("response: " + response)
+            this.setSession(response, {
+              expiresIn: 24 * 60 * 60,
+              id_token: "123",
+            });
+          }),
+          catchError((e) => {
+            console.log(e);
+            throw e;
+          })
+        );
+
+//     if (
+//       loginReq.get("username") === "admin" &&
+//       loginReq.get("password") === "admin"
+//     ) {
+//       return new Observable<boolean>((observer) => {
+//         this.setSession(authBody, { expiresIn: 24 * 60 * 60, id_token: "123" });
+//         observer.next(true);
+//       });
+//     }
+//     return new Observable<boolean>((observer) => {
+//       observer.error(false);
+//     });
   }
 
   // setSession(authResult) {
@@ -68,6 +81,8 @@ export class AuthService {
       password: "password",
       expires: JSON.stringify(expiresAt.valueOf()),
     };
+    console.log("setting session");
+    authBody["expires"] = expiresAt.valueOf();
     localStorage.setItem("userinfo", JSON.stringify(authBody));
   }
 
@@ -87,7 +102,7 @@ export class AuthService {
     const userInfo = this.getUserFromStore();
     if (userInfo) {
       const expiration = userInfo.expires;
-      const expiresAt = JSON.parse(expiration);
+      const expiresAt = expiration;
       return moment(expiresAt);
     }
   }
@@ -107,6 +122,9 @@ export class AuthService {
   }
 
   getUserFromStore() {
-    return JSON.parse(localStorage.getItem("userinfo"));
+    console.log("userinfo: " + localStorage.getItem("userinfo"));
+    if(localStorage.getItem("userinfo") !== undefined) {
+        return JSON.parse(JSON.stringify(localStorage.getItem("userinfo")));
+    }
   }
 }

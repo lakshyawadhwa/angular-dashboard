@@ -14,22 +14,11 @@ export class UserQueryFormComponent implements OnInit {
   sites: Array<string> = ["site1", "site2", "site3"];
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
   masterConcern: masterConcern;
-  masterConcerns: Array<masterConcern> = [
-    {
-      concernId: 1,
-      concernName: "Peace of Mind",
-    },
-    {
-      concernId: 2,
-      concernName: "Health Problems",
-    },
-    {
-      concernId: 3,
-      concernName: "Career Growth",
-    },
-  ];
+  masterConcerns: Array<masterConcern> = [];
+
   selectedSite: string = "";
   queryText: string = "";
+
   ngOnInit(): void {
     let url = apiUrl + APIConfig.getSiteByClient + this.clientInfo.clientId;
     this.baseService.get(url).subscribe((res) => {
@@ -37,12 +26,14 @@ export class UserQueryFormComponent implements OnInit {
     });
     this.getMasterConcerns();
   }
+
   getMasterConcerns() {
     let url = apiUrl + APIConfig.masterConcerns;
     this.baseService.get(url).subscribe((res) => {
       this.masterConcerns = res;
     });
   }
+
   submitQuery() {
     console.log(this.selectedSite, this.queryText);
     let url = apiUrl + APIConfig.createNewQuery;
@@ -53,7 +44,7 @@ export class UserQueryFormComponent implements OnInit {
       queryText: this.queryText,
       siteId: 9,
       horoId: 1,
-      masterConcern: this.masterConcern,
+      masterConcern: this.masterConcerns[0]
     };
     this.baseService.post(url, body).subscribe((res) => {
       console.log(res);

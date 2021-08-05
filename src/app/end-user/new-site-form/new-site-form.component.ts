@@ -41,7 +41,7 @@ export class NewSiteFormComponent implements OnInit {
     };
     this.baseService.post(url, body).subscribe((res) => {
       console.log(res);
-      window.open(`/client/exisiting`, "_self");
+      window.open(`/client/existing`, "_self");
     });
   }
 }
