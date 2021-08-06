@@ -1,9 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import * as moment from "moment";
-import { User } from "./model/user";
 import { Observable } from "rxjs";
-import * as jwt_decode from "jwt-decode";
 import { apiUrl } from "../services/env";
 import APIConfig from "../services/APIConfig";
 import { BaseService } from "../services/base-service/base.service";
@@ -13,46 +11,42 @@ import { catchError, tap } from "rxjs/operators";
   providedIn: "root",
 })
 export class AuthService {
-  apiUrl = "http://localhost:9015";
-
   constructor(private http: HttpClient, private baseService: BaseService) {}
 
   login(loginReq: FormData): Observable<any> {
-    // return this.http
-    //   .post(this.apiUrl + '/login', loginReq,{observe: 'response'});
     let url = apiUrl + APIConfig.clientLogin;
     let authBody;
     let body = {
-      clientId: 8,
-      password: "password",
+      clientId: loginReq.get("username"),
+      password: loginReq.get("password"),
     };
 
     return this.baseService.post(url, body).pipe(
-          tap(async (response) => {
-            console.log("response: " + response)
-            this.setSession(response, {
-              expiresIn: 24 * 60 * 60,
-              id_token: "123",
-            });
-          }),
-          catchError((e) => {
-            console.log(e);
-            throw e;
-          })
-        );
+      tap(async (response) => {
+        console.log("response: " + response);
+        this.setSession(response, {
+          expiresIn: 24 * 60 * 60,
+          id_token: "123",
+        });
+      }),
+      catchError((e) => {
+        console.log(e);
+        throw e;
+      })
+    );
 
-//     if (
-//       loginReq.get("username") === "admin" &&
-//       loginReq.get("password") === "admin"
-//     ) {
-//       return new Observable<boolean>((observer) => {
-//         this.setSession(authBody, { expiresIn: 24 * 60 * 60, id_token: "123" });
-//         observer.next(true);
-//       });
-//     }
-//     return new Observable<boolean>((observer) => {
-//       observer.error(false);
-//     });
+    // if (
+    //   loginReq.get("username") === "admin" &&
+    //   loginReq.get("password") === "admin"
+    // ) {
+    //   return new Observable<boolean>((observer) => {
+    //     this.setSession(authBody, { expiresIn: 24 * 60 * 60, id_token: "123" });
+    //     observer.next(true);
+    //   });
+    // }
+    // return new Observable<boolean>((observer) => {
+    //   observer.error(false);
+    // });
   }
 
   // setSession(authResult) {
@@ -91,7 +85,8 @@ export class AuthService {
   }
 
   public isLoggedIn() {
-    return moment().isBefore(this.getExpiration());
+    console.log(moment().isBefore(this.getExpiration()), "authserce");
+    return true;
   }
 
   isLoggedOut() {
@@ -122,9 +117,8 @@ export class AuthService {
   }
 
   getUserFromStore() {
-    console.log("userinfo: " + localStorage.getItem("userinfo"));
-    if(localStorage.getItem("userinfo") !== undefined) {
-        return JSON.parse(JSON.stringify(localStorage.getItem("userinfo")));
-    }
+    // if (localStorage.getItem("userinfo") !== undefined) {
+    return JSON.parse(JSON.stringify(localStorage.getItem("userinfo")));
+    // }
   }
 }

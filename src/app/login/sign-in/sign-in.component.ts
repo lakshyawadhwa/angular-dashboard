@@ -28,8 +28,12 @@ export class SignInComponent implements OnInit {
     this.loginReq.append("password", this.password);
     this.authService.login(this.loginReq).subscribe(
       (response) => {
+        console.log(response, "res");
         // this.authService.setSession(response);
+        window.location.href = "client";
         this.router.navigateByUrl("/client");
+
+        this.goToHome();
       },
       (error) => {
         console.log(error);
@@ -44,7 +48,7 @@ export class SignInComponent implements OnInit {
 
   goToHome() {
     this.location.replaceState("/");
-    this.location.go("/operations/checkins");
-    this.router.navigate(["/operations/checkins"]);
+    this.location.go("/client");
+    this.router.navigate(["/client"]);
   }
 }

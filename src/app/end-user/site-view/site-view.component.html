@@ -1,0 +1,82 @@
+<form>
+  <div class="button-container" (click)="enableEdit()">
+    <button>
+      <span class="material-icons"> edit </span>
+    </button>
+  </div>
+  <div mat-dialog-content>
+    <fieldset [disabled]="editDisable">
+      <mat-form-field appearance="outline">
+        <mat-label>Site ID</mat-label>
+        <input
+          matInput
+          value="{{ data.siteId }}"
+          [(ngModel)]="data.siteId"
+          name="siteId"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Site Name</mat-label>
+        <input
+          matInput
+          value="{{ data.siteName }}"
+          [(ngModel)]="data.siteName"
+          name="sitename"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Site Map ID</mat-label>
+        <input
+          matInput
+          value="{{ data.siteMapId }}"
+          [(ngModel)]="data.siteMapId"
+          name="sitemapid"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Site Geo</mat-label>
+        <input
+          matInput
+          value="{{ data.siteGeo }}"
+          [(ngModel)]="data.siteGeo"
+          name="sitegeo"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Condition Type</mat-label>
+        <input
+          matInput
+          value="{{ data.conditionType }}"
+          [(ngModel)]="data.conditionType"
+          name="condition"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Site Type</mat-label>
+        <input
+          matInput
+          value="{{ data.siteType ? data.siteType.siteTypeName : null }}"
+          [(ngModel)]="data.siteType"
+          name="siteType"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" id="query-text">
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          value="{{ data.siteAddress }}"
+          [(ngModel)]="data.siteAddress"
+          name="siteAddress"
+        />
+      </mat-form-field>
+    </fieldset>
+  </div>
+  <div
+    mat-dialog-actions
+    class="button-container"
+    id="submit-button"
+    *ngIf="!editDisable"
+  >
+    <button class="submit-button" (click)="editSite()">Submit</button>
+  </div>
+</form>

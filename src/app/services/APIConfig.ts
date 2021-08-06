@@ -6,6 +6,7 @@ export const APIConfig = {
   getSiteById: "/site/",
   getSiteByClient: "/site/client/",
   masterConcerns: "/master-concerns",
+  siteTypes: "/site/site-types",
 };
 
 export default APIConfig;

@@ -32,9 +32,29 @@
 
     <div class="form-group">
       <label>Condition Type</label>
-      <select [(value)]="conditionType">
+      <select
+        [(value)]="conditionType"
+        [(ngModel)]="conditionType"
+        name="condition"
+      >
         <option *ngFor="let condition of conditionsArray" [value]="condition">
           {{ condition }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Site Type</label>
+      <select
+        [(value)]="selectedSiteType"
+        [(ngModel)]="selectedSiteType"
+        name="siteType"
+      >
+        <option
+          *ngFor="let siteType of siteTypes"
+          [value]="siteType.siteTypeId"
+        >
+          {{ siteType.siteTypeName }}
         </option>
       </select>
     </div>

@@ -8,7 +8,7 @@
         [(ngModel)]="selectedSite"
         name="selectedSite"
       >
-        <option *ngFor="let site of sites" [value]="site">
+        <option *ngFor="let site of sites" [value]="site.siteId">
           {{ site.siteName }} - {{ site.siteAddress }}
         </option>
       </select>

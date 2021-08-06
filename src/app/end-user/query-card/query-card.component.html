@@ -1,12 +1,11 @@
-<mat-card class="query-card">
-	<div class="button-container">
-		<mat-card-subtitle>Query ID-{{ query.queryID }}</mat-card-subtitle>
+<mat-card class="query-card" *ngIf="siteDetails" (click)="openDialog()">
+  <mat-card-title
+    >{{ siteDetails.siteName }} - {{ siteDetails.siteAddress }}</mat-card-title
+  >
+  <mat-card-subtitle>Address -{{ siteDetails.siteAddress }}</mat-card-subtitle>
 
-		<button>
-			<span class="material-icons"> edit </span>
-		</button>
-	</div>
-	<mat-card-title> Site ID-{{ query.siteID }} </mat-card-title>
-	<div class="divider"></div>
-	<mat-card-content>{{ query.queryText }}</mat-card-content>
+  <mat-card-content>{{ getShortQuery(query.queryText) }}</mat-card-content>
+  <div class="divider"></div>
+
+  <mat-card-subtitle>Updated at {{ getDate() }}</mat-card-subtitle>
 </mat-card>

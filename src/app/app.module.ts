@@ -29,7 +29,11 @@ import { UserQueryFormComponent } from "./end-user/user-query-form/user-query-fo
 // import { UserSiteFormComponent } from "./end-user/user-site-form/user-site-form.component";
 import { NewSiteFormComponent } from "./end-user/new-site-form/new-site-form.component";
 import { UserNewQueryDialogComponent } from "./end-user/user-new-query-dialog/user-new-query-dialog.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { SitesComponent } from "./end-user/sites/sites.component";
+import { SiteCardComponent } from "./end-user/site-card/site-card.component";
+import { QueryViewComponent } from "./end-user/query-view/query-view.component";
+import { SiteViewComponent } from './end-user/site-view/site-view.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,10 @@ import { FormsModule } from "@angular/forms";
     AnonymousUserLayoutComponent,
     AuthorizedUserLayoutComponent,
     AppComponent,
+    SitesComponent,
+    SiteCardComponent,
+    QueryViewComponent,
+    SiteViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +71,7 @@ import { FormsModule } from "@angular/forms";
     MatStepperModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [LoginModule, HttpClientModule, MainModule],
   providers: [

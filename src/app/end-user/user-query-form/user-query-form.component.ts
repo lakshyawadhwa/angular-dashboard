@@ -1,4 +1,5 @@
-import { clientObject } from "./../../services/interfaces";
+import { Router } from "@angular/router";
+import { clientObject, SiteInterface } from "./../../services/interfaces";
 import { Component, OnInit } from "@angular/core";
 import { BaseService } from "src/app/services/base-service/base.service";
 import { apiUrl } from "src/app/services/env";
@@ -10,13 +11,13 @@ import APIConfig from "../../services/APIConfig";
   styleUrls: ["./user-query-form.component.scss"],
 })
 export class UserQueryFormComponent implements OnInit {
-  constructor(private baseService: BaseService) {}
-  sites: Array<string> = ["site1", "site2", "site3"];
+  constructor(private baseService: BaseService, private router: Router) {}
+  sites: Array<SiteInterface> = [];
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
-  masterConcern: masterConcern;
+  masterConcern: string;
   masterConcerns: Array<masterConcern> = [];
 
-  selectedSite: string = "";
+  selectedSite: number;
   queryText: string = "";
 
   ngOnInit(): void {
@@ -39,15 +40,20 @@ export class UserQueryFormComponent implements OnInit {
     let url = apiUrl + APIConfig.createNewQuery;
     let body = {
       client: {
-        clientId: 8,
+        clientId: this.clientInfo.clientId,
       },
       queryText: this.queryText,
-      siteId: 9,
+      siteId: this.selectedSite,
       horoId: 1,
-      masterConcern: this.masterConcerns[0]
+      masterConcern: this.getSelectedConcern(),
     };
     this.baseService.post(url, body).subscribe((res) => {
-      console.log(res);
+      this.router.navigate(["/client/queries"]);
     });
+  }
+  getSelectedConcern() {
+    return this.masterConcerns.find(
+      (concern) => concern.concernName === this.masterConcern
+    );
   }
 }

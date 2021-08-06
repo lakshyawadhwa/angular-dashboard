@@ -1,0 +1,27 @@
+<form [formGroup]="queryView">
+  <div mat-dialog-content>
+    <fieldset [disabled]="true">
+      <mat-form-field appearance="outline">
+        <mat-label>Query ID</mat-label>
+        <input matInput value="{{ data.queryId }}" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Site ID</mat-label>
+        <input matInput value="{{ data.siteId }}" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Master Concern</mat-label>
+        <input matInput value="{{ data.masterConcern.concernName }}" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last update at</mat-label>
+        <input matInput value="{{ getDate() }}" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" id="query-text">
+        <mat-label>Description</mat-label>
+        <input matInput value="{{ data.queryText }}" />
+      </mat-form-field>
+    </fieldset>
+  </div>
+  <div mat-dialog-actions></div>
+</form>
