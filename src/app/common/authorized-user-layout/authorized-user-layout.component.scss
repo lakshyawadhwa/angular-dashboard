@@ -1,5 +1,4 @@
 mat-drawer {
-  background: var(--color-gray-dark);
   color: var(--color-primary-light);
 
   .material-icons {
@@ -42,6 +41,9 @@ mat-drawer {
       .material-icons {
         color: var(--color-orange-bright) !important;
       }
+      span {
+        color: var(--color-orange-bright) !important;
+      }
     }
 
     .material-icons {
@@ -81,6 +83,12 @@ mat-toolbar {
     font-size: 0.8em;
     margin: 0px 15px;
   }
+}
+.list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 mat-drawer-container {

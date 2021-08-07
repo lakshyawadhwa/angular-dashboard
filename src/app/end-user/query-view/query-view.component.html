@@ -3,23 +3,29 @@
     <fieldset [disabled]="true">
       <mat-form-field appearance="outline">
         <mat-label>Query ID</mat-label>
-        <input matInput value="{{ data.queryId }}" />
+        <input matInput value="{{ data.query.queryId }}" />
       </mat-form-field>
+
       <mat-form-field appearance="outline">
-        <mat-label>Site ID</mat-label>
-        <input matInput value="{{ data.siteId }}" />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Master Concern</mat-label>
-        <input matInput value="{{ data.masterConcern.concernName }}" />
+        <mat-label> Concern</mat-label>
+        <input matInput value="{{ data.query.masterConcern.concernName }}" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Last update at</mat-label>
         <input matInput value="{{ getDate() }}" />
       </mat-form-field>
-      <mat-form-field appearance="outline" id="query-text">
+      <mat-form-field appearance="outline" class="query-text">
+        <mat-label>Site Name</mat-label>
+        <input
+          matInput
+          value="{{ data.siteDetails.siteName }} - {{
+            data.siteDetails.siteAddress
+          }}"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="query-text">
         <mat-label>Description</mat-label>
-        <input matInput value="{{ data.queryText }}" />
+        <textarea matInput value="{{ data.query.queryText }}"></textarea>
       </mat-form-field>
     </fieldset>
   </div>

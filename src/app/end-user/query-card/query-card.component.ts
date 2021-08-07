@@ -27,7 +27,6 @@ export class QueryCardComponent implements OnInit {
   siteDetails: SiteInterface;
   viewQuery = false;
   ngOnInit(): void {
-    console.log(this.query, "query");
     this.baseService
       .get(apiUrl + APIConfig.getSiteById + this.query.siteId)
       .subscribe((res: SiteInterface) => {
@@ -44,7 +43,7 @@ export class QueryCardComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(QueryViewComponent, {
       width: "80%",
-      data: this.query,
+      data: { query: this.query, siteDetails: this.siteDetails },
       panelClass: "custom-modalbox",
     });
   }

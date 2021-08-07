@@ -13,14 +13,18 @@
 
     <mat-nav-list>
       <mat-list-item routerLink="sites" routerLinkActive="active">
-        <mat-icon>maps_home_work</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">Sites</h4>
+        <div class="list-item">
+          <mat-icon>maps_home_work</mat-icon>
+          <span mat-line routerLinkActive="active">Sites</span>
+        </div>
       </mat-list-item>
     </mat-nav-list>
     <mat-nav-list>
       <mat-list-item routerLink="queries" routerLinkActive="active">
-        <mat-icon>question_answer</mat-icon>
-        <h4 mat-line *ngIf="isExpanded">Queries</h4>
+        <div class="list-item">
+          <mat-icon>question_answer</mat-icon>
+          <span mat-line routerLinkActive="active">Queries</span>
+        </div>
       </mat-list-item>
     </mat-nav-list>
   </mat-drawer>
@@ -28,8 +32,9 @@
     <mat-toolbar>
       <span>Admin Panel</span>
       <span class="toolbar-spacer"></span>
-      <button mat-icon-button>
+      <button mat-icon-button (click)="logout()">
         <mat-icon>person_outline</mat-icon>
+        Logout
       </button>
     </mat-toolbar>
     <main>

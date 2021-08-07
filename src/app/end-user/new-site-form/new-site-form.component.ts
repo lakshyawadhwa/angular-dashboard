@@ -17,16 +17,19 @@ export class NewSiteFormComponent implements OnInit {
   conditionType: string;
   siteAddress: string;
   siteGeo: string;
-  siteTypes: Array<siteTypeInterface>;
+  siteTypes: Array<siteTypeInterface> = JSON.parse(
+    localStorage.getItem("siteTypes")
+  );
   selectedSiteType: number;
   conditionsArray: Array<string> = ["New", "Used"];
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
   ngOnInit(): void {
-    this.getSiteTypes();
+    if (!this.siteTypes) this.getSiteTypes();
   }
   getSiteTypes() {
     let url = apiUrl + APIConfig.siteTypes;
     this.baseService.get(url).subscribe((res) => {
+      localStorage.setItem("siteTypes", JSON.stringify(res));
       this.siteTypes = res;
     });
   }

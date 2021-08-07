@@ -1,20 +1,59 @@
-<mat-card id="card" class="login-card">
-  <mat-card-title> login </mat-card-title>
-  <mat-card-content>
-    <mat-error *ngIf="loginError"> Invalid Credentials!! </mat-error>
-    <mat-form-field class="full-width">
-      <input matInput [(ngModel)]="username" placeholder="clientId" />
-    </mat-form-field>
-    <br />
-    <mat-form-field class="full-width">
-      <input
-        matInput
-        [(ngModel)]="password"
-        type="password"
-        placeholder="password"
-      />
-    </mat-form-field>
-    <br /><br />
-    <button mat-flat-button color="primary" (click)="signIn()">login</button>
-  </mat-card-content>
-</mat-card>
+<main>
+  <div class="left-div">
+    <img src="../../../assets//images/login-background.jpg" />
+  </div>
+  <div class="right-div">
+    <mat-card id="card" class="login-card">
+      <!-- <mat-card-title> login </mat-card-title> -->
+      <mat-card-content>
+        <mat-error *ngIf="loginError"> Invalid Credentials!! </mat-error>
+        <div class="login-wrapper">
+          <h2>Welcome to Mahavastu Advisor Portal</h2>
+          <span>
+            New here?
+            <button class="mat-card-subtitle" id="sign-up" (click)="signUp()">
+              Sign Up
+            </button>
+          </span>
+        </div>
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            [(ngModel)]="username"
+            placeholder="{{ usernamePlaceholder }}"
+            class="username"
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            [(ngModel)]="password"
+            placeholder="Password"
+            type="password"
+            class="username"
+          />
+        </mat-form-field>
+        <br />
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="accountType"
+          (ngModelChange)="setAccountType()"
+        >
+          <mat-radio-button value="client">Client</mat-radio-button>
+          <mat-radio-button value="advisor">Advisor</mat-radio-button>
+        </mat-radio-group>
+        <br />
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="signIn()"
+          style="width: 100%"
+        >
+          Login
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</main>

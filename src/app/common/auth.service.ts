@@ -85,8 +85,8 @@ export class AuthService {
   }
 
   public isLoggedIn() {
-    console.log(moment().isBefore(this.getExpiration()), "authserce");
-    return true;
+    if (this.getExpiration())
+      return moment().isSameOrBefore(this.getExpiration());
   }
 
   isLoggedOut() {
@@ -95,6 +95,7 @@ export class AuthService {
 
   getExpiration() {
     const userInfo = this.getUserFromStore();
+    console.log("here", userInfo);
     if (userInfo) {
       const expiration = userInfo.expires;
       const expiresAt = expiration;

@@ -1,0 +1,68 @@
+<form (ngSubmit)="submitClient()">
+  <h1>Client sign up form</h1>
+  <div class="wrapper-div">
+    <mat-form-field appearance="standard">
+      <mat-label>Name</mat-label>
+      <input
+        required
+        matInput
+        value="{{ clientName }}"
+        [(ngModel)]="clientName"
+        name="name"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Phone Number</mat-label>
+      <input
+        required
+        matInput
+        value="{{ clientMobile }}"
+        [(ngModel)]="clientMobile"
+        name="mobile"
+        type="tel"
+        maxlength="10"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Email</mat-label>
+      <input
+        required
+        matInput
+        value="{{ clientEmail }}"
+        [(ngModel)]="clientEmail"
+        name="email"
+        type="email"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Occupation</mat-label>
+      <select
+        required
+        matNativeControl
+        value="{{ selectedOccupation }}"
+        [(ngModel)]="selectedOccupation"
+        name="siteType"
+      >
+        <option
+          *ngFor="let occupation of occupationsArray"
+          [value]="occupation.occupationName"
+        >
+          {{ occupation.occupationName }}
+        </option>
+      </select>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Password</mat-label>
+      <input
+        required
+        matInput
+        value="{{ password }}"
+        [(ngModel)]="password"
+        name="password"
+        type="password"
+      />
+    </mat-form-field>
+  </div>
+  <button class="submit-button" type="submit">Submit</button>
+</form>

@@ -1,8 +1,77 @@
-.login-card{
-  width: 400px;
-  min-height: 350px;
-  text-align: center;
-  mat-card-content{
-    padding: 50px 50px 0px 50px;
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  div {
+    width: 50%;
+    height: 100%;
+    &.left-div {
+      background-color: #faf2ee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      p {
+        font-size: 36px;
+        font-weight: 800;
+        display: inline-flex;
+      }
+      img {
+        height: 60%;
+      }
+    }
+    &.right-div {
+      .login-wrapper {
+        display: inline-flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: baseline;
+        margin-bottom: 4rem;
+        h2 {
+          margin: 0;
+        }
+      }
+      mat-form-field {
+        .username {
+          height: 60px;
+          font-size: 28px;
+          padding: 1rem;
+        }
+      }
+    }
   }
+}
+.login-card {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  mat-card-content {
+    padding: 50px 50px 0px 50px;
+    position: relative;
+    top: 25%;
+
+    button {
+      font-size: 24px;
+      padding: 1rem 3rem;
+      max-width: max-content;
+      margin-right: 100%;
+    }
+  }
+}
+.example-radio-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#sign-up {
+  display: inline-flex;
+  font-size: 2rem;
+  width: 100%;
+  margin: 0;
+  padding-left: 0;
+  font-weight: 900;
+  color: steelblue;
 }

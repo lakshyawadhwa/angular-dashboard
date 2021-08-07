@@ -44,21 +44,33 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Condition Type</mat-label>
-        <input
-          matInput
+        <select
+          matNativeControl
           value="{{ data.conditionType }}"
           [(ngModel)]="data.conditionType"
           name="condition"
-        />
+        >
+          <option *ngFor="let condition of conditionsArray" [value]="condition">
+            {{ condition }}
+          </option>
+        </select>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Site Type</mat-label>
-        <input
-          matInput
-          value="{{ data.siteType ? data.siteType.siteTypeName : null }}"
-          [(ngModel)]="data.siteType"
+        <select
+          matNativeControl
+          value="{{ selectedSiteType }}"
+          [(ngModel)]="selectedSiteType"
+          (ngModelChange)="setSiteType(selectedSiteType)"
           name="siteType"
-        />
+        >
+          <option
+            *ngFor="let siteType of siteTypes"
+            [value]="siteType.siteTypeName"
+          >
+            {{ siteType.siteTypeName }}
+          </option>
+        </select>
       </mat-form-field>
       <mat-form-field appearance="outline" id="query-text">
         <mat-label>Description</mat-label>

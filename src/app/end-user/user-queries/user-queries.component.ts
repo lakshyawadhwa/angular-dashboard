@@ -33,10 +33,5 @@ export class UserQueriesComponent implements OnInit {
       width: "250px",
       data: { name: this.name },
     });
-
-    // dialogRef.afterClosed().subscribe((result) => {
-    // 	console.log("The dialog was closed");
-    // 	this.animal = result;
-    // });
   }
 }

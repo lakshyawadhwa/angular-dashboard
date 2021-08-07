@@ -1,0 +1,28 @@
+#query-text {
+  width: 94%;
+}
+mat-form-field {
+  margin: 1rem;
+}
+form {
+  position: relative;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 4rem;
+  .wrapper-div {
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    width: 40%;
+    margin: 0 auto;
+    padding: 1rem;
+    font-size: 2rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    border-radius: 1rem;
+  }
+}

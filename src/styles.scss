@@ -13,9 +13,10 @@ body {
 }
 
 .container {
-  width: 100%;
-  padding: 50px;
+  width: 100vw;
+  height: 100vh;
   font-family: sans-serif;
+  padding: 0;
 }
 
 .full-width {
@@ -129,4 +130,14 @@ button {
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
+}
+.mat-list-item-content {
+  justify-content: center;
+}
+app-sign-up {
+  width: 60%;
+}
+
+.mat-drawer.mat-drawer-side {
+  box-shadow: none;
 }

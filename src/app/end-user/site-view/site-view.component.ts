@@ -1,3 +1,4 @@
+import { siteTypeInterface } from "./../../services/interfaces";
 import { BaseService } from "./../../services/base-service/base.service";
 import { Component, Inject, Input, OnInit } from "@angular/core";
 import { Form, FormBuilder, FormControl, FormGroup } from "@angular/forms";
@@ -26,11 +27,31 @@ export class SiteViewComponent implements OnInit {
   ) {}
   editDisable = true;
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
-
+  siteTypes: Array<siteTypeInterface> = JSON.parse(
+    localStorage.getItem("siteTypes")
+  );
   formControl: FormControl;
-
+  conditionsArray: Array<string> = ["New", "Used"];
+  selectedSiteType: string;
   ngOnInit(): void {
-    console.log(this.data);
+    if (!this.siteTypes) this.getSiteTypes();
+    console.log(this.data.siteType);
+    this.selectedSiteType = this.data.siteType.siteTypeName;
+    console.log(this.selectedSiteType);
+  }
+  getSiteTypes() {
+    let url = apiUrl + APIConfig.siteTypes;
+    this.baseService.get(url).subscribe((res) => {
+      localStorage.setItem("siteTypes", JSON.stringify(res));
+      this.siteTypes = res;
+    });
+  }
+  setSiteType(siteType) {
+    console.log(siteType);
+    console.log(JSON.parse(JSON.stringify(siteType)));
+    this.data.siteType = {
+      siteTypeId: this.getSelectedSite(siteType).siteTypeId,
+    };
   }
   enableEdit() {
     this.editDisable = !this.editDisable;
@@ -40,9 +61,13 @@ export class SiteViewComponent implements OnInit {
 
     let body: any = this.data;
     body["client"] = { clientId: this.clientInfo.clientId };
+    body["siteType"];
     this.baseService.put(url, this.data).subscribe((res) => {
       console.log(res);
       this.dialogRef.close();
     });
+  }
+  getSelectedSite(siteType) {
+    return this.siteTypes.find((site) => site.siteTypeName === siteType);
   }
 }

@@ -13,7 +13,8 @@ export class SignInComponent implements OnInit {
   password: string;
   loginError: boolean;
   loginReq: FormData;
-
+  accountType: string = "client";
+  usernamePlaceholder: string = "Client ID";
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -30,8 +31,8 @@ export class SignInComponent implements OnInit {
       (response) => {
         console.log(response, "res");
         // this.authService.setSession(response);
-        window.location.href = "client";
-        this.router.navigateByUrl("/client");
+        // window.location.href = "client";
+        // this.router.navigateByUrl("/client");
 
         this.goToHome();
       },
@@ -41,7 +42,15 @@ export class SignInComponent implements OnInit {
       }
     );
   }
-
+  setAccountType() {
+    if (this.accountType == "client") {
+      console.log("client");
+      this.usernamePlaceholder = "Client ID";
+    } else if (this.accountType == "advisor") {
+      console.log("advisor");
+      this.usernamePlaceholder = "Advisor ID";
+    }
+  }
   showLoginError() {
     this.loginError = true;
   }
@@ -50,5 +59,8 @@ export class SignInComponent implements OnInit {
     this.location.replaceState("/");
     this.location.go("/client");
     this.router.navigate(["/client"]);
+  }
+  signUp() {
+    this.router.navigateByUrl("/login/sign-up");
   }
 }

@@ -11,7 +11,7 @@ import * as moment from "moment";
 export class QueryViewComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: UserQuery
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   @Input() selectedQuery: UserQuery;
@@ -21,6 +21,6 @@ export class QueryViewComponent implements OnInit {
     console.log(this.data);
   }
   getDate() {
-    return moment(this.data.queryUpdateDatetime).format("DD-MM-YY HH:mm");
+    return moment(this.data.query.queryUpdateDatetime).format("DD-MM-YY HH:mm");
   }
 }

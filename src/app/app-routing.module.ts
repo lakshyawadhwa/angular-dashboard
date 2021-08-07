@@ -9,13 +9,17 @@ import { UserNewQueryDialogComponent } from "./end-user/user-new-query-dialog/us
 import { UserQueryFormComponent } from "./end-user/user-query-form/user-query-form.component";
 import { NewSiteFormComponent } from "./end-user/new-site-form/new-site-form.component";
 import { SitesComponent } from "./end-user/sites/sites.component";
+import { SignUpComponent } from "./login/sign-up/sign-up.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
   {
     path: "login",
     component: AnonymousUserLayoutComponent,
-    children: [{ path: "", component: SignInComponent }],
+    children: [
+      { path: "", component: SignInComponent },
+      { path: "sign-up", component: SignUpComponent },
+    ],
   },
   {
     path: "client",

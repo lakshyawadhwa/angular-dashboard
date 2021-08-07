@@ -31,7 +31,7 @@ export interface SiteInterface {
 }
 export interface siteTypeInterface {
   siteTypeId: number;
-  siteTypeName: string;
+  siteTypeName?: string;
 }
 
 export interface clientOccupation {
