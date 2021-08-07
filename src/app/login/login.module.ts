@@ -8,9 +8,10 @@ import { FormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatRadioModule } from "@angular/material/radio";
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ClientIdDialogComponent } from './client-id-dialog/client-id-dialog.component';
 
 @NgModule({
-  declarations: [SignInComponent, SignUpComponent],
+  declarations: [SignInComponent, SignUpComponent, ClientIdDialogComponent],
   imports: [
     CommonModule,
     MatCardModule,

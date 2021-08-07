@@ -5,9 +5,9 @@ main {
   height: 100%;
   width: 100%;
   div {
-    width: 50%;
     height: 100%;
     &.left-div {
+      width: 40%;
       background-color: #faf2ee;
       display: flex;
       flex-direction: column;
@@ -23,6 +23,7 @@ main {
       }
     }
     &.right-div {
+      width: 60%;
       .login-wrapper {
         display: inline-flex;
         flex-direction: column;

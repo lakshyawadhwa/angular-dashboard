@@ -1,9 +1,11 @@
+import { MatDialog } from "@angular/material/dialog";
 import { BaseService } from "./../../services/base-service/base.service";
 import { Component, OnInit } from "@angular/core";
 import { clientOccupation } from "src/app/services/interfaces";
 import { apiUrl } from "src/app/services/env";
 import APIConfig from "src/app/services/APIConfig";
 import { Router } from "@angular/router";
+import { ClientIdDialogComponent } from "../client-id-dialog/client-id-dialog.component";
 
 @Component({
   selector: "app-sign-up",
@@ -11,7 +13,11 @@ import { Router } from "@angular/router";
   styleUrls: ["./sign-up.component.scss"],
 })
 export class SignUpComponent implements OnInit {
-  constructor(private baseService: BaseService, private router: Router) {}
+  constructor(
+    private baseService: BaseService,
+    private router: Router,
+    private dialog: MatDialog
+  ) {}
   clientName: string;
   clientMobile: string;
   clientEmail: string;
@@ -48,8 +54,13 @@ export class SignUpComponent implements OnInit {
     this.baseService
       .post(apiUrl + APIConfig.createClient, body)
       .subscribe((res) => {
-        console.log("registered");
-        this.router.navigateByUrl("/login");
+        this.openDialog(res.clientId);
       });
+  }
+  openDialog(clientId): void {
+    const dialogRef = this.dialog.open(ClientIdDialogComponent, {
+      width: "500px",
+      data: { id: clientId },
+    });
   }
 }
