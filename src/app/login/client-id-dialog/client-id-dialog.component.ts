@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 
 @Component({
@@ -10,11 +10,13 @@ import { Router } from "@angular/router";
 export class ClientIdDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<ClientIdDialogComponent>,
     private router: Router
   ) {}
 
   ngOnInit(): void {}
   openLogin() {
     this.router.navigateByUrl("/login");
+    this.dialogRef.close();
   }
 }
