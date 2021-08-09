@@ -35,6 +35,9 @@ import { SiteCardComponent } from "./end-user/site-card/site-card.component";
 import { QueryViewComponent } from "./end-user/query-view/query-view.component";
 import { SiteViewComponent } from './end-user/site-view/site-view.component';
 import { ProfileCardComponent } from './end-user/profile-card/profile-card.component';
+import { FormLevelOneComponent } from './advisor/forms/form-level-one/form-level-one.component';
+import { AdvisorQueriesComponent } from './advisor/advisor-queries/advisor-queries.component';
+import { AdvisorQueryCardComponent } from './advisor/advisor-query-card/advisor-query-card.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,9 @@ import { ProfileCardComponent } from './end-user/profile-card/profile-card.compo
     QueryViewComponent,
     SiteViewComponent,
     ProfileCardComponent,
+    FormLevelOneComponent,
+    AdvisorQueriesComponent,
+    AdvisorQueryCardComponent,
   ],
   imports: [
     BrowserModule,

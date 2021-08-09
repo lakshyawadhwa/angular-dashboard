@@ -1,3 +1,4 @@
+import { FormLevelOneComponent } from "./advisor/forms/form-level-one/form-level-one.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AnonymousUserLayoutComponent } from "./common/anonymous-user-layout/anonymous-user-layout.component";
@@ -11,6 +12,7 @@ import { NewSiteFormComponent } from "./end-user/new-site-form/new-site-form.com
 import { SitesComponent } from "./end-user/sites/sites.component";
 import { SignUpComponent } from "./login/sign-up/sign-up.component";
 import { ProfileCardComponent } from "./end-user/profile-card/profile-card.component";
+import { AdvisorQueriesComponent } from "./advisor/advisor-queries/advisor-queries.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -32,6 +34,15 @@ const routes: Routes = [
       { path: "existing", component: UserQueryFormComponent },
       { path: "new", component: NewSiteFormComponent },
       { path: "sites", component: SitesComponent },
+    ],
+  },
+  {
+    path: "advisor",
+    component: AuthorizedUserLayoutComponent,
+    canActivate: [AuthGuardGuard],
+    children: [
+      { path: "", component: AdvisorQueriesComponent },
+      { path: "form", component: FormLevelOneComponent },
     ],
   },
 ];
