@@ -39,6 +39,7 @@ body {
   --color-gray-dark: #353535;
   --color-white-shade: #fdfffc;
   --color-white-background: #f5f5f5;
+  --error: #ff0033;
 }
 
 .divider {
@@ -88,19 +89,22 @@ button {
   border-radius: 4px;
   box-shadow: none;
   display: inline-flex;
-  font-size: 1rem;
+  font-size: 2rem;
   height: 2.5em;
   display: flex;
   justify-content: center;
   padding-bottom: calc(0.5em - 1px);
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   padding-top: calc(0.5em - 1px);
   text-align: center;
   white-space: nowrap;
   background-color: #48c774;
   border-color: transparent;
   color: #fff;
+  font-weight: 600;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
 
   .icon {
     height: 1.5em;
@@ -140,4 +144,36 @@ app-sign-up {
 
 .mat-drawer.mat-drawer-side {
   box-shadow: none;
+}
+
+.fs-22 {
+  font-size: 22px;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.pd-l1 {
+  padding-left: 1rem !important;
+}
+.pd-l2 {
+  padding-left: 2rem !important;
+}
+.pd-l3 {
+  padding-left: 3rem !important;
+}
+.error-msg {
+  background: var(--error);
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white !important;
+}
+.heading-profile {
+  font-size: 3rem;
+  font-weight: 800;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }

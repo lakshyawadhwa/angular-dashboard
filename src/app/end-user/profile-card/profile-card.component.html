@@ -1,0 +1,21 @@
+<div id="wrapper">
+  <div id="main-container">
+    <div id="profileImage"></div>
+    <div id="main-info">
+      <span class="heading-profile">{{ clientInfo.clientName }}</span>
+      <span>ID-{{ clientInfo.clientId }}</span>
+    </div>
+  </div>
+  <div id="secondary-info" class="flex-column">
+    <div id="title" class="flex-column">
+      <span>Email</span>
+      <span>Phone</span>
+      <span>Occupation</span>
+    </div>
+    <div id="info" class="flex-column">
+      <span>{{ clientInfo.clientEmail }}</span>
+      <span>{{ clientInfo.clientMobile }}</span>
+      <span>{{ clientInfo.occupation.occupationName }}</span>
+    </div>
+  </div>
+</div>

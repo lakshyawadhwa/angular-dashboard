@@ -16,7 +16,7 @@ export class UserQueryFormComponent implements OnInit {
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
   masterConcern: string;
   masterConcerns: Array<masterConcern> = [];
-
+  showButtons = false;
   selectedSite: number;
   queryText: string = "";
 
@@ -55,5 +55,8 @@ export class UserQueryFormComponent implements OnInit {
     return this.masterConcerns.find(
       (concern) => concern.concernName === this.masterConcern
     );
+  }
+  toggleButton() {
+    this.showButtons = true;
   }
 }

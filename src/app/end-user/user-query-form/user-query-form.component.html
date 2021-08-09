@@ -41,5 +41,22 @@
   </form>
 </div>
 <div mat-dialog-actions>
+  <div class="button-wrapper">
+    <button class="add-button" (click)="toggleButton()">Upload maps</button>
+    <div *ngIf="showButtons" class="button-container">
+      <h1><span class="upload-text">Upload Part Layout</span></h1>
+      <input type="file" />
+
+      <h1><span class="upload-text">Upload Graded Map</span></h1>
+      <input type="file" />
+
+      <h1><span class="upload-text">Upload Square Grid Map</span></h1>
+      <input type="file" />
+    </div>
+    <div class="button-container">
+      <h1><span class="upload-text">Associated People </span></h1>
+      <input type="file" />
+    </div>
+  </div>
   <button class="submit-button" (click)="submitQuery()">Submit</button>
 </div>

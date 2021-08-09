@@ -21,7 +21,9 @@ export class SignInComponent implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.authService.isLoggedIn()) this.router.navigateByUrl("/client");
+  }
 
   signIn() {
     this.loginReq = new FormData();
@@ -29,12 +31,11 @@ export class SignInComponent implements OnInit {
     this.loginReq.append("password", this.password);
     this.authService.login(this.loginReq).subscribe(
       (response) => {
-        console.log(response, "res");
-        // this.authService.setSession(response);
-        // window.location.href = "client";
-        // this.router.navigateByUrl("/client");
-
-        this.goToHome();
+        if (response) {
+          this.goToHome();
+        } else {
+          this.showLoginError();
+        }
       },
       (error) => {
         console.log(error);

@@ -24,10 +24,12 @@ export class AuthService {
     return this.baseService.post(url, body).pipe(
       tap(async (response) => {
         console.log("response: " + response);
-        this.setSession(response, {
-          expiresIn: 24 * 60 * 60,
-          id_token: "123",
-        });
+        if (response) {
+          this.setSession(response, {
+            expiresIn: 24 * 60 * 60,
+            id_token: "123",
+          });
+        }
       }),
       catchError((e) => {
         console.log(e);

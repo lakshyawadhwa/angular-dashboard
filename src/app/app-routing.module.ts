@@ -10,6 +10,7 @@ import { UserQueryFormComponent } from "./end-user/user-query-form/user-query-fo
 import { NewSiteFormComponent } from "./end-user/new-site-form/new-site-form.component";
 import { SitesComponent } from "./end-user/sites/sites.component";
 import { SignUpComponent } from "./login/sign-up/sign-up.component";
+import { ProfileCardComponent } from "./end-user/profile-card/profile-card.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -26,6 +27,7 @@ const routes: Routes = [
     component: AuthorizedUserLayoutComponent,
     canActivate: [AuthGuardGuard],
     children: [
+      { path: "", component: ProfileCardComponent },
       { path: "queries", component: EndUserComponent },
       { path: "existing", component: UserQueryFormComponent },
       { path: "new", component: NewSiteFormComponent },

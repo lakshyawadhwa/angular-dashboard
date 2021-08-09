@@ -34,6 +34,7 @@ import { SitesComponent } from "./end-user/sites/sites.component";
 import { SiteCardComponent } from "./end-user/site-card/site-card.component";
 import { QueryViewComponent } from "./end-user/query-view/query-view.component";
 import { SiteViewComponent } from './end-user/site-view/site-view.component';
+import { ProfileCardComponent } from './end-user/profile-card/profile-card.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { SiteViewComponent } from './end-user/site-view/site-view.component';
     SiteCardComponent,
     QueryViewComponent,
     SiteViewComponent,
+    ProfileCardComponent,
   ],
   imports: [
     BrowserModule,

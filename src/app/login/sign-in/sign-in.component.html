@@ -6,7 +6,6 @@
     <mat-card id="card" class="login-card">
       <!-- <mat-card-title> login </mat-card-title> -->
       <mat-card-content>
-        <mat-error *ngIf="loginError"> Invalid Credentials!! </mat-error>
         <div class="login-wrapper">
           <h2>Welcome to Mahavastu Advisor Portal</h2>
           <span>
@@ -34,6 +33,10 @@
             class="username"
           />
         </mat-form-field>
+        <mat-error *ngIf="loginError" ngClass="error-msg">
+          Your username or password is incorrect
+        </mat-error>
+
         <br />
         <mat-radio-group
           aria-labelledby="example-radio-group-label"
