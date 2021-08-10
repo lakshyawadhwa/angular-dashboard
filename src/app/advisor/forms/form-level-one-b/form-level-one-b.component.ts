@@ -46,6 +46,8 @@ export class FormLevelOneBComponent implements OnInit {
     this.responseArray.map((response) => {
       response["level"] = "LEVEL_1_B_DISHA_BAL";
     });
+    this.responseArray["UserQuery"] = this.query;
+
     this.formService.postForm(this.responseArray).subscribe((res) => {
       console.log(res);
     });

@@ -58,6 +58,7 @@ export class FormLevelOneComponent implements OnInit {
     console.log("here");
     this.responseArray.map((response) => {
       response["level"] = "LEVEL_1_A_ENTRANCE";
+      response["UserQuery"] = this.query;
     });
     this.formService.postForm(this.responseArray).subscribe((res) => {
       console.log(res);
