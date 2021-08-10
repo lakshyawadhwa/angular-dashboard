@@ -1,7 +1,7 @@
 <div class="table-wrapper flex-column">
-  <h1 *ngIf="query">Query ID- {{ query.queryId }} - {{ query.concern }}</h1>
+  <h1 *ngIf="query">Query: {{ query.queryId }} - {{ query.masterConcern.concernName }}</h1>
   <h1 *ngIf="siteDetails">
-    {{ siteDetails.siteName }} - {{ siteDetails.siteAddress }}
+    Site: {{ siteDetails.siteName }} - {{ siteDetails.siteAddress }}
   </h1>
   <p class="success-message" *ngIf="postMessage">
     {{ postMessage }}

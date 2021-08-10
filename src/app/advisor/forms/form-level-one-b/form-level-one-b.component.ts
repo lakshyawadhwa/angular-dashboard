@@ -48,7 +48,7 @@ export class FormLevelOneBComponent implements OnInit {
       response["level"] = "LEVEL_1_B_DISHA_BAL";
       response["userQuery"] = this.query;
     });
-
+    console.log("ResponseArray: " + this.responseArray);
     this.formService.postForm(this.responseArray).subscribe((res) => {
       this.postMessage = res;
     });
@@ -56,7 +56,7 @@ export class FormLevelOneBComponent implements OnInit {
   handleInput(heading, event) {
     console.log(heading, event);
     var result = this.responseArray.find((obj) => {
-      return obj.heading === heading;
+      return obj.zone === heading;
     });
     let propertyName = event.target.name;
     let value = event.target.value;
