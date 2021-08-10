@@ -44,6 +44,7 @@ const routes: Routes = [
     component: AdvisorUserLayoutComponent,
     canActivate: [AuthGuardGuard],
     children: [
+      { path: "", component: ProfileCardComponent },
       { path: "queries", component: AdvisorQueriesComponent },
       { path: "sites", component: AdvisorSitesComponent },
       { path: "form-1-a", component: FormLevelOneComponent },

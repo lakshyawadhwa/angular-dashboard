@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { AdvisorService } from "src/app/services/advisor-service/advisor.service";
 import { FormService } from "src/app/services/form-service/form.service";
+import { SiteInterface, UserQuery } from "src/app/services/interfaces";
 
 @Component({
   selector: "app-form-level-one-b",
@@ -10,12 +12,13 @@ import { FormService } from "src/app/services/form-service/form.service";
 export class FormLevelOneBComponent implements OnInit {
   constructor(
     private advisorService: AdvisorService,
-    private formService: FormService
+    private formService: FormService,
+    private router: Router
   ) {}
 
   headingArray = ["Zone", "Dishabal", "Status", "Evaluation", "Suggestions"];
-  query;
-  siteDetails;
+  query: UserQuery;
+  siteDetails: SiteInterface;
   zoneArray = [
     { heading: "NE", subheading: "Motivation" },
     { heading: "ENE", subheading: "Happiness" },
@@ -36,11 +39,15 @@ export class FormLevelOneBComponent implements OnInit {
   ];
   responseArray = [];
   statusArray = ["Balanced", "Exhausted", "Enhanced"];
-  postMessage = null;
+  postMessage: string;
   ngOnInit(): void {
     this.advisorService.advisorForm.subscribe((res: any) => {
-      this.query = res.query;
-      this.siteDetails = res.siteDetails;
+      if (res.query && res.siteDetails) {
+        this.query = res.query;
+        this.siteDetails = res.siteDetails;
+      } else {
+        this.router.navigateByUrl("/advisor/queries");
+      }
     });
   }
   submitForm() {
@@ -50,7 +57,7 @@ export class FormLevelOneBComponent implements OnInit {
     });
     console.log("ResponseArray: " + this.responseArray);
     this.formService.postForm(this.responseArray).subscribe((res) => {
-      this.postMessage = res;
+      this.postMessage = res.message;
     });
   }
   handleInput(heading, event) {

@@ -1,9 +1,11 @@
 <div class="table-wrapper flex-column">
-  <h1 *ngIf="query">Query: {{ query.queryId }} - {{ query.masterConcern.concernName }}</h1>
+  <h1 *ngIf="query">
+    Query: {{ query.queryId }} - {{ query.masterConcern.concernName }}
+  </h1>
   <h1 *ngIf="siteDetails">
     Site: {{ siteDetails.siteName }} - {{ siteDetails.siteAddress }}
   </h1>
-  <p class="success-message" *ngIf="postMessage">
+  <p class="success-msg" *ngIf="postMessage">
     {{ postMessage }}
   </p>
   <table>

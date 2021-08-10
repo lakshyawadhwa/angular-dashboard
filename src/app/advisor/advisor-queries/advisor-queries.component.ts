@@ -12,7 +12,6 @@ export class AdvisorQueriesComponent implements OnInit {
   queries: Array<UserQuery>;
   ngOnInit(): void {
     this.queryService.getAllQueries().subscribe((res) => {
-      console.log(res)
       this.queries = res;
     });
   }

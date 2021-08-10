@@ -20,9 +20,7 @@ export class AdvisorQueryViewComponent implements OnInit {
   @Input() selectedQuery: UserQuery;
   formControl: FormControl;
   queryView: FormGroup = new FormGroup({});
-  ngOnInit(): void {
-    console.log(this.data);
-  }
+  ngOnInit(): void {}
   getDate() {
     return moment(this.data.query.queryUpdateDatetime).format("DD-MM-YY HH:mm");
   }

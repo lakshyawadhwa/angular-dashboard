@@ -2,6 +2,7 @@ import { FormService } from "./../../../services/form-service/form.service";
 import { AdvisorService } from "./../../../services/advisor-service/advisor.service";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { SiteInterface, UserQuery } from "src/app/services/interfaces";
 
 @Component({
   selector: "app-form-level-one",
@@ -21,9 +22,9 @@ export class FormLevelOneComponent implements OnInit {
     "Evaluation",
     "Suggestions",
   ];
-  query;
-  siteDetails;
-  postMessage = null;
+  query: UserQuery;
+  siteDetails: SiteInterface;
+  postMessage: string;
   zoneArray = [
     { heading: "NE", subheading: "Motivation" },
     { heading: "ENE", subheading: "Happiness" },
@@ -46,7 +47,6 @@ export class FormLevelOneComponent implements OnInit {
   statusArray = ["Balanced", "Exhausted", "Enhanced"];
   ngOnInit(): void {
     this.advisorService.advisorForm.subscribe((res: any) => {
-      console.log(res, "res");
       if (res.query && res.siteDetails) {
         this.query = res.query;
         this.siteDetails = res.siteDetails;
@@ -56,17 +56,16 @@ export class FormLevelOneComponent implements OnInit {
     });
   }
   submitForm() {
-    console.log("here");
     this.responseArray.map((response) => {
       response["level"] = "LEVEL_1_A_ENTRANCE";
       response["userQuery"] = this.query;
     });
     this.formService.postForm(this.responseArray).subscribe((res) => {
-      this.postMessage = res;
+      this.postMessage = res.message;
+      console.log(this.postMessage);
     });
   }
   handleInput(heading, event) {
-    console.log(heading, event);
     var result = this.responseArray.find((obj) => {
       return obj.zone === heading;
     });
