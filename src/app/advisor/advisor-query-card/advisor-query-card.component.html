@@ -1,0 +1,9 @@
+<mat-card class="query-card" *ngIf="siteDetails" (click)="openDialog()">
+  <mat-card-title>{{ siteDetails.siteName }}</mat-card-title>
+  <mat-card-subtitle>Address -{{ siteDetails.siteAddress }}</mat-card-subtitle>
+
+  <mat-card-content>{{ getShortQuery(query.queryText) }}</mat-card-content>
+  <div class="divider"></div>
+
+  <mat-card-subtitle>Updated at {{ getDate() }}</mat-card-subtitle>
+</mat-card>

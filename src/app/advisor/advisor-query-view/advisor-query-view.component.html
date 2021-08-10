@@ -1,0 +1,48 @@
+<form [formGroup]="queryView">
+  <div mat-dialog-content>
+    <fieldset [disabled]="true">
+      <mat-form-field appearance="outline">
+        <mat-label>Query ID</mat-label>
+        <input matInput value="{{ data.query.queryId }}" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Concern</mat-label>
+        <input matInput value="{{ data.query.masterConcern.concernName }}" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last update at</mat-label>
+        <input matInput value="{{ getDate() }}" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="query-text">
+        <mat-label>Site Name</mat-label>
+        <input
+          matInput
+          value="{{ data.siteDetails.siteName }} - {{
+            data.siteDetails.siteAddress
+          }}"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="query-text">
+        <mat-label>Description</mat-label>
+        <textarea matInput value="{{ data.query.queryText }}"></textarea>
+      </mat-form-field>
+    </fieldset>
+  </div>
+  <div class="divider"></div>
+  <div mat-dialog-actions>
+    <h1>Forms</h1>
+    <button ngClass="add-button add-form" (click)="toggleShowForm(0)">
+      Level 1
+    </button>
+    <div id="forms-level-1" *ngIf="showForms[0]">
+      <button (click)="triggerForm('form-1-a')">Level 1A- Entrance</button>
+      <button (click)="triggerForm('form-1-b')">Level 1B- Entrance</button>
+    </div>
+    <button ngClass="add-button add-form">Level 2</button>
+    <button ngClass="add-button add-form">Level 3</button>
+    <button ngClass="add-button add-form">Level 4</button>
+    <button ngClass="add-button add-form">Level 5</button>
+    <button ngClass="add-button add-form">Level 6</button>
+  </div>
+</form>

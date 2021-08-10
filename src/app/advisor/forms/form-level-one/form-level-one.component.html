@@ -1,0 +1,54 @@
+<div class="table-wrapper flex-column">
+  <h1 *ngIf="query">Query ID- {{ query.queryId }} - {{ query.concern }}</h1>
+  <h1 *ngIf="siteDetails">
+    {{ siteDetails.siteName }} - {{ siteDetails.siteAddress }}
+  </h1>
+  <table>
+    <tr>
+      <th *ngFor="let heading of headingArray">{{ heading }}</th>
+    </tr>
+    <ng-container *ngFor="let zone of zoneArray" (ngSubmit)="submitClient()">
+      <tr>
+        <td aria-colspan="1">
+          {{ zone.heading }}
+          <p>{{ zone.subheading }}</p>
+        </td>
+
+        <td>
+          <input
+            type="text"
+            required
+            name="entrance"
+            (change)="handleInput(zone.heading, $event)"
+          />
+        </td>
+
+        <td>
+          <input
+            type="text"
+            required
+            name="entranceType"
+            (change)="handleInput(zone.heading, $event)"
+          />
+        </td>
+
+        <td>
+          <input
+            required
+            name="evaluation"
+            (change)="handleInput(zone.heading, $event)"
+          />
+        </td>
+
+        <td>
+          <input
+            required
+            name="suggestions"
+            (change)="handleInput(zone.heading, $event)"
+          />
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+  <button class="submit-button">SUBMIT</button>
+</div>
