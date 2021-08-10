@@ -1,7 +1,7 @@
 import { BaseService } from "src/app/services/base-service/base.service";
 import { Component, Input, OnInit } from "@angular/core";
 import { clientObject, SiteInterface } from "src/app/services/interfaces";
-import { apiUrl } from "src/app/services/env";
+import { environment } from "src/environments/environment";
 import APIConfig from "src/app/services/APIConfig";
 import * as moment from "moment";
 import { MatDialog } from "@angular/material/dialog";

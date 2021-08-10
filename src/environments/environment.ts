@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: "http://member-admin.ap-south-1.elasticbeanstalk.com",
+  url: "http://localhost:8080",
 };
 
 /*

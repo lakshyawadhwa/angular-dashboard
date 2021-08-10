@@ -2,7 +2,7 @@ import { BaseService } from "./../base-service/base.service";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 import { clientObject, UserQuery } from "../interfaces";
-import { apiUrl } from "../env";
+import { environment } from "src/environments/environment";
 import APIConfig from "../APIConfig";
 import { catchError, tap } from "rxjs/operators";
 
@@ -14,7 +14,8 @@ export class QueryService {
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
 
   getClientQueries(): Observable<Array<UserQuery>> {
-    let url = apiUrl + APIConfig.getClientQueries + this.clientInfo.clientId;
+    let url =
+      environment.url + APIConfig.getClientQueries + this.clientInfo.clientId;
     return this.baseService.get(url).pipe(
       tap(async (res: Array<UserQuery>) => {
         // console.log("Assigning Queries: " + res);
@@ -26,8 +27,8 @@ export class QueryService {
       })
     );
   }
-	getAllQueries(): Observable<Array<UserQuery>> {
-    let url = apiUrl + APIConfig.getAllQueries ;
+  getAllQueries(): Observable<Array<UserQuery>> {
+    let url = environment.url + APIConfig.getAllQueries;
     return this.baseService.get(url).pipe(
       tap(async (res: Array<UserQuery>) => {
         // console.log("Assigning Queries: " + res);

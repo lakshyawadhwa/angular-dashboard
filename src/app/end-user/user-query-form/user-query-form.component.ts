@@ -2,7 +2,7 @@ import { Router } from "@angular/router";
 import { clientObject, SiteInterface } from "./../../services/interfaces";
 import { Component, OnInit } from "@angular/core";
 import { BaseService } from "src/app/services/base-service/base.service";
-import { apiUrl } from "src/app/services/env";
+import { environment } from "src/environments/environment";
 import { masterConcern } from "src/app/services/interfaces";
 import APIConfig from "../../services/APIConfig";
 @Component({
@@ -21,7 +21,8 @@ export class UserQueryFormComponent implements OnInit {
   queryText: string = "";
 
   ngOnInit(): void {
-    let url = apiUrl + APIConfig.getSiteByClient + this.clientInfo.clientId;
+    let url =
+      environment.url + APIConfig.getSiteByClient + this.clientInfo.clientId;
     this.baseService.get(url).subscribe((res) => {
       this.sites = res;
     });
@@ -29,7 +30,7 @@ export class UserQueryFormComponent implements OnInit {
   }
 
   getMasterConcerns() {
-    let url = apiUrl + APIConfig.masterConcerns;
+    let url = environment.url + APIConfig.masterConcerns;
     this.baseService.get(url).subscribe((res) => {
       this.masterConcerns = res;
     });
@@ -37,7 +38,7 @@ export class UserQueryFormComponent implements OnInit {
 
   submitQuery() {
     console.log(this.selectedSite, this.queryText);
-    let url = apiUrl + APIConfig.createNewQuery;
+    let url = environment.url + APIConfig.createNewQuery;
     let body = {
       client: {
         clientId: this.clientInfo.clientId,

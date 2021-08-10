@@ -8,7 +8,7 @@ import {
   SiteInterface,
   UserQuery,
 } from "src/app/services/interfaces";
-import { apiUrl } from "src/app/services/env";
+import { environment } from "src/environments/environment";
 import APIConfig from "src/app/services/APIConfig";
 
 @Component({
@@ -40,7 +40,7 @@ export class SiteViewComponent implements OnInit {
     console.log(this.selectedSiteType);
   }
   getSiteTypes() {
-    let url = apiUrl + APIConfig.siteTypes;
+    let url = environment.url + APIConfig.siteTypes;
     this.baseService.get(url).subscribe((res) => {
       localStorage.setItem("siteTypes", JSON.stringify(res));
       this.siteTypes = res;
@@ -57,7 +57,7 @@ export class SiteViewComponent implements OnInit {
     this.editDisable = !this.editDisable;
   }
   editSite() {
-    let url = apiUrl + APIConfig.createNewSite;
+    let url = environment.url + APIConfig.createNewSite;
 
     let body: any = this.data;
     body["client"] = { clientId: this.clientInfo.clientId };

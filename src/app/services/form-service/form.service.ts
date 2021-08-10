@@ -1,7 +1,7 @@
 import { BaseService } from "./../base-service/base.service";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { apiUrl } from "../env";
+import { environment } from "src/environments/environment";
 import APIConfig from "../APIConfig";
 import { tap } from "rxjs/operators";
 
@@ -11,7 +11,7 @@ import { tap } from "rxjs/operators";
 export class FormService {
   constructor(private baseService: BaseService) {}
   postForm(body): Observable<any> {
-    let url = apiUrl + APIConfig.postForm;
+    let url = environment.url + APIConfig.postForm;
     return this.baseService.post(url, body).pipe(tap(async (res) => {}));
   }
 }

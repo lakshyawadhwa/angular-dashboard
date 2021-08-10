@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import APIConfig from "src/app/services/APIConfig";
 import { BaseService } from "src/app/services/base-service/base.service";
-import { apiUrl } from "src/app/services/env";
+import { environment } from "src/environments/environment";
 import { clientObject } from "src/app/services/interfaces";
 
 @Component({
@@ -27,14 +27,14 @@ export class NewSiteFormComponent implements OnInit {
     if (!this.siteTypes) this.getSiteTypes();
   }
   getSiteTypes() {
-    let url = apiUrl + APIConfig.siteTypes;
+    let url = environment.url + APIConfig.siteTypes;
     this.baseService.get(url).subscribe((res) => {
       localStorage.setItem("siteTypes", JSON.stringify(res));
       this.siteTypes = res;
     });
   }
   submitNew() {
-    let url = apiUrl + APIConfig.createNewSite;
+    let url = environment.url + APIConfig.createNewSite;
     let body = {
       siteId: null,
       siteName: this.siteName,

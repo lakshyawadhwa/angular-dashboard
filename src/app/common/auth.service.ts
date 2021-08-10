@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import * as moment from "moment";
 import { Observable } from "rxjs";
-import { apiUrl } from "../services/env";
+import { environment } from "src/environments/environment";
 import APIConfig from "../services/APIConfig";
 import { BaseService } from "../services/base-service/base.service";
 import { catchError, tap } from "rxjs/operators";
@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private http: HttpClient, private baseService: BaseService) {}
 
   login(loginReq: FormData, accountType): Observable<any> {
-    let url = apiUrl + APIConfig.clientLogin;
+    let url = environment.url + APIConfig.clientLogin;
     let authBody;
     let body = {
       clientId: loginReq.get("username"),

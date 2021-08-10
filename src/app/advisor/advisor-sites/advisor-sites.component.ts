@@ -2,8 +2,6 @@ import { SiteService } from "./../../services/site-service/site.service";
 import { BaseService } from "src/app/services/base-service/base.service";
 import { Component, OnInit } from "@angular/core";
 import { clientObject, SiteInterface } from "src/app/services/interfaces";
-import { apiUrl } from "src/app/services/env";
-import APIConfig from "src/app/services/APIConfig";
 
 @Component({
   selector: "app-advisor-sites",

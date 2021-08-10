@@ -6,11 +6,11 @@ import {
   UserQuery,
 } from "src/app/services/interfaces";
 import APIConfig from "src/app/services/APIConfig";
-import { apiUrl } from "src/app/services/env";
 import * as moment from "moment";
 import { QueryService } from "src/app/services/query-service/query-service.service";
 import { MatDialog } from "@angular/material/dialog";
 import { QueryViewComponent } from "../query-view/query-view.component";
+import { environment } from "src/environments/environment";
 @Component({
   selector: "app-query-card",
   templateUrl: "./query-card.component.html",
@@ -28,7 +28,7 @@ export class QueryCardComponent implements OnInit {
   viewQuery = false;
   ngOnInit(): void {
     this.baseService
-      .get(apiUrl + APIConfig.getSiteById + this.query.siteId)
+      .get(environment.url + APIConfig.getSiteById + this.query.siteId)
       .subscribe((res: SiteInterface) => {
         this.siteDetails = res;
       });

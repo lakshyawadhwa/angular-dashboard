@@ -1,7 +1,7 @@
 import { BaseService } from "src/app/services/base-service/base.service";
 import { Component, OnInit } from "@angular/core";
 import { clientObject, SiteInterface } from "src/app/services/interfaces";
-import { apiUrl } from "src/app/services/env";
+import { environment } from "src/environments/environment";
 import APIConfig from "src/app/services/APIConfig";
 
 @Component({
@@ -16,7 +16,8 @@ export class SitesComponent implements OnInit {
 
   sitesArray: Array<SiteInterface> = [];
   ngOnInit(): void {
-    let url = apiUrl + APIConfig.getSiteByClient + this.clientInfo.clientId;
+    let url =
+      environment.url + APIConfig.getSiteByClient + this.clientInfo.clientId;
     this.baseService.get(url).subscribe((res) => {
       console.log("Assigning Queries: " + res);
       this.sitesArray = res;
