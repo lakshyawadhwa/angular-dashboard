@@ -16,4 +16,9 @@ export class SiteService {
       .get(apiUrl + APIConfig.getSiteById + id)
       .pipe(tap(async (res) => {}));
   }
+  getAllSites(): Observable<Array<SiteInterface>> {
+    return this.baseService
+      .get(apiUrl + APIConfig.getAllSites)
+      .pipe(tap(async (res) => {}));
+  }
 }

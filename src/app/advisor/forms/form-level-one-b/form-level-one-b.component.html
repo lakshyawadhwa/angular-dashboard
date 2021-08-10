@@ -3,6 +3,9 @@
   <h1 *ngIf="siteDetails">
     {{ siteDetails.siteName }} - {{ siteDetails.siteAddress }}
   </h1>
+  <p class="success-message" *ngIf="postMessage">
+    {{ postMessage }}
+  </p>
   <table>
     <tr>
       <th *ngFor="let heading of headingArray">{{ heading }}</th>

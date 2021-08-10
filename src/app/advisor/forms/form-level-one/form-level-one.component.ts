@@ -23,6 +23,7 @@ export class FormLevelOneComponent implements OnInit {
   ];
   query;
   siteDetails;
+  postMessage = null;
   zoneArray = [
     { heading: "NE", subheading: "Motivation" },
     { heading: "ENE", subheading: "Happiness" },
@@ -58,10 +59,10 @@ export class FormLevelOneComponent implements OnInit {
     console.log("here");
     this.responseArray.map((response) => {
       response["level"] = "LEVEL_1_A_ENTRANCE";
-      response["UserQuery"] = this.query;
+      response["userQuery"] = this.query;
     });
     this.formService.postForm(this.responseArray).subscribe((res) => {
-      console.log(res);
+      this.postMessage = res;
     });
   }
   handleInput(heading, event) {

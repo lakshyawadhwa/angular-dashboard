@@ -1,0 +1,16 @@
+<div id="container">
+  <header>
+    <h1>Sites</h1>
+    <button class="add-button">New Site</button>
+  </header>
+
+  <section class="queries-section"></section>
+  <main>
+    <div id="filters"></div>
+    <section>
+      <div class="member-container m-top" *ngFor="let site of sitesArray">
+        <app-site-card [site]="site" [clientInfo]="clientInfo"></app-site-card>
+      </div>
+    </section>
+  </main>
+</div>

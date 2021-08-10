@@ -36,6 +36,7 @@ export class FormLevelOneBComponent implements OnInit {
   ];
   responseArray = [];
   statusArray = ["Balanced", "Exhausted", "Enhanced"];
+  postMessage = null;
   ngOnInit(): void {
     this.advisorService.advisorForm.subscribe((res: any) => {
       this.query = res.query;
@@ -45,11 +46,11 @@ export class FormLevelOneBComponent implements OnInit {
   submitForm() {
     this.responseArray.map((response) => {
       response["level"] = "LEVEL_1_B_DISHA_BAL";
+      response["userQuery"] = this.query;
     });
-    this.responseArray["UserQuery"] = this.query;
 
     this.formService.postForm(this.responseArray).subscribe((res) => {
-      console.log(res);
+      this.postMessage = res;
     });
   }
   handleInput(heading, event) {
@@ -65,7 +66,7 @@ export class FormLevelOneBComponent implements OnInit {
       this.responseArray[index] = result;
     } else {
       let newObject = {
-        heading: heading,
+        zone: heading,
       };
       newObject[propertyName] = value;
       this.responseArray.push(newObject);

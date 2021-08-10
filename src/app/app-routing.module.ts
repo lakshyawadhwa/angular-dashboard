@@ -1,3 +1,4 @@
+import { AdvisorSitesComponent } from "./advisor/advisor-sites/advisor-sites.component";
 import { FormLevelOneComponent } from "./advisor/forms/form-level-one/form-level-one.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
@@ -44,6 +45,7 @@ const routes: Routes = [
     canActivate: [AuthGuardGuard],
     children: [
       { path: "queries", component: AdvisorQueriesComponent },
+      { path: "sites", component: AdvisorSitesComponent },
       { path: "form-1-a", component: FormLevelOneComponent },
       { path: "form-1-b", component: FormLevelOneBComponent },
     ],

@@ -41,6 +41,8 @@ import { AdvisorQueryCardComponent } from "./advisor/advisor-query-card/advisor-
 import { AdvisorUserLayoutComponent } from "./common/advisor-user-layout/advisor-user-layout.component";
 import { AdvisorQueryViewComponent } from './advisor/advisor-query-view/advisor-query-view.component';
 import { FormLevelOneBComponent } from './advisor/forms/form-level-one-b/form-level-one-b.component';
+import { AdvisorSitesComponent } from './advisor/advisor-sites/advisor-sites.component';
+import { AdvisorSiteCardsComponent } from './advisor/advisor-site-cards/advisor-site-cards.component';
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -63,6 +65,8 @@ import { FormLevelOneBComponent } from './advisor/forms/form-level-one-b/form-le
     AdvisorUserLayoutComponent,
     AdvisorQueryViewComponent,
     FormLevelOneBComponent,
+    AdvisorSitesComponent,
+    AdvisorSiteCardsComponent,
   ],
   imports: [
     BrowserModule,
