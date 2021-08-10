@@ -62,7 +62,7 @@ export class FormLevelOneComponent implements OnInit {
     });
     this.formService.postForm(this.responseArray).subscribe((res) => {
       this.postMessage = res.message;
-      console.log(this.postMessage);
+      document.getElementsByTagName("mat-drawer-content")[0].scrollTo(0, 0);
     });
   }
   handleInput(heading, event) {

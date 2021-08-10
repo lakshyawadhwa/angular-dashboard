@@ -67,14 +67,14 @@ export class AuthService {
 
     let user = {
       clientId: -1,
-      clientName: "OJ",
+      clientName: "admin",
       clientMobile: "9068622222",
-      clientEmail: "1@gmail.com",
-      clientDisplayPic: "client",
+      clientEmail: "admin@mahavastu.com",
+      clientDisplayPic: "null",
       clientPOC: "clientPOC",
       occupation: {
         occupationId: 1,
-        occupationName: null,
+        occupationName: "Advisor",
       },
       password: "password",
     };
@@ -104,7 +104,6 @@ export class AuthService {
 
   getExpiration() {
     const userInfo = this.getUserFromStore();
-    console.log("here", userInfo);
     if (userInfo) {
       const expiration = userInfo.expires;
       const expiresAt = expiration;
