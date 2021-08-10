@@ -33,12 +33,14 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SitesComponent } from "./end-user/sites/sites.component";
 import { SiteCardComponent } from "./end-user/site-card/site-card.component";
 import { QueryViewComponent } from "./end-user/query-view/query-view.component";
-import { SiteViewComponent } from './end-user/site-view/site-view.component';
-import { ProfileCardComponent } from './end-user/profile-card/profile-card.component';
-import { FormLevelOneComponent } from './advisor/forms/form-level-one/form-level-one.component';
-import { AdvisorQueriesComponent } from './advisor/advisor-queries/advisor-queries.component';
-import { AdvisorQueryCardComponent } from './advisor/advisor-query-card/advisor-query-card.component';
-
+import { SiteViewComponent } from "./end-user/site-view/site-view.component";
+import { ProfileCardComponent } from "./end-user/profile-card/profile-card.component";
+import { FormLevelOneComponent } from "./advisor/forms/form-level-one/form-level-one.component";
+import { AdvisorQueriesComponent } from "./advisor/advisor-queries/advisor-queries.component";
+import { AdvisorQueryCardComponent } from "./advisor/advisor-query-card/advisor-query-card.component";
+import { AdvisorUserLayoutComponent } from "./common/advisor-user-layout/advisor-user-layout.component";
+import { AdvisorQueryViewComponent } from './advisor/advisor-query-view/advisor-query-view.component';
+import { FormLevelOneBComponent } from './advisor/forms/form-level-one-b/form-level-one-b.component';
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -58,6 +60,9 @@ import { AdvisorQueryCardComponent } from './advisor/advisor-query-card/advisor-
     FormLevelOneComponent,
     AdvisorQueriesComponent,
     AdvisorQueryCardComponent,
+    AdvisorUserLayoutComponent,
+    AdvisorQueryViewComponent,
+    FormLevelOneBComponent,
   ],
   imports: [
     BrowserModule,

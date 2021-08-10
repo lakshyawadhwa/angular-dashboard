@@ -9,6 +9,8 @@ export const APIConfig = {
   siteTypes: "/site/site-types",
   clientOccupations: "/client/occupations",
   createClient: "/client",
+  postForm: "/advice",
+  getForms: "advice/{query-id}/{site-id}/{level}",
 };
 
 export default APIConfig;

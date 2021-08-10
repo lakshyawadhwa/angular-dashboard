@@ -20,7 +20,6 @@ export class AuthorizedUserLayoutComponent implements OnInit {
 
   ngOnInit(): void {}
   logout() {
-    console.log("here");
     this.authService.logout();
     this.router.navigateByUrl("/login");
   }

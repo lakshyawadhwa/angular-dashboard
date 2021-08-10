@@ -13,54 +13,56 @@ import { catchError, tap } from "rxjs/operators";
 export class AuthService {
   constructor(private http: HttpClient, private baseService: BaseService) {}
 
-  login(loginReq: FormData): Observable<any> {
+  login(loginReq: FormData, accountType): Observable<any> {
     let url = apiUrl + APIConfig.clientLogin;
     let authBody;
     let body = {
       clientId: loginReq.get("username"),
       password: loginReq.get("password"),
     };
-
-    return this.baseService.post(url, body).pipe(
-      tap(async (response) => {
-        console.log("response: " + response);
-        if (response) {
-          this.setSession(response, {
-            expiresIn: 24 * 60 * 60,
-            id_token: "123",
-          });
-        }
-      }),
-      catchError((e) => {
-        console.log(e);
-        throw e;
-      })
-    );
-
-    // if (
-    //   loginReq.get("username") === "admin" &&
-    //   loginReq.get("password") === "admin"
-    // ) {
-    //   return new Observable<boolean>((observer) => {
-    //     this.setSession(authBody, { expiresIn: 24 * 60 * 60, id_token: "123" });
-    //     observer.next(true);
-    //   });
-    // }
-    // return new Observable<boolean>((observer) => {
-    //   observer.error(false);
-    // });
+    if (accountType === "client") {
+      return this.baseService.post(url, body).pipe(
+        tap(async (response) => {
+          console.log("response: " + response);
+          if (response) {
+            this.setSession(
+              response,
+              {
+                expiresIn: 24 * 60 * 60,
+                id_token: "123",
+              },
+              accountType
+            );
+          }
+        }),
+        catchError((e) => {
+          console.log(e);
+          throw e;
+        })
+      );
+    } else if (accountType === "advisor") {
+      if (
+        loginReq.get("username") === "admin" &&
+        loginReq.get("password") === "admin"
+      ) {
+        return new Observable<boolean>((observer) => {
+          this.setSession(
+            authBody,
+            {
+              expiresIn: 24 * 60 * 60,
+              id_token: "123",
+            },
+            accountType
+          );
+          observer.next(true);
+        });
+      }
+      return new Observable<boolean>((observer) => {
+        observer.error(false);
+      });
+    }
   }
-
-  // setSession(authResult) {
-  //   const token = authResult.headers.get('CMS-TOKEN');
-  //   const decoded = jwt_decode(token);
-  //   console.log(decoded);
-  //   const expiresAt = moment().add(decoded['exp'], 'second');
-  //   var userInfo = {user:decoded['sub'],token, expires: JSON.stringify(expiresAt.valueOf()), roles: decoded['role']};
-  //   localStorage.setItem('userinfo', JSON.stringify(userInfo));
-  // }
-
-  setSession(authBody, authResult) {
+  setSession(authBody, authResult, accountType) {
     const expiresAt = moment().add(authResult["expiresIn"], "second");
 
     let user = {
@@ -75,11 +77,16 @@ export class AuthService {
         occupationName: null,
       },
       password: "password",
-      expires: JSON.stringify(expiresAt.valueOf()),
     };
-    console.log("setting session");
-    authBody["expires"] = expiresAt.valueOf();
-    localStorage.setItem("userinfo", JSON.stringify(authBody));
+    if (accountType === "client") {
+      authBody["expires"] = expiresAt.valueOf();
+
+      localStorage.setItem("userinfo", JSON.stringify(authBody));
+    } else if (accountType == "advisor") {
+      user["expires"] = expiresAt.valueOf();
+
+      localStorage.setItem("userinfo", JSON.stringify(user));
+    }
   }
 
   logout() {

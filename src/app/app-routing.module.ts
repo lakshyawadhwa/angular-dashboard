@@ -13,6 +13,7 @@ import { SitesComponent } from "./end-user/sites/sites.component";
 import { SignUpComponent } from "./login/sign-up/sign-up.component";
 import { ProfileCardComponent } from "./end-user/profile-card/profile-card.component";
 import { AdvisorQueriesComponent } from "./advisor/advisor-queries/advisor-queries.component";
+import { AdvisorUserLayoutComponent } from "./common/advisor-user-layout/advisor-user-layout.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -38,11 +39,11 @@ const routes: Routes = [
   },
   {
     path: "advisor",
-    component: AuthorizedUserLayoutComponent,
+    component: AdvisorUserLayoutComponent,
     canActivate: [AuthGuardGuard],
     children: [
-      { path: "", component: AdvisorQueriesComponent },
-      { path: "form", component: FormLevelOneComponent },
+      { path: "queries", component: AdvisorQueriesComponent },
+      { path: "form-1-a", component: FormLevelOneComponent },
     ],
   },
 ];

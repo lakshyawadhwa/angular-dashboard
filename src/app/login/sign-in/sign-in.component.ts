@@ -29,7 +29,8 @@ export class SignInComponent implements OnInit {
     this.loginReq = new FormData();
     this.loginReq.append("username", this.username);
     this.loginReq.append("password", this.password);
-    this.authService.login(this.loginReq).subscribe(
+
+    this.authService.login(this.loginReq, this.accountType).subscribe(
       (response) => {
         if (response) {
           this.goToHome();
@@ -57,9 +58,15 @@ export class SignInComponent implements OnInit {
   }
 
   goToHome() {
-    this.location.replaceState("/");
-    this.location.go("/client");
-    this.router.navigate(["/client"]);
+    if (this.accountType === "client") {
+      this.location.replaceState("/");
+      this.location.go("/client");
+      this.router.navigate(["/client"]);
+    } else if (this.accountType === "advisor") {
+      this.location.replaceState("/");
+      this.location.go("/advisor");
+      this.router.navigate(["/advisor"]);
+    }
   }
   signUp() {
     this.router.navigateByUrl("/login/sign-up");
