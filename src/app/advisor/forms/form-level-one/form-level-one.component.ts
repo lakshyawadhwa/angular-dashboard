@@ -1,6 +1,7 @@
 import { FormService } from "./../../../services/form-service/form.service";
 import { AdvisorService } from "./../../../services/advisor-service/advisor.service";
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-form-level-one",
@@ -10,7 +11,8 @@ import { Component, OnInit } from "@angular/core";
 export class FormLevelOneComponent implements OnInit {
   constructor(
     private advisorService: AdvisorService,
-    private formService: FormService
+    private formService: FormService,
+    private router: Router
   ) {}
   headingArray = [
     "Zone",
@@ -43,20 +45,28 @@ export class FormLevelOneComponent implements OnInit {
   statusArray = ["Balanced", "Exhausted", "Enhanced"];
   ngOnInit(): void {
     this.advisorService.advisorForm.subscribe((res: any) => {
-      this.query = res.query;
-      this.siteDetails = res.siteDetails;
+      console.log(res, "res");
+      if (res.query && res.siteDetails) {
+        this.query = res.query;
+        this.siteDetails = res.siteDetails;
+      } else {
+        this.router.navigateByUrl("/advisor/queries");
+      }
     });
   }
-  submitClient() {
+  submitForm() {
+    console.log("here");
     this.responseArray.map((response) => {
       response["level"] = "LEVEL_1_A_ENTRANCE";
     });
-    this.formService.postForm(this.responseArray);
+    this.formService.postForm(this.responseArray).subscribe((res) => {
+      console.log(res);
+    });
   }
   handleInput(heading, event) {
     console.log(heading, event);
     var result = this.responseArray.find((obj) => {
-      return obj.heading === heading;
+      return obj.zone === heading;
     });
     let propertyName = event.target.name;
     let value = event.target.value;
@@ -66,7 +76,7 @@ export class FormLevelOneComponent implements OnInit {
       this.responseArray[index] = result;
     } else {
       let newObject = {
-        heading: heading,
+        zone: heading,
       };
       newObject[propertyName] = value;
       this.responseArray.push(newObject);

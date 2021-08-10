@@ -66,7 +66,7 @@ export class AuthService {
     const expiresAt = moment().add(authResult["expiresIn"], "second");
 
     let user = {
-      clientId: null,
+      clientId: -1,
       clientName: "OJ",
       clientMobile: "9068622222",
       clientEmail: "1@gmail.com",

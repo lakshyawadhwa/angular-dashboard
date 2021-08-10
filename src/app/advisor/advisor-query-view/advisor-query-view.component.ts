@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnInit } from "@angular/core";
 import { Form, FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { UserQuery } from "src/app/services/interfaces";
 import * as moment from "moment";
 import { Router } from "@angular/router";
@@ -13,6 +13,7 @@ export class AdvisorQueryViewComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private dialogRef: MatDialogRef<AdvisorQueryViewComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
   showForms = [false, false, false, false, false, false];
@@ -26,9 +27,11 @@ export class AdvisorQueryViewComponent implements OnInit {
     return moment(this.data.query.queryUpdateDatetime).format("DD-MM-YY HH:mm");
   }
   toggleShowForm(index) {
-    this.showForms[index] = !this.showForms[index];
+    this.showForms.map((form) => form === false);
+    this.showForms[index] = true;
   }
   triggerForm(url) {
     this.router.navigateByUrl(`/advisor/${url}`);
+    this.dialogRef.close();
   }
 }

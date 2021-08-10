@@ -42,11 +42,13 @@ export class FormLevelOneBComponent implements OnInit {
       this.siteDetails = res.siteDetails;
     });
   }
-  submitClient() {
+  submitForm() {
     this.responseArray.map((response) => {
       response["level"] = "LEVEL_1_B_DISHA_BAL";
     });
-    this.formService.postForm(this.responseArray);
+    this.formService.postForm(this.responseArray).subscribe((res) => {
+      console.log(res);
+    });
   }
   handleInput(heading, event) {
     console.log(heading, event);

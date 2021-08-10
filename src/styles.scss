@@ -52,6 +52,9 @@ body {
 .mat-card-title {
   color: var(--color-primary-dark);
 }
+.mat-card {
+  cursor: pointer;
+}
 
 //MARGINS and PADDINGS
 .m-left {
@@ -68,6 +71,9 @@ body {
 
 .m-bottom {
   margin-bottom: 1rem !important;
+}
+.mb-5 {
+  margin-bottom: 5rem;
 }
 
 button {
@@ -175,4 +181,8 @@ app-sign-up {
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }

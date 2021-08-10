@@ -7,7 +7,7 @@
     <tr>
       <th *ngFor="let heading of headingArray">{{ heading }}</th>
     </tr>
-    <ng-container *ngFor="let zone of zoneArray" (ngSubmit)="submitClient()">
+    <ng-container *ngFor="let zone of zoneArray" (ngSubmit)="submitForm()">
       <tr>
         <td aria-colspan="1">
           {{ zone.heading }}
@@ -50,5 +50,5 @@
       </tr>
     </ng-container>
   </table>
-  <button class="submit-button">SUBMIT</button>
+  <button class="submit-button" (click)="submitForm()">SUBMIT</button>
 </div>

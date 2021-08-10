@@ -13,8 +13,21 @@ export class QueryService {
   constructor(private baseService: BaseService) {}
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
 
-  getAllQueries(): Observable<Array<UserQuery>> {
+  getClientQueries(): Observable<Array<UserQuery>> {
     let url = apiUrl + APIConfig.getClientQueries + this.clientInfo.clientId;
+    return this.baseService.get(url).pipe(
+      tap(async (res: Array<UserQuery>) => {
+        // console.log("Assigning Queries: " + res);
+        // this.queryArray = res;
+      }),
+      catchError((e) => {
+        console.log(e);
+        throw e;
+      })
+    );
+  }
+	getAllQueries(): Observable<Array<UserQuery>> {
+    let url = apiUrl + APIConfig.getAllQueries ;
     return this.baseService.get(url).pipe(
       tap(async (res: Array<UserQuery>) => {
         // console.log("Assigning Queries: " + res);
