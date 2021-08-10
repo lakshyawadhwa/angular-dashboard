@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { clientObject, SiteInterface } from "src/app/services/interfaces";
 import { environment } from "src/environments/environment";
 import APIConfig from "src/app/services/APIConfig";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-sites",
@@ -10,7 +11,7 @@ import APIConfig from "src/app/services/APIConfig";
   styleUrls: ["./sites.component.scss"],
 })
 export class SitesComponent implements OnInit {
-  constructor(private baseService: BaseService) {}
+  constructor(private baseService: BaseService, private router: Router) {}
   name: string;
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
 
@@ -24,6 +25,6 @@ export class SitesComponent implements OnInit {
     });
   }
   openNewSite() {
-    window.open("/client/new", "_self");
+    this.router.navigateByUrl("/client/new");
   }
 }

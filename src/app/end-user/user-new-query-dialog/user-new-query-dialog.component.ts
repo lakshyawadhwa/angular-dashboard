@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-// import { UserQueriesComponent } from "../user-queries/user-queries.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-user-new-query-dialog",
@@ -9,11 +9,13 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 })
 export class UserNewQueryDialogComponent implements OnInit {
   constructor(
-    public dialogRef: MatDialogRef<UserNewQueryDialogComponent> // @Inject(MAT_DIALOG_DATA) public data: UserQueriesComponent
+    public dialogRef: MatDialogRef<UserNewQueryDialogComponent>,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
   openForm(formType) {
-    window.open(`/client/${formType}`, "_self");
+    this.router.navigateByUrl(`/client/${formType}`);
+    this.dialogRef.close();
   }
 }

@@ -2,6 +2,7 @@ import { SiteService } from "./../../services/site-service/site.service";
 import { BaseService } from "src/app/services/base-service/base.service";
 import { Component, OnInit } from "@angular/core";
 import { clientObject, SiteInterface } from "src/app/services/interfaces";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-advisor-sites",
@@ -11,7 +12,8 @@ import { clientObject, SiteInterface } from "src/app/services/interfaces";
 export class AdvisorSitesComponent implements OnInit {
   constructor(
     private baseService: BaseService,
-    private siteService: SiteService
+    private siteService: SiteService,
+    private router: Router
   ) {}
   name: string;
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
@@ -23,6 +25,6 @@ export class AdvisorSitesComponent implements OnInit {
     });
   }
   openNewSite() {
-    window.open("/client/new", "_self");
+    this.router.navigateByUrl("/client/new");
   }
 }

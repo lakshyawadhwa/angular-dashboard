@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: "http://localhost:8080/advisor",
+  url: "http://horo3.mahavastu.com:8080/advisor",
 };
