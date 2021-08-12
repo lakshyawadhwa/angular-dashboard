@@ -29,5 +29,36 @@
       </mat-form-field>
     </fieldset>
   </div>
-  <div mat-dialog-actions></div>
+  <div mat-dialog-actions>
+    <div class="upload-button-wrapper">
+      <p class="fs-22 m-0">Upload maps</p>
+      <app-file-upload
+        [clientId]="data.query.client.clientId"
+        [siteId]="data.siteDetails.siteId"
+        [name]="'PartLayout'"
+        [title]="'Part Layout'"
+      ></app-file-upload>
+      <app-file-upload
+        [clientId]="data.query.client.clientId"
+        [siteId]="data.siteDetails.siteId"
+        [name]="'GradedMap'"
+        [title]="'Graded Map'"
+      ></app-file-upload>
+      <app-file-upload
+        [clientId]="data.query.client.clientId"
+        [siteId]="data.siteDetails.siteId"
+        [name]="'SquareGridMap'"
+        [title]="'Square Grid Map'"
+      ></app-file-upload>
+    </div>
+    <div class="upload-button-wrapper">
+      <p class="fs-22 m-0">Upload horo</p>
+      <app-file-upload
+        [clientId]="data.query.client.clientId"
+        [siteId]="data.siteDetails.siteId"
+        [name]="'AssociatedPeople'"
+        [title]="'Associated People'"
+      ></app-file-upload>
+    </div>
+  </div>
 </form>

@@ -18,7 +18,13 @@ export class AuthorizedUserLayoutComponent implements OnInit {
     // }, 1);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.addEventListener("storage", (event) => {
+      if (event.key === "userinfo") {
+        this.router.navigateByUrl("/login");
+      }
+    });
+  }
   logout() {
     this.authService.logout();
     this.router.navigateByUrl("/login");

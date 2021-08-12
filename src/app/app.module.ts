@@ -44,6 +44,7 @@ import { FormLevelOneBComponent } from './advisor/forms/form-level-one-b/form-le
 import { AdvisorSitesComponent } from './advisor/advisor-sites/advisor-sites.component';
 import { AdvisorSiteCardsComponent } from './advisor/advisor-site-cards/advisor-site-cards.component';
 import { ViewSiteQueriesComponent } from './advisor/view-site-queries/view-site-queries.component';
+import { FileUploadComponent } from './common/file-upload/file-upload.component';
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -69,6 +70,7 @@ import { ViewSiteQueriesComponent } from './advisor/view-site-queries/view-site-
     AdvisorSitesComponent,
     AdvisorSiteCardsComponent,
     ViewSiteQueriesComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,

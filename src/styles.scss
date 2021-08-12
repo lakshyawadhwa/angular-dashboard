@@ -76,6 +76,18 @@ body {
 .mb-5 {
   margin-bottom: 5rem;
 }
+.m-0 {
+  margin: 0 !important;
+}
+.pd-l1 {
+  padding-left: 1rem !important;
+}
+.pd-l2 {
+  padding-left: 2rem !important;
+}
+.pd-l3 {
+  padding-left: 3rem !important;
+}
 
 button {
   border: none;
@@ -159,15 +171,7 @@ app-sign-up {
 .fw-600 {
   font-weight: 600;
 }
-.pd-l1 {
-  padding-left: 1rem !important;
-}
-.pd-l2 {
-  padding-left: 2rem !important;
-}
-.pd-l3 {
-  padding-left: 3rem !important;
-}
+
 .error-msg {
   background: var(--error);
   font-weight: 600;

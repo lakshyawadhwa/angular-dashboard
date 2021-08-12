@@ -30,8 +30,7 @@ export class BaseService {
   }
 
   post(url, params): Observable<any> {
-    const headers = new HttpHeaders()
-      .set("Content-Type", "application/json");
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
     return this.httpClient
       .post(`${url}`, JSON.stringify(params), {
         headers,
@@ -43,6 +42,15 @@ export class BaseService {
           throw e;
         })
       );
+  }
+  postFile(url, params): Observable<any> {
+    return this.httpClient.post(`${url}`, params).pipe(
+      tap(async (res) => {}),
+      catchError((e) => {
+        this.processError(e);
+        throw e;
+      })
+    );
   }
 
   put(url, params): Observable<any> {

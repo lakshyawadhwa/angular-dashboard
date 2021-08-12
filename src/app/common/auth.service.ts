@@ -27,7 +27,7 @@ export class AuthService {
             this.setSession(
               response,
               {
-                expiresIn: 24 * 60 * 60,
+                expiresIn: 15 * 60,
                 id_token: "123",
               },
               accountType
@@ -48,7 +48,7 @@ export class AuthService {
           this.setSession(
             authBody,
             {
-              expiresIn: 24 * 60 * 60,
+              expiresIn: 15 * 60,
               id_token: "123",
             },
             accountType
@@ -97,7 +97,6 @@ export class AuthService {
       return moment().isSameOrBefore(this.getExpiration());
     } else {
       this.logout();
-      alert("here");
     }
   }
 

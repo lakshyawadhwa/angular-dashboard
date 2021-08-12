@@ -6,6 +6,7 @@ import APIConfig from "src/app/services/APIConfig";
 import * as moment from "moment";
 import { MatDialog } from "@angular/material/dialog";
 import { SiteViewComponent } from "../site-view/site-view.component";
+import { ViewSiteQueriesComponent } from "src/app/advisor/view-site-queries/view-site-queries.component";
 @Component({
   selector: "app-site-card",
   templateUrl: "./site-card.component.html",
@@ -22,6 +23,16 @@ export class SiteCardComponent implements OnInit {
     const dialogRef = this.dialog.open(SiteViewComponent, {
       width: "80%",
       data: this.site,
+      panelClass: "custom-modalbox",
+    });
+  }
+  openQueryDialog() {
+    event.stopPropagation();
+
+    const dialogRef = this.dialog.open(ViewSiteQueriesComponent, {
+      width: "80%",
+      height: "80%",
+      data: { siteId: this.site.siteId },
       panelClass: "custom-modalbox",
     });
   }

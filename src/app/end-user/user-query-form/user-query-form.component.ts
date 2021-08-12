@@ -60,4 +60,5 @@ export class UserQueryFormComponent implements OnInit {
   toggleButton() {
     this.showButtons = true;
   }
+  uploadFunction(event, docType) {}
 }

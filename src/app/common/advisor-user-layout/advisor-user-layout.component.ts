@@ -10,7 +10,13 @@ import { AuthService } from "../auth.service";
 export class AdvisorUserLayoutComponent implements OnInit {
   constructor(public authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.addEventListener("storage", (event) => {
+      if (event.key === "userinfo") {
+        this.router.navigateByUrl("/login");
+      }
+    });
+  }
   logout() {
     this.authService.logout();
     this.router.navigateByUrl("/login");

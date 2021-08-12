@@ -14,6 +14,7 @@ export const APIConfig = {
   createClient: "/client",
   postForm: "/advice",
   getForms: "/advice/",
+  uploadFile: "/files",
 };
 
 export default APIConfig;
