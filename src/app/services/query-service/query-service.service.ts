@@ -40,4 +40,17 @@ export class QueryService {
       })
     );
   }
+  getQueriesBySite(siteId): Observable<Array<UserQuery>> {
+    let url = environment.url + APIConfig.getQueriesBySite + siteId;
+    return this.baseService.get(url).pipe(
+      tap(async (res: Array<UserQuery>) => {
+        // console.log("Assigning Queries: " + res);
+        // this.queryArray = res;
+      }),
+      catchError((e) => {
+        console.log(e);
+        throw e;
+      })
+    );
+  }
 }

@@ -14,4 +14,11 @@ export class FormService {
     let url = environment.url + APIConfig.postForm;
     return this.baseService.post(url, body).pipe(tap(async (res) => {}));
   }
+  getForm(queryId, siteId, level): Observable<any> {
+    let url =
+      environment.url + APIConfig.getForms + `${queryId}/${siteId}/${level}`;
+    console.log(url);
+
+    return this.baseService.get(url).pipe(tap(async (res) => {}));
+  }
 }

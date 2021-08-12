@@ -4,5 +4,9 @@
 
   <div class="divider"></div>
   <mat-card-content>{{ site.siteGeo }}</mat-card-content>
+  <button ngClass="add-button view-query" (click)="openDialog()">
+    View queries
+  </button>
+
   <mat-card-subtitle>Condition {{ site.conditionType }}</mat-card-subtitle>
 </mat-card>

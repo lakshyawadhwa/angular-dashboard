@@ -29,6 +29,18 @@ export interface SiteInterface {
   client: clientObject;
   conditionType: string;
 }
+export interface AdviceResponse {
+  dishabal: string | null;
+  entrance: string | null;
+  evaluation: string | null;
+  level: string;
+  site: SiteInterface;
+  status: string | null;
+  suggestions: string | null;
+  typeOfEntrance: string | null;
+  userQuery: UserQuery;
+  zone: string;
+}
 export interface siteTypeInterface {
   siteTypeId: number;
   siteTypeName?: string;

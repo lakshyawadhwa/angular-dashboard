@@ -6,13 +6,14 @@ export const APIConfig = {
   getClientQueries: "/user-query/client/",
   getSiteById: "/site/",
   getSiteByClient: "/site/client/",
+  getQueriesBySite: "/user-query/site/",
   getAllSites: "/site",
   masterConcerns: "/master-concerns",
   siteTypes: "/site/site-types",
   clientOccupations: "/client/occupations",
   createClient: "/client",
   postForm: "/advice",
-  getForms: "advice/{query-id}/{site-id}/{level}",
+  getForms: "/advice/",
 };
 
 export default APIConfig;

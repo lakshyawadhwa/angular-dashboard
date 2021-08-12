@@ -22,6 +22,9 @@ export class SignInComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    document.addEventListener("keydown", ($event) =>
+      this.keyDownFunction($event)
+    );
     if (this.authService.isLoggedIn()) this.router.navigateByUrl("/client");
   }
 
@@ -43,6 +46,11 @@ export class SignInComponent implements OnInit {
         this.showLoginError();
       }
     );
+  }
+  keyDownFunction(event) {
+    if (event.keyCode === 13) {
+      this.signIn();
+    }
   }
   setAccountType() {
     if (this.accountType == "client") {

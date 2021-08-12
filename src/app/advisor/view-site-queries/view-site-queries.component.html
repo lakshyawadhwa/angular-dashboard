@@ -1,0 +1,25 @@
+<form [formGroup]="queryView" *ngFor="let query of queryArray">
+  <div mat-dialog-content>
+    <fieldset [disabled]="true">
+      <mat-form-field appearance="outline">
+        <mat-label>Query ID</mat-label>
+        <input matInput value="{{ query.queryId }}" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label> Concern</mat-label>
+        <input matInput value="{{ query.masterConcern.concernName }}" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last update at</mat-label>
+        <input matInput value="{{ getDate(query.queryUpdateDatetime) }}" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="query-text">
+        <mat-label>Description</mat-label>
+        <textarea matInput value="{{ query.queryText }}"></textarea>
+      </mat-form-field>
+    </fieldset>
+    <div class="divider query-divider"></div>
+  </div>
+</form>

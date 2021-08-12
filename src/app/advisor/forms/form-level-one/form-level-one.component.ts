@@ -2,7 +2,11 @@ import { FormService } from "./../../../services/form-service/form.service";
 import { AdvisorService } from "./../../../services/advisor-service/advisor.service";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { SiteInterface, UserQuery } from "src/app/services/interfaces";
+import {
+  AdviceResponse,
+  SiteInterface,
+  UserQuery,
+} from "src/app/services/interfaces";
 
 @Component({
   selector: "app-form-level-one",
@@ -18,7 +22,7 @@ export class FormLevelOneComponent implements OnInit {
   headingArray = [
     "Zone",
     "Entrance",
-    "Entrance Type",
+    "Type of Entrance",
     "Evaluation",
     "Suggestions",
   ];
@@ -43,6 +47,7 @@ export class FormLevelOneComponent implements OnInit {
     { heading: "NORTH", subheading: "Customer" },
     { heading: "NNE", subheading: "Immunity" },
   ];
+  formResponses: Array<AdviceResponse> = [];
   responseArray = [];
   statusArray = ["Balanced", "Exhausted", "Enhanced"];
   ngOnInit(): void {
@@ -54,6 +59,15 @@ export class FormLevelOneComponent implements OnInit {
         this.router.navigateByUrl("/advisor/queries");
       }
     });
+    this.formService
+      .getForm(
+        this.query.queryId,
+        this.siteDetails.siteId,
+        "LEVEL_1_A_ENTRANCE"
+      )
+      .subscribe((res) => {
+        this.formResponses = res;
+      });
   }
   submitForm() {
     this.responseArray.map((response) => {
@@ -64,6 +78,16 @@ export class FormLevelOneComponent implements OnInit {
       this.postMessage = res.message;
       document.getElementsByTagName("mat-drawer-content")[0].scrollTo(0, 0);
     });
+  }
+  getValue(name, zone) {
+    console.log(this.formResponses);
+    const field = this.formResponses.find(
+      (field) => field.zone === zone.heading
+    );
+    console.log(name, zone, field);
+    if (field) {
+      return field[name];
+    }
   }
   handleInput(heading, event) {
     var result = this.responseArray.find((obj) => {

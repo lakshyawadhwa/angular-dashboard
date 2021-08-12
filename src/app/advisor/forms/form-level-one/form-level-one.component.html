@@ -24,6 +24,7 @@
             type="text"
             required
             name="entrance"
+            value="{{ getValue('entrance', zone) }}"
             (change)="handleInput(zone.heading, $event)"
           />
         </td>
@@ -32,7 +33,8 @@
           <input
             type="text"
             required
-            name="entranceType"
+            name="typeOfEntrance"
+            value="{{ getValue('typeOfEntrance', zone) }}"
             (change)="handleInput(zone.heading, $event)"
           />
         </td>
@@ -41,6 +43,7 @@
           <input
             required
             name="evaluation"
+            value="{{ getValue('evaluation', zone) }}"
             (change)="handleInput(zone.heading, $event)"
           />
         </td>
@@ -49,6 +52,7 @@
           <input
             required
             name="suggestions"
+            value="{{ getValue('suggestions', zone) }}"
             (change)="handleInput(zone.heading, $event)"
           />
         </td>

@@ -43,6 +43,7 @@ import { AdvisorQueryViewComponent } from './advisor/advisor-query-view/advisor-
 import { FormLevelOneBComponent } from './advisor/forms/form-level-one-b/form-level-one-b.component';
 import { AdvisorSitesComponent } from './advisor/advisor-sites/advisor-sites.component';
 import { AdvisorSiteCardsComponent } from './advisor/advisor-site-cards/advisor-site-cards.component';
+import { ViewSiteQueriesComponent } from './advisor/view-site-queries/view-site-queries.component';
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -67,6 +68,7 @@ import { AdvisorSiteCardsComponent } from './advisor/advisor-site-cards/advisor-
     FormLevelOneBComponent,
     AdvisorSitesComponent,
     AdvisorSiteCardsComponent,
+    ViewSiteQueriesComponent,
   ],
   imports: [
     BrowserModule,

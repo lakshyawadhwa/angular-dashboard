@@ -8,7 +8,10 @@
     <div id="filters"></div>
     <section>
       <div class="member-container m-top" *ngFor="let site of sitesArray">
-        <app-site-card [site]="site" [clientInfo]="clientInfo"></app-site-card>
+        <app-advisor-site-cards
+          [site]="site"
+          [clientInfo]="clientInfo"
+        ></app-advisor-site-cards>
       </div>
     </section>
   </main>

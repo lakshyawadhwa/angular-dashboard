@@ -23,7 +23,6 @@ export class AuthService {
     if (accountType === "client") {
       return this.baseService.post(url, body).pipe(
         tap(async (response) => {
-          console.log("response: " + response);
           if (response) {
             this.setSession(
               response,
@@ -94,8 +93,12 @@ export class AuthService {
   }
 
   public isLoggedIn() {
-    if (this.getExpiration())
+    if (this.getExpiration()) {
       return moment().isSameOrBefore(this.getExpiration());
+    } else {
+      this.logout();
+      alert("here");
+    }
   }
 
   isLoggedOut() {
