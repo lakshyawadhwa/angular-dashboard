@@ -12,7 +12,7 @@ import {
   templateUrl: "./form-prakriti-suggestion.component.html",
   styleUrls: ["./form-prakriti-suggestion.component.scss"],
 })
-export class FormPrakritiPersonComponent implements OnInit {
+export class FormPrakritiSuggestionComponent implements OnInit {
   constructor(
     private advisorService: AdvisorService,
     private formService: FormService,

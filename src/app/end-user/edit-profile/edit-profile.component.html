@@ -71,10 +71,16 @@
     </fieldset>
   </div>
   <div mat-dialog-actions class="flex-row justify-between">
-    <app-file-upload
-      [title]="'display picture'"
-      name="displayPic"
-    ></app-file-upload>
+    <h2>Upload display picture</h2>
+    <input
+      type="file"
+      class="file-input"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+      #fileUpload
+    />
+    <p *ngIf="postMessage" class="success-msg mb-0 m-top">{{ postMessage }}</p>
+
     <button class="submit-button" id="submit-button" (click)="submit()">
       Submit Changes
     </button>
