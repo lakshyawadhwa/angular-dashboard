@@ -33,26 +33,16 @@
     <div class="upload-button-wrapper">
       <p class="fs-22 m-0">Upload maps</p>
       <app-file-upload
+        *ngFor="let map of uploadMapArray"
         [clientId]="data.query.client.clientId"
         [siteId]="data.siteDetails.siteId"
-        [name]="'PartLayout'"
-        [title]="'Part Layout'"
-      ></app-file-upload>
-      <app-file-upload
-        [clientId]="data.query.client.clientId"
-        [siteId]="data.siteDetails.siteId"
-        [name]="'GradedMap'"
-        [title]="'Graded Map'"
-      ></app-file-upload>
-      <app-file-upload
-        [clientId]="data.query.client.clientId"
-        [siteId]="data.siteDetails.siteId"
-        [name]="'SquareGridMap'"
-        [title]="'Square Grid Map'"
+        [name]="map.name"
+        [title]="map.title"
+        [queryId]="data.query.queryId"
       ></app-file-upload>
     </div>
     <div class="upload-button-wrapper">
-      <p class="fs-22 m-0">Upload horo</p>
+      <p class="fs-22 m-0">Upload horoscope</p>
       <app-file-upload
         [clientId]="data.query.client.clientId"
         [siteId]="data.siteDetails.siteId"

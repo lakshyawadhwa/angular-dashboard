@@ -44,13 +44,15 @@ export class BaseService {
       );
   }
   postFile(url, params): Observable<any> {
-    return this.httpClient.post(`${url}`, params).pipe(
-      tap(async (res) => {}),
-      catchError((e) => {
-        this.processError(e);
-        throw e;
-      })
-    );
+    return this.httpClient
+      .post(`${url}`, params, { responseType: "text" })
+      .pipe(
+        tap(async (res) => {}),
+        catchError((e) => {
+          this.processError(e);
+          throw e;
+        })
+      );
   }
 
   put(url, params): Observable<any> {

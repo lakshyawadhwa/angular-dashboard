@@ -2,9 +2,11 @@
 <input
   type="file"
   class="file-input"
+  accept="application/pdf"
   (change)="onFileSelected($event)"
   #fileUpload
 />
+<p *ngIf="showSuccess" class="success-msg mb-0 m-top">Uploaded!</p>
 
 <!-- <div class="file-upload">
   {{ fileName || "No file uploaded yet." }} -->

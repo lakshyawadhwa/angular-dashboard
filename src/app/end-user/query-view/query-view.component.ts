@@ -17,6 +17,11 @@ export class QueryViewComponent implements OnInit {
   @Input() selectedQuery: UserQuery;
   formControl: FormControl;
   queryView: FormGroup = new FormGroup({});
+  uploadMapArray = [
+    { name: "PartLayout", title: "Part Layout" },
+    { name: "GradedMap", title: "Graded Map" },
+    { name: "SquareGridMap", title: "Square Grid Map" },
+  ];
   ngOnInit(): void {
     console.log(this.data);
   }

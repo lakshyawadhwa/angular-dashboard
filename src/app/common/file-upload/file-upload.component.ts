@@ -12,9 +12,10 @@ export class FileUploadComponent {
   fileName = "";
   @Input() clientId: number;
   @Input() siteId: number;
+  @Input() queryId: number;
   @Input() name: string;
   @Input() title: string;
-
+  showSuccess = false;
   constructor(private baseService: BaseService) {}
 
   onFileSelected(event) {
@@ -23,41 +24,20 @@ export class FileUploadComponent {
     if (file) {
       this.fileName = file.name;
       const formData = new FormData();
-      console.log(formData);
 
       formData.append("file", file);
-      console.log(formData);
-
       formData.append("clientId", "" + this.clientId);
-      console.log(formData);
-
       formData.append("siteId", "" + this.siteId);
-      console.log(formData);
-
       formData.append("documentType", this.name);
-      console.log(JSON.stringify(formData));
-
+      formData.append("queryId", "" + this.queryId);
       this.uploadCall(formData);
     }
-    // if (file) {
-    //   this.fileName = file.name;
-
-    //   const formData = new FormData();
-
-    //   formData.append("thumbnail", file);
-    //   console.log(formData);
-    //   this.uploadCall(formData);
-
-    //   // const upload$ = this.http.post("/api/thumbnail-upload", formData);
-
-    //   // upload$.subscribe();
-    // }
   }
 
   uploadCall(form) {
     let url = environment.url + APIConfig.uploadFile;
     this.baseService.postFile(url, form).subscribe((res) => {
-      console.log(res);
+      if (res === "File Uploaded!") this.showSuccess = true;
     });
   }
 }
