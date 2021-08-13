@@ -45,7 +45,7 @@
         <select
           required
           matNativeControl
-          value="{{ selectedOccupation }}"
+          value="{{ clientInfo.occupation.occupationName }}"
           [(ngModel)]="selectedOccupation"
           name="siteType"
         >
@@ -60,7 +60,6 @@
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input
-          required
           matInput
           value="{{ clientInfo.password }}"
           [(ngModel)]="clientInfo.password"

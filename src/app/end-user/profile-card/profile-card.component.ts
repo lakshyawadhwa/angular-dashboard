@@ -14,6 +14,11 @@ export class ProfileCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.clientInfo.clientDisplayPic ? "" : this.createImage();
+    window.addEventListener("storage", (event) => {
+      if (event.key === "userinfo") {
+        this.clientInfo = JSON.parse(localStorage.getItem("userinfo"));
+      }
+    });
   }
   editProfile() {
     const dialogRef = this.dialog.open(EditProfileComponent, {
