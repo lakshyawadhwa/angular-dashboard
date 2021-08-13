@@ -17,9 +17,7 @@ export class ProfileCardComponent implements OnInit {
       this.clientInfo.clientDisplayPic ? true : false,
       this.clientInfo.clientDisplayPic
     );
-    if (!this.clientInfo.clientDisplayPic) {
-      this.createImage();
-    }
+
     window.addEventListener("storage", (event) => {
       if (event.key === "userinfo") {
         this.clientInfo = JSON.parse(localStorage.getItem("userinfo"));
@@ -36,6 +34,6 @@ export class ProfileCardComponent implements OnInit {
   createImage() {
     var firstName = this.clientInfo.clientName;
     var intials = firstName.charAt(0);
-    document.getElementById("profileImage").innerHTML = intials;
+    return intials;
   }
 }

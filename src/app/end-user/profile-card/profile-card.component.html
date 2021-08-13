@@ -3,7 +3,9 @@
     <span class="material-icons"> edit </span>
   </button>
   <div id="main-container">
-    <div id="profileImage" *ngIf="!clientInfo.clientDisplayPic"></div>
+    <div id="profileImage" *ngIf="!clientInfo.clientDisplayPic">
+      {{ createImage() }}
+    </div>
 
     <img
       class="profileImg"
