@@ -47,7 +47,10 @@ export class EditProfileComponent implements OnInit {
       occupation: this.getOccupationObject(),
       password: this.clientInfo.password,
     };
-    this.uploadDisplayPicture(this.formData, body);
+
+    this.clientService.postClient(body).subscribe((res) => {
+      this.uploadDisplayPicture(this.formData);
+    });
   }
   onFileSelected(event) {
     const file: File = event.target.files[0];
@@ -57,17 +60,14 @@ export class EditProfileComponent implements OnInit {
     }
   }
 
-  uploadDisplayPicture(form: FormData, body) {
+  uploadDisplayPicture(form: FormData) {
     let url = environment.url + APIConfig.uploadProfilePic;
     this.baseService.postFile(url, form).subscribe((res) => {
-      this.postMessage = res;
-      this.clientService.postClient(body).subscribe((res) => {
-        this.postResponse = true;
-        localStorage.setItem("userinfo", JSON.stringify(res));
-        setTimeout(() => {
-          this.dialogRef.close();
-        }, 1500);
-      });
+      this.postResponse = true;
+      localStorage.setItem("userinfo", JSON.stringify(res));
+      setTimeout(() => {
+        this.dialogRef.close();
+      }, 1500);
     });
   }
 }
