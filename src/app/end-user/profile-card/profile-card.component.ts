@@ -13,7 +13,13 @@ export class ProfileCardComponent implements OnInit {
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
 
   ngOnInit(): void {
-    this.clientInfo.clientDisplayPic ? "" : this.createImage();
+    console.log(
+      this.clientInfo.clientDisplayPic ? true : false,
+      this.clientInfo.clientDisplayPic
+    );
+    if (!this.clientInfo.clientDisplayPic) {
+      this.createImage();
+    }
     window.addEventListener("storage", (event) => {
       if (event.key === "userinfo") {
         this.clientInfo = JSON.parse(localStorage.getItem("userinfo"));
