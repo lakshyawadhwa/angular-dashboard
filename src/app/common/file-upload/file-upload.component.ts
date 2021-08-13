@@ -16,6 +16,7 @@ export class FileUploadComponent {
   @Input() name: string;
   @Input() title: string;
   showSuccess = false;
+  postMessage = "";
   constructor(private baseService: BaseService) {}
 
   onFileSelected(event) {
@@ -37,7 +38,7 @@ export class FileUploadComponent {
   uploadCall(form) {
     let url = environment.url + APIConfig.uploadFile;
     this.baseService.postFile(url, form).subscribe((res) => {
-      if (res === "File Uploaded!") this.showSuccess = true;
+      this.postMessage = res;
     });
   }
 }
