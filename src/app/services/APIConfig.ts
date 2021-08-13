@@ -15,6 +15,7 @@ export const APIConfig = {
   postForm: "/advice",
   getForms: "/advice/",
   uploadFile: "/files",
+  uploadProfilePic: "/files/profile-pic",
 };
 
 export default APIConfig;

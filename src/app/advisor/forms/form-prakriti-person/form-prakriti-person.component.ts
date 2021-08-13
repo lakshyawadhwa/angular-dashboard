@@ -9,36 +9,22 @@ import {
 } from "src/app/services/interfaces";
 
 @Component({
-  selector: "app-form-level-one",
-  templateUrl: "./form-level-one.component.html",
-  styleUrls: ["./form-level-one.component.scss"],
+  selector: "app-form-prakriti-person",
+  templateUrl: "./form-prakriti-person.component.html",
+  styleUrls: ["./form-prakriti-person.component.scss"],
 })
-export class FormLevelOneComponent implements OnInit {
+export class FormPrakritiPersonComponent implements OnInit {
   constructor(
     private advisorService: AdvisorService,
     private formService: FormService,
     private router: Router
   ) {}
-  headingArray = [
-    "Zone",
-    "Entrance",
-    "Type of Entrance",
-    "Evaluation",
-    "Suggestions",
-  ];
+  headingArray = ["Zone", "Person's Activity", "Suggestion"];
   query: UserQuery;
   siteDetails: SiteInterface;
   postMessage: string;
   zoneArray = this.formService.getZoneArray();
-  checkListData = [
-    "Main Gate",
-    "Lift ",
-    "Home Entrance",
-    "Rear Entrance",
-    "Garage Entry",
-    " Compound Wall",
-    "Virtual Entry",
-  ];
+
   formResponses: Array<AdviceResponse> = [];
   responseArray = [];
   ngOnInit(): void {
@@ -54,7 +40,7 @@ export class FormLevelOneComponent implements OnInit {
       .getForm(
         this.query.queryId,
         this.siteDetails.siteId,
-        "LEVEL_1_A_ENTRANCE"
+        "LEVEL_1_B_PRAKRITI_OF_PERSON"
       )
       .subscribe((res) => {
         this.formResponses = res;
@@ -62,7 +48,7 @@ export class FormLevelOneComponent implements OnInit {
   }
   submitForm() {
     this.responseArray.map((response) => {
-      response["level"] = "LEVEL_1_A_ENTRANCE";
+      response["level"] = "LEVEL_1_B_PRAKRITI_OF_PERSON";
       response["userQuery"] = this.query;
     });
     this.formService.postForm(this.responseArray).subscribe((res) => {
@@ -71,15 +57,14 @@ export class FormLevelOneComponent implements OnInit {
     });
   }
   getValue(name, zone) {
-    console.log(this.formResponses);
     const field = this.formResponses.find(
       (field) => field.zone === zone.heading
     );
-    console.log(name, zone, field);
     if (field) {
       return field[name];
     }
   }
+
   handleInput(heading, event) {
     var result = this.responseArray.find((obj) => {
       return obj.zone === heading;

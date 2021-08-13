@@ -1,8 +1,16 @@
 <div id="wrapper">
+  <button (click)="editProfile()">
+    <span class="material-icons"> edit </span>
+  </button>
   <div id="main-container">
-    <div id="profileImage"></div>
+    <div id="profileImage" *ngIf="!clientInfo.clientDisplayPic"></div>
+    <img
+      class="profileImg"
+      src="{{ clientInfo.clientDisplayPic }}"
+      *ngIf="clientInfo.clientDisplayPic"
+    />
     <div id="main-info">
-      <span class="heading-profile">{{ clientInfo.clientName }}</span>
+      <p class="heading-profile">{{ clientInfo.clientName }}</p>
       <span>ID-{{ clientInfo.clientId }}</span>
     </div>
   </div>

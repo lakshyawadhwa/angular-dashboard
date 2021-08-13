@@ -1,10 +1,8 @@
+import { ClientService } from "./../../services/client-service/client.service";
 import { MatDialog } from "@angular/material/dialog";
 import { BaseService } from "./../../services/base-service/base.service";
 import { Component, OnInit } from "@angular/core";
 import { clientOccupation } from "src/app/services/interfaces";
-import { environment } from "src/environments/environment";
-import APIConfig from "src/app/services/APIConfig";
-import { Router } from "@angular/router";
 import { ClientIdDialogComponent } from "../client-id-dialog/client-id-dialog.component";
 
 @Component({
@@ -14,8 +12,7 @@ import { ClientIdDialogComponent } from "../client-id-dialog/client-id-dialog.co
 })
 export class SignUpComponent implements OnInit {
   constructor(
-    private baseService: BaseService,
-    private router: Router,
+    private clientService: ClientService,
     private dialog: MatDialog
   ) {}
   clientName: string;
@@ -26,15 +23,11 @@ export class SignUpComponent implements OnInit {
   selectedOccupation: string;
   password: string;
   ngOnInit(): void {
-    this.getOccupations();
+    this.clientService.getOccupations().subscribe((res) => {
+      this.occupationsArray = res;
+    });
   }
-  getOccupations() {
-    this.baseService
-      .get(environment.url + APIConfig.clientOccupations)
-      .subscribe((res) => {
-        this.occupationsArray = res;
-      });
-  }
+
   getOccupationObject() {
     return this.occupationsArray.find(
       (occ) => occ.occupationName == this.selectedOccupation
@@ -51,11 +44,9 @@ export class SignUpComponent implements OnInit {
       occupation: this.getOccupationObject(),
       password: this.password,
     };
-    this.baseService
-      .post(environment.url + APIConfig.createClient, body)
-      .subscribe((res) => {
-        this.openDialog(res.clientId);
-      });
+    this.clientService.postClient(body).subscribe((res) => {
+      this.openDialog(res.clientId);
+    });
   }
   openDialog(clientId): void {
     const dialogRef = this.dialog.open(ClientIdDialogComponent, {

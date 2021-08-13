@@ -18,35 +18,41 @@
           {{ zone.heading }}
           <p>{{ zone.subheading }}</p>
         </td>
-
         <td>
           <input
-            type="number"
+            type="text"
             required
-            name="dishabal"
+            name="prakriti"
+            value="{{ getValue('prakriti', zone) }}"
             (change)="handleInput(zone.heading, $event)"
-            value="{{ getValue('entrance', zone) }}"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            required
+            name="personsActivity"
+            value="{{ getValue('personsActivity', zone) }}"
+            (change)="handleInput(zone.heading, $event)"
           />
         </td>
 
         <td>
-          <select
+          <input
+            type="text"
             required
-            name="status"
-            value="{{ getValue('status', zone) }}"
+            name="buildingActivity"
+            value="{{ getValue('buildingActivity', zone) }}"
             (change)="handleInput(zone.heading, $event)"
-          >
-            <option *ngFor="let status of statusArray" value="{{ status }}">
-              {{ status }}
-            </option>
-          </select>
+          />
         </td>
 
         <td>
           <input
+            type="text"
             required
-            name="evaluation"
-            value="{{ getValue('evaluation', zone) }}"
+            name="prakrtitSink"
+            value="{{ getValue('prakrtitSink', zone) }}"
             (change)="handleInput(zone.heading, $event)"
           />
         </td>

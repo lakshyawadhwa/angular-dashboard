@@ -205,6 +205,9 @@ app-sign-up {
   display: flex;
   flex-direction: row;
 }
+.justify-between {
+  justify-content: space-between;
+}
 tr,
 td,
 th {

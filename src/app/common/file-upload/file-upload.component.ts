@@ -1,5 +1,5 @@
 import { BaseService } from "src/app/services/base-service/base.service";
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import APIConfig from "src/app/services/APIConfig";
 import { environment } from "src/environments/environment";
 
@@ -8,17 +8,19 @@ import { environment } from "src/environments/environment";
   templateUrl: "./file-upload.component.html",
   styleUrls: ["./file-upload.component.scss"],
 })
-export class FileUploadComponent {
+export class FileUploadComponent implements OnInit {
   fileName = "";
   @Input() clientId: number;
   @Input() siteId: number;
   @Input() queryId: number;
   @Input() name: string;
   @Input() title: string;
+  @Input() type: string;
   showSuccess = false;
   postMessage = "";
-  constructor(private baseService: BaseService) {}
 
+  constructor(private baseService: BaseService) {}
+  ngOnInit(): void {}
   onFileSelected(event) {
     const file: File = event.target.files[0];
     console.log(file);
@@ -28,14 +30,24 @@ export class FileUploadComponent {
 
       formData.append("file", file);
       formData.append("clientId", "" + this.clientId);
-      formData.append("siteId", "" + this.siteId);
-      formData.append("documentType", this.name);
-      formData.append("queryId", "" + this.queryId);
-      this.uploadCall(formData);
+
+      if (this.type === "displayPic") {
+        this.uploadDisplayPicture(formData);
+      } else {
+        formData.append("siteId", "" + this.siteId);
+        formData.append("documentType", this.name);
+        formData.append("queryId", "" + this.queryId);
+        this.uploadCall(formData);
+      }
     }
   }
-
-  uploadCall(form) {
+  uploadDisplayPicture(form: FormData) {
+    let url = environment.url + APIConfig.uploadProfilePic;
+    this.baseService.postFile(url, form).subscribe((res) => {
+      this.postMessage = res;
+    });
+  }
+  uploadCall(form: FormData) {
     let url = environment.url + APIConfig.uploadFile;
     this.baseService.postFile(url, form).subscribe((res) => {
       this.postMessage = res;

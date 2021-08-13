@@ -7,13 +7,12 @@ import {
   SiteInterface,
   UserQuery,
 } from "src/app/services/interfaces";
-
 @Component({
-  selector: "app-form-level-one",
-  templateUrl: "./form-level-one.component.html",
-  styleUrls: ["./form-level-one.component.scss"],
+  selector: "app-form-prakriti-suggestion",
+  templateUrl: "./form-prakriti-suggestion.component.html",
+  styleUrls: ["./form-prakriti-suggestion.component.scss"],
 })
-export class FormLevelOneComponent implements OnInit {
+export class FormPrakritiPersonComponent implements OnInit {
   constructor(
     private advisorService: AdvisorService,
     private formService: FormService,
@@ -21,24 +20,17 @@ export class FormLevelOneComponent implements OnInit {
   ) {}
   headingArray = [
     "Zone",
-    "Entrance",
-    "Type of Entrance",
-    "Evaluation",
-    "Suggestions",
+    "Prakriti",
+    "Person's Activity",
+    "Building Activity ",
+    "Is Bldg & Person Prakriti in Sink?",
+    "Suggestion",
   ];
   query: UserQuery;
   siteDetails: SiteInterface;
   postMessage: string;
   zoneArray = this.formService.getZoneArray();
-  checkListData = [
-    "Main Gate",
-    "Lift ",
-    "Home Entrance",
-    "Rear Entrance",
-    "Garage Entry",
-    " Compound Wall",
-    "Virtual Entry",
-  ];
+
   formResponses: Array<AdviceResponse> = [];
   responseArray = [];
   ngOnInit(): void {
@@ -54,7 +46,7 @@ export class FormLevelOneComponent implements OnInit {
       .getForm(
         this.query.queryId,
         this.siteDetails.siteId,
-        "LEVEL_1_A_ENTRANCE"
+        "LEVEL_1_B_SUGGESTION_FOR_PRAKRITI"
       )
       .subscribe((res) => {
         this.formResponses = res;
@@ -62,7 +54,7 @@ export class FormLevelOneComponent implements OnInit {
   }
   submitForm() {
     this.responseArray.map((response) => {
-      response["level"] = "LEVEL_1_A_ENTRANCE";
+      response["level"] = "LEVEL_1_B_SUGGESTION_FOR_PRAKRITI";
       response["userQuery"] = this.query;
     });
     this.formService.postForm(this.responseArray).subscribe((res) => {
@@ -71,15 +63,14 @@ export class FormLevelOneComponent implements OnInit {
     });
   }
   getValue(name, zone) {
-    console.log(this.formResponses);
     const field = this.formResponses.find(
       (field) => field.zone === zone.heading
     );
-    console.log(name, zone, field);
     if (field) {
       return field[name];
     }
   }
+
   handleInput(heading, event) {
     var result = this.responseArray.find((obj) => {
       return obj.zone === heading;

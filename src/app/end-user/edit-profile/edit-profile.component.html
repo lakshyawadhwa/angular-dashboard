@@ -1,0 +1,82 @@
+<form>
+  <p class="success-msg" *ngIf="postResponse">Your details hav ebeen updated</p>
+  <div mat-dialog-content>
+    <fieldset>
+      <mat-form-field appearance="outline">
+        <mat-label>Client ID</mat-label>
+        <input
+          matInput
+          disabled
+          value="{{ clientInfo.clientId }}"
+          name="clientId"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          value="{{ clientInfo.clientName }}"
+          [(ngModel)]="clientInfo.clientName"
+          name="sitename"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email ID</mat-label>
+        <input
+          matInput
+          type="email"
+          value="{{ clientInfo.clientEmail }}"
+          [(ngModel)]="clientInfo.clientEmail"
+          name="email"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input
+          matInput
+          type="tel"
+          value="{{ clientInfo.clientMobile }}"
+          [(ngModel)]="clientInfo.clientMobile"
+          name="mobile"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Occupation</mat-label>
+        <select
+          required
+          matNativeControl
+          value="{{ selectedOccupation }}"
+          [(ngModel)]="selectedOccupation"
+          name="siteType"
+        >
+          <option
+            *ngFor="let occupation of occupationsArray"
+            [value]="occupation.occupationName"
+          >
+            {{ occupation.occupationName }}
+          </option>
+        </select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          required
+          matInput
+          value="{{ clientInfo.password }}"
+          [(ngModel)]="clientInfo.password"
+          name="password"
+          type="password"
+        />
+      </mat-form-field>
+    </fieldset>
+  </div>
+  <div mat-dialog-actions class="flex-row justify-between">
+    <app-file-upload
+      [title]="'display picture'"
+      name="displayPic"
+    ></app-file-upload>
+    <button class="submit-button" id="submit-button" (click)="submit()">
+      Submit Changes
+    </button>
+  </div>
+</form>

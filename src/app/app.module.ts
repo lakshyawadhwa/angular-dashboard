@@ -45,6 +45,10 @@ import { AdvisorSitesComponent } from './advisor/advisor-sites/advisor-sites.com
 import { AdvisorSiteCardsComponent } from './advisor/advisor-site-cards/advisor-site-cards.component';
 import { ViewSiteQueriesComponent } from './advisor/view-site-queries/view-site-queries.component';
 import { FileUploadComponent } from './common/file-upload/file-upload.component';
+import { EditProfileComponent } from './end-user/edit-profile/edit-profile.component';
+import { FormPrakritiPersonComponent } from './advisor/forms/form-prakriti-person/form-prakriti-person.component';
+import { FormPrakritiBuildingComponent } from './advisor/forms/form-prakriti-building/form-prakriti-building.component';
+import { FormPrakritiSuggestionComponent } from './advisor/forms/form-prakriti-suggestion/form-prakriti-suggestion.component';
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -71,6 +75,10 @@ import { FileUploadComponent } from './common/file-upload/file-upload.component'
     AdvisorSiteCardsComponent,
     ViewSiteQueriesComponent,
     FileUploadComponent,
+    EditProfileComponent,
+    FormPrakritiPersonComponent,
+    FormPrakritiBuildingComponent,
+    FormPrakritiSuggestionComponent,
   ],
   imports: [
     BrowserModule,
