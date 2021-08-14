@@ -15,18 +15,9 @@
     <ng-container *ngFor="let box of boxArray" (ngSubmit)="submitForm()">
       <tr>
         <td aria-colspan="1">
-          {{ box.heading }}
-          <p>{{ box.subheading }}</p>
+          {{ box }}
         </td>
 
-        <td>
-          <input
-            required
-            name="boxes"
-            value="{{ getValue('boxes', box) }}"
-            (change)="handleInput(box.heading, $event)"
-          />
-        </td>
         <td>
           <input
             required

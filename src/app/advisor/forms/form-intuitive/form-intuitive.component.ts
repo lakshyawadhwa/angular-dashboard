@@ -7,59 +7,26 @@ import {
   SiteInterface,
   UserQuery,
 } from "src/app/services/interfaces";
+
 @Component({
-  selector: "app-form-astro-audit-one",
-  templateUrl: "./form-astro-audit-one.component.html",
-  styleUrls: ["./form-astro-audit-one.component.scss"],
+  selector: "app-form-intuitive",
+  templateUrl: "./form-intuitive.component.html",
+  styleUrls: ["./form-intuitive.component.scss"],
 })
-export class FormAstroAuditOneComponent implements OnInit {
+export class FormIntuitiveComponent implements OnInit {
   constructor(
     private advisorService: AdvisorService,
     private formService: FormService,
     private router: Router
   ) {}
-  headingArray = [
-    "Boxes",
-    "Sign",
-    "Lord Positioning",
-    "Influence (Hits Analysis on Box)",
-    "Best Approach (Rashi.Box)",
-    "Evaluation",
-    "Suggestions",
-  ];
+  headingArray = ["Concerns", "Intiutive Diagnosis", "Suggestions"];
   query: UserQuery;
   siteDetails: SiteInterface;
   postMessage: string;
-  boxArray = [
-    "Power of Manifestation",
-    "Money Potential",
-    "Effective Performance",
-    "Essential Learning",
-    "Effective Solutions",
-    "Service & deliverables",
-    "Fruitful Interaction",
-    "Problems",
-    "Fortune",
-    "Top position & growth",
-    "Achievements",
-    "Spendings",
-  ];
+  zoneArray = this.formService.getZoneArray();
+
   formResponses: Array<AdviceResponse> = [];
   responseArray = [];
-  rashiArray = [
-    { sign: "Aries", description: "Resolve and Safety" },
-    { sign: "Taurus", description: "Consistent, Process" },
-    { sign: "Gemini", description: "Pairs, Networking" },
-    { sign: "Cancer", description: "Intuitive, Care" },
-    { sign: "Leo", description: "Compliances, Reinstating system" },
-    { sign: "Virgo", description: "Organising, Packaging" },
-    { sign: "Libra", description: "Balance, Weighing" },
-    { sign: "Scorpio", description: "Layout, Planning" },
-    { sign: "Sagitarius", description: "What to do, Setting Goals" },
-    { sign: "Capricorn", description: "Strategy and Structuring" },
-    { sign: "Aquarius", description: "Welfare, Humanitanian" },
-    { sign: "Pisces", description: "Meaningful Search" },
-  ];
   ngOnInit(): void {
     this.advisorService.advisorForm.subscribe((res: any) => {
       if (res.query && res.siteDetails) {
@@ -70,14 +37,18 @@ export class FormAstroAuditOneComponent implements OnInit {
       }
     });
     this.formService
-      .getForm(this.query.queryId, this.siteDetails.siteId, "LEVEL_1_I_ASTRO_1")
+      .getForm(
+        this.query.queryId,
+        this.siteDetails.siteId,
+        "LEVEL_1_K_INTUITIVE"
+      )
       .subscribe((res) => {
         this.formResponses = res;
       });
   }
   submitForm() {
     this.responseArray.map((response) => {
-      response["level"] = "LEVEL_1_I_ASTRO_1";
+      response["level"] = "LEVEL_1_K_INTUITIVE";
       response["userQuery"] = this.query;
     });
     this.formService.postForm(this.responseArray).subscribe((res) => {
@@ -86,14 +57,15 @@ export class FormAstroAuditOneComponent implements OnInit {
     });
   }
   getValue(name, zone) {
+    console.log(this.formResponses);
     const field = this.formResponses.find(
       (field) => field.zone === zone.heading
     );
+    console.log(name, zone, field);
     if (field) {
       return field[name];
     }
   }
-
   handleInput(heading, event) {
     var result = this.responseArray.find((obj) => {
       return obj.zone === heading;

@@ -14,34 +14,20 @@
     </tr>
     <ng-container *ngFor="let zone of zoneArray" (ngSubmit)="submitForm()">
       <tr>
-        <td aria-colspan="1">
-          {{ zone.heading }}
-          <p>{{ zone.subheading }}</p>
-        </td>
-
         <td>
           <input
             type="text"
             required
-            name="32OuterDevta"
-            value="{{ getValue('32OuterDevta', zone) }}"
-            (change)="handleInput(zone.heading, $event)"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            required
-            name="outerDevta"
-            value="{{ getValue('outerDevta', zone) }}"
+            name="concerns "
+            value="{{ getValue('concerns ', zone) }}"
             (change)="handleInput(zone.heading, $event)"
           />
         </td>
         <td>
           <input
             required
-            name="evaluation"
-            value="{{ getValue('evaluation', zone) }}"
+            name="intuitiveDiagnosis"
+            value="{{ getValue('intuitiveDiagnosis', zone) }}"
             (change)="handleInput(zone.heading, $event)"
           />
         </td>

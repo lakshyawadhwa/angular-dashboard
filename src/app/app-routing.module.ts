@@ -1,3 +1,6 @@
+import { FormDevtaTwoComponent } from "./advisor/forms/form-devta-two/form-devta-two.component";
+import { FormDevtaOneComponent } from "./advisor/forms/form-devta-one/form-devta-one.component";
+import { FormIntuitiveComponent } from "./advisor/forms/form-intuitive/form-intuitive.component";
 import { FormFiveElementsComponent } from "./advisor/forms/form-five-elements/form-five-elements.component";
 import { AdvisorSitesComponent } from "./advisor/advisor-sites/advisor-sites.component";
 import { FormLevelOneComponent } from "./advisor/forms/form-level-one/form-level-one.component";
@@ -23,6 +26,11 @@ import { FormPrakritiSuggestionComponent } from "./advisor/forms/form-prakriti-s
 import { FormActivityComponent } from "./advisor/forms/form-activity/form-activity.component";
 import { FormUtilityComponent } from "./advisor/forms/form-utility/form-utility.component";
 import { FormObjectsComponent } from "./advisor/forms/form-objects/form-objects.component";
+import { FormMvRemediesComponent } from "./advisor/forms/form-mv-remedies/form-mv-remedies.component";
+import { FormAstroAuditOneComponent } from "./advisor/forms/form-astro-audit-one/form-astro-audit-one.component";
+import { FormAstroAuditThreeComponent } from "./advisor/forms/form-astro-audit-three/form-astro-audit-three.component";
+import { FormAstroAuditTwoComponent } from "./advisor/forms/form-astro-audit-two/form-astro-audit-two.component";
+import { FormMarmaComponent } from "./advisor/forms/form-marma/form-marma.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -66,6 +74,14 @@ const routes: Routes = [
       { path: "form-1-e", component: FormActivityComponent },
       { path: "form-1-f", component: FormUtilityComponent },
       { path: "form-1-g", component: FormObjectsComponent },
+      { path: "form-1-h", component: FormMvRemediesComponent },
+      { path: "form-1-i-1", component: FormAstroAuditOneComponent },
+      { path: "form-1-i-2", component: FormAstroAuditTwoComponent },
+      { path: "form-1-i-3", component: FormAstroAuditThreeComponent },
+      { path: "form-1-j", component: FormMarmaComponent },
+      { path: "form-1-j-1", component: FormDevtaTwoComponent },
+      { path: "form-1-k", component: FormIntuitiveComponent },
+      { path: "form-1-k-1", component: FormDevtaOneComponent },
     ],
   },
 ];

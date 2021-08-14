@@ -73,18 +73,14 @@ export class FormMarmaComponent implements OnInit {
       }
     });
     this.formService
-      .getForm(
-        this.query.queryId,
-        this.siteDetails.siteId,
-        "LEVEL_1_E_ACTIVITY"
-      )
+      .getForm(this.query.queryId, this.siteDetails.siteId, "LEVEL_1_J_MARMA")
       .subscribe((res) => {
         this.formResponses = res;
       });
   }
   submitForm() {
     this.responseArray.map((response) => {
-      response["level"] = "LEVEL_1_E_ACTIVITY";
+      response["level"] = "LEVEL_1_J_MARMA";
       response["userQuery"] = this.query;
     });
     this.formService.postForm(this.responseArray).subscribe((res) => {

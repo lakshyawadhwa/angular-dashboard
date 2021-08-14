@@ -45,7 +45,7 @@ export class FormMvRemediesComponent implements OnInit {
       .getForm(
         this.query.queryId,
         this.siteDetails.siteId,
-        "LEVEL_1_E_ACTIVITY"
+        "LEVEL_1_H_REMEDIES"
       )
       .subscribe((res) => {
         this.formResponses = res;
@@ -53,7 +53,7 @@ export class FormMvRemediesComponent implements OnInit {
   }
   submitForm() {
     this.responseArray.map((response) => {
-      response["level"] = "LEVEL_1_E_ACTIVITY";
+      response["level"] = "LEVEL_1_H_REMEDIES";
       response["userQuery"] = this.query;
     });
     this.formService.postForm(this.responseArray).subscribe((res) => {

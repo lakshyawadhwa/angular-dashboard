@@ -247,3 +247,10 @@ table {
     text-align: center;
   }
 }
+ul {
+  margin: 1rem;
+  /* display: flex; */
+  width: 100vh;
+  margin-left: 0;
+  column-count: 3;
+}

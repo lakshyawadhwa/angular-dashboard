@@ -60,6 +60,7 @@ import { FormAstroAuditThreeComponent } from './advisor/forms/form-astro-audit-t
 import { FormMarmaComponent } from './advisor/forms/form-marma/form-marma.component';
 import { FormDevtaOneComponent } from './advisor/forms/form-devta-one/form-devta-one.component';
 import { FormDevtaTwoComponent } from './advisor/forms/form-devta-two/form-devta-two.component';
+import { FormIntuitiveComponent } from './advisor/forms/form-intuitive/form-intuitive.component';
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -101,6 +102,7 @@ import { FormDevtaTwoComponent } from './advisor/forms/form-devta-two/form-devta
     FormMarmaComponent,
     FormDevtaOneComponent,
     FormDevtaTwoComponent,
+    FormIntuitiveComponent,
   ],
   imports: [
     BrowserModule,
