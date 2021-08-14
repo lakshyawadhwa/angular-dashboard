@@ -4,6 +4,7 @@ import { BaseService } from "./../../services/base-service/base.service";
 import { Component, OnInit } from "@angular/core";
 import { clientOccupation } from "src/app/services/interfaces";
 import { ClientIdDialogComponent } from "../client-id-dialog/client-id-dialog.component";
+import { Binary } from "@angular/compiler";
 
 @Component({
   selector: "app-sign-up",
@@ -22,6 +23,7 @@ export class SignUpComponent implements OnInit {
   occupationsArray: Array<clientOccupation>;
   selectedOccupation: string;
   password: string;
+  clientDisplayPic: any;
   ngOnInit(): void {
     this.clientService.getOccupations().subscribe((res) => {
       this.occupationsArray = res;
@@ -39,7 +41,7 @@ export class SignUpComponent implements OnInit {
       clientName: this.clientName,
       clientMobile: this.clientMobile,
       clientEmail: this.clientEmail,
-      clientDisplayPic: "client",
+      clientDisplayPic: null,
       clientPOC: "clientPOC",
       occupation: this.getOccupationObject(),
       password: this.password,

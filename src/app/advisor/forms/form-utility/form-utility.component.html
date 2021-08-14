@@ -1,0 +1,54 @@
+<div class="table-wrapper flex-column">
+  <h1 *ngIf="query">
+    Query: {{ query.queryId }} - {{ query.masterConcern.concernName }}
+  </h1>
+  <h1 *ngIf="siteDetails">
+    Site: {{ siteDetails.siteName }} - {{ siteDetails.siteAddress }}
+  </h1>
+  <p class="success-msg" *ngIf="postMessage">
+    {{ postMessage }}
+  </p>
+  <table>
+    <tr>
+      <th *ngFor="let heading of headingArray">{{ heading }}</th>
+    </tr>
+    <ng-container *ngFor="let zone of zoneArray" (ngSubmit)="submitForm()">
+      <tr>
+        <td aria-colspan="1">
+          {{ zone.heading }}
+          <p>{{ zone.subheading }}</p>
+        </td>
+
+        <td>
+          <input
+            required
+            name="utility"
+            value="{{ getValue('utility', zone) }}"
+            (change)="handleInput(zone.heading, $event)"
+          />
+        </td>
+        <td>
+          <input
+            required
+            name="evaluation"
+            value="{{ getValue('evaluation', zone) }}"
+            (change)="handleInput(zone.heading, $event)"
+          />
+        </td>
+        <td>
+          <input
+            required
+            name="suggestions"
+            value="{{ getValue('suggestions', zone) }}"
+            (change)="handleInput(zone.heading, $event)"
+          />
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+  <h2>Activity</h2>
+  <ul>
+    <li *ngFor="let data of utilityArray">{{ data }}</li>
+  </ul>
+  <button class="submit-button" (click)="submitForm()">SUBMIT</button>
+</div>

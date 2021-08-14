@@ -49,6 +49,17 @@ import { EditProfileComponent } from './end-user/edit-profile/edit-profile.compo
 import { FormPrakritiPersonComponent } from './advisor/forms/form-prakriti-person/form-prakriti-person.component';
 import { FormPrakritiBuildingComponent } from './advisor/forms/form-prakriti-building/form-prakriti-building.component';
 import { FormPrakritiSuggestionComponent } from './advisor/forms/form-prakriti-suggestion/form-prakriti-suggestion.component';
+import { FormFiveElementsComponent } from './advisor/forms/form-five-elements/form-five-elements.component';
+import { FormActivityComponent } from './advisor/forms/form-activity/form-activity.component';
+import { FormUtilityComponent } from './advisor/forms/form-utility/form-utility.component';
+import { FormObjectsComponent } from './advisor/forms/form-objects/form-objects.component';
+import { FormMvRemediesComponent } from './advisor/forms/form-mv-remedies/form-mv-remedies.component';
+import { FormAstroAuditOneComponent } from './advisor/forms/form-astro-audit-one/form-astro-audit-one.component';
+import { FormAstroAuditTwoComponent } from './advisor/forms/form-astro-audit-two/form-astro-audit-two.component';
+import { FormAstroAuditThreeComponent } from './advisor/forms/form-astro-audit-three/form-astro-audit-three.component';
+import { FormMarmaComponent } from './advisor/forms/form-marma/form-marma.component';
+import { FormDevtaOneComponent } from './advisor/forms/form-devta-one/form-devta-one.component';
+import { FormDevtaTwoComponent } from './advisor/forms/form-devta-two/form-devta-two.component';
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -79,6 +90,17 @@ import { FormPrakritiSuggestionComponent } from './advisor/forms/form-prakriti-s
     FormPrakritiPersonComponent,
     FormPrakritiBuildingComponent,
     FormPrakritiSuggestionComponent,
+    FormFiveElementsComponent,
+    FormActivityComponent,
+    FormUtilityComponent,
+    FormObjectsComponent,
+    FormMvRemediesComponent,
+    FormAstroAuditOneComponent,
+    FormAstroAuditTwoComponent,
+    FormAstroAuditThreeComponent,
+    FormMarmaComponent,
+    FormDevtaOneComponent,
+    FormDevtaTwoComponent,
   ],
   imports: [
     BrowserModule,

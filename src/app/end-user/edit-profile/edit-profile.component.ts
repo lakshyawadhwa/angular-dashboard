@@ -19,15 +19,22 @@ export class EditProfileComponent implements OnInit {
     private baseService: BaseService
   ) {}
   occupationsArray: Array<clientOccupation>;
-  selectedOccupation;
   postResponse: boolean;
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
+  selectedOccupation = this.clientInfo.occupation.occupationName;
   postMessage: string;
   formData = new FormData();
 
   ngOnInit(): void {
     this.clientService.getOccupations().subscribe((res) => {
       this.occupationsArray = res;
+    });
+    console.log("occupation", this.clientInfo);
+    window.addEventListener("storage", (event) => {
+      console.log("userinfo:", event);
+      if (event.key === "userinfo") {
+        this.clientInfo = JSON.parse(localStorage.getItem("userinfo"));
+      }
     });
   }
 
@@ -48,8 +55,16 @@ export class EditProfileComponent implements OnInit {
       password: this.clientInfo.password,
     };
 
-    this.clientService.postClient(body).subscribe((res) => {
-      this.uploadDisplayPicture(this.formData);
+    this.clientService.postClient(body).subscribe((res: any) => {
+      if (this.formData.get("file")) {
+        this.uploadDisplayPicture(this.formData);
+      } else {
+        localStorage.setItem("userinfo", JSON.stringify(res));
+        window.dispatchEvent(new Event("changedProfileObject"));
+        setTimeout(() => {
+          this.dialogRef.close();
+        }, 1500);
+      }
     });
   }
   onFileSelected(event) {
@@ -64,7 +79,8 @@ export class EditProfileComponent implements OnInit {
     let url = environment.url + APIConfig.uploadProfilePic;
     this.baseService.postFile(url, form).subscribe((res) => {
       this.postResponse = true;
-      localStorage.setItem("userinfo", JSON.stringify(res));
+      localStorage.setItem("userinfo", res);
+      window.dispatchEvent(new Event("changedProfileObject"));
       setTimeout(() => {
         this.dialogRef.close();
       }, 1500);

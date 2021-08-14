@@ -1,0 +1,83 @@
+<div class="table-wrapper flex-column">
+  <h1 *ngIf="query">
+    Query: {{ query.queryId }} - {{ query.masterConcern.concernName }}
+  </h1>
+  <h1 *ngIf="siteDetails">
+    Site: {{ siteDetails.siteName }} - {{ siteDetails.siteAddress }}
+  </h1>
+  <p class="success-msg" *ngIf="postMessage">
+    {{ postMessage }}
+  </p>
+  <table>
+    <tr>
+      <th *ngFor="let heading of headingArray">{{ heading }}</th>
+    </tr>
+    <ng-container *ngFor="let box of boxArray" (ngSubmit)="submitForm()">
+      <tr>
+        <td aria-colspan="1">
+          {{ box.heading }}
+          <p>{{ box.subheading }}</p>
+        </td>
+
+        <td>
+          <input
+            required
+            name="boxes"
+            value="{{ getValue('boxes', box) }}"
+            (change)="handleInput(box.heading, $event)"
+          />
+        </td>
+        <td>
+          <input
+            required
+            name="sign"
+            value="{{ getValue('sign', box) }}"
+            (change)="handleInput(box.heading, $event)"
+          />
+        </td>
+        <td>
+          <input
+            required
+            name="mvDirection"
+            value="{{ getValue('mvDirection', box) }}"
+            (change)="handleInput(box.heading, $event)"
+          />
+        </td>
+        <td>
+          <input
+            required
+            name="activity"
+            value="{{ getValue('activity', box) }}"
+            (change)="handleInput(box.heading, $event)"
+          />
+        </td>
+        <td>
+          <input
+            required
+            name="utility"
+            value="{{ getValue('utility', box) }}"
+            (change)="handleInput(box.heading, $event)"
+          />
+        </td>
+        <td>
+          <input
+            required
+            name="evaluation"
+            value="{{ getValue('evaluation', box) }}"
+            (change)="handleInput(box.heading, $event)"
+          />
+        </td>
+        <td>
+          <input
+            required
+            name="suggestions"
+            value="{{ getValue('suggestions', box) }}"
+            (change)="handleInput(box.heading, $event)"
+          />
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+
+  <button class="submit-button" (click)="submitForm()">SUBMIT</button>
+</div>

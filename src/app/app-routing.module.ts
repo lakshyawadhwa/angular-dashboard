@@ -1,3 +1,4 @@
+import { FormFiveElementsComponent } from "./advisor/forms/form-five-elements/form-five-elements.component";
 import { AdvisorSitesComponent } from "./advisor/advisor-sites/advisor-sites.component";
 import { FormLevelOneComponent } from "./advisor/forms/form-level-one/form-level-one.component";
 import { NgModule } from "@angular/core";
@@ -19,6 +20,9 @@ import { FormLevelOneBComponent } from "./advisor/forms/form-level-one-b/form-le
 import { FormPrakritiPersonComponent } from "./advisor/forms/form-prakriti-person/form-prakriti-person.component";
 import { FormPrakritiBuildingComponent } from "./advisor/forms/form-prakriti-building/form-prakriti-building.component";
 import { FormPrakritiSuggestionComponent } from "./advisor/forms/form-prakriti-suggestion/form-prakriti-suggestion.component";
+import { FormActivityComponent } from "./advisor/forms/form-activity/form-activity.component";
+import { FormUtilityComponent } from "./advisor/forms/form-utility/form-utility.component";
+import { FormObjectsComponent } from "./advisor/forms/form-objects/form-objects.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -58,6 +62,10 @@ const routes: Routes = [
         component: FormPrakritiSuggestionComponent,
       },
       { path: "form-1-c", component: FormLevelOneBComponent },
+      { path: "form-1-d", component: FormFiveElementsComponent },
+      { path: "form-1-e", component: FormActivityComponent },
+      { path: "form-1-f", component: FormUtilityComponent },
+      { path: "form-1-g", component: FormObjectsComponent },
     ],
   },
 ];

@@ -14,7 +14,7 @@ export interface clientObject {
   clientName: string;
   clientMobile: string;
   clientEmail: string;
-  clientDisplayPic: string;
+  clientDisplayPic: any;
   clientPOC: string;
   occupation: clientOccupation;
   password: string;

@@ -1,0 +1,162 @@
+<div class="table-wrapper flex-column">
+  <h1 *ngIf="query">
+    Query: {{ query.queryId }} - {{ query.masterConcern.concernName }}
+  </h1>
+  <h1 *ngIf="siteDetails">
+    Site: {{ siteDetails.siteName }} - {{ siteDetails.siteAddress }}
+  </h1>
+  <p class="success-msg" *ngIf="postMessage">
+    {{ postMessage }}
+  </p>
+  <table>
+    <tr>
+      <th *ngFor="let heading of headingArray">{{ heading }}</th>
+    </tr>
+    <ng-container *ngFor="let zone of zoneArray" (ngSubmit)="submitForm()">
+      <tr>
+        <td aria-colspan="1">
+          {{ zone.heading }}
+          <p>{{ zone.subheading }}</p>
+        </td>
+
+        <td>
+          <input
+            required
+            name="fiveElements"
+            value="{{ getValue('fiveElements', zone) }}"
+            (change)="handleInput(zone.heading, $event)"
+          />
+        </td>
+        <td>
+          <input
+            required
+            name="evaluation"
+            value="{{ getValue('evaluation', zone) }}"
+            (change)="handleInput(zone.heading, $event)"
+          />
+        </td>
+        <td>
+          <input
+            required
+            name="suggestions"
+            value="{{ getValue('suggestions', zone) }}"
+            (change)="handleInput(zone.heading, $event)"
+          />
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+  <h1>Checklist</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>5 Elements Objects / Shapes</th>
+        <th>5 Elements Attributes</th>
+        <th>MV Techniques</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Water Element:<br /><span>Boring</span> <br /><span>UG Tank</span
+          ><br /><span>Pit / Septic Tank</span><br /><span
+            >Rain Water Harvesting</span
+          ><br /><span>Wavy Design</span> <br /><span>Pool</span><br /><span
+            >Earthing</span
+          >
+        </td>
+        <td>
+          Water<br /><span
+            >Emotions,Flow, Clarity, Nutrients, Healing, Resources</span
+          >
+        </td>
+        <td>
+          <span>Relocation</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Air Element:<br /><span>Garden &amp; Plants</span><br /><span
+            >Balcony</span
+          ><br /><span>Shaft</span><br /><span>Rectangle / Oval</span>
+        </td>
+        <td>Air<br /><span>Growth, Rotational Movement</span></td>
+        <td>
+          <span>Facing</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Fire Element:<br /><span>Gas Burner</span><br /><span
+            >Fire Position</span
+          >
+          <br /><span>Triangle</span>
+        </td>
+        <td>Fire<br /><span>Driving Force, Zeal &amp; Protection</span></td>
+        <td>
+          <span>Tattva Shudhi</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Earth Element:<br /><span>Storage</span><br /><span>Yellow Color</span
+          ><br /><span>OH Tank</span><br /><span>Square</span>
+        </td>
+        <td>Earth<br /><span>Stability, Balance</span></td>
+        <td>
+          <span>Colour Therapy</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Space Element:<br /><span>Vacant Area</span><br /><span
+            >Open to Sky</span
+          ><br /><span>Round / Circle / Dot</span>
+        </td>
+        <td>Space<br /><span>Expansion, Gains</span></td>
+        <td>
+          <span>Elemental Strip</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Walls</td>
+        <td></td>
+        <td>
+          <span>Space Surgery</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Curtains</td>
+        <td></td>
+        <td>
+          <span>Space Extension</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Lights</td>
+        <td></td>
+        <td>
+          <span>Plants / Landscape</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Mats</td>
+        <td></td>
+        <td>
+          <span>Enlightening</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Dustbin</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Carpet</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="submit-button" (click)="submitForm()">SUBMIT</button>
+</div>

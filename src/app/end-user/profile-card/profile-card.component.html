@@ -6,12 +6,12 @@
     <div id="profileImage" *ngIf="!clientInfo.clientDisplayPic">
       {{ createImage() }}
     </div>
-
     <img
-      class="profileImg"
-      src="{{ clientInfo.clientDisplayPic }}"
       *ngIf="clientInfo.clientDisplayPic"
+      class="profileImg"
+      src="{{ createBase64Image() }}"
     />
+
     <div id="main-info">
       <p class="heading-profile">{{ clientInfo.clientName }}</p>
       <span>ID-{{ clientInfo.clientId }}</span>

@@ -10,19 +10,15 @@ import { EditProfileComponent } from "../edit-profile/edit-profile.component";
 })
 export class ProfileCardComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
-  clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
+  clientInfo = JSON.parse(localStorage.getItem("userinfo"));
 
   ngOnInit(): void {
-    console.log(
-      this.clientInfo.clientDisplayPic ? true : false,
-      this.clientInfo.clientDisplayPic
-    );
+    console.log("occupation", this.clientInfo);
 
-    window.addEventListener("storage", (event) => {
+    window.addEventListener("changedProfileObject", (event) => {
       console.log("userinfo:", event);
-      if (event.key === "userinfo") {
-        this.clientInfo = JSON.parse(localStorage.getItem("userinfo"));
-      }
+
+      this.clientInfo = JSON.parse(localStorage.getItem("userinfo"));
     });
   }
   editProfile() {
@@ -36,5 +32,8 @@ export class ProfileCardComponent implements OnInit {
     var firstName = this.clientInfo.clientName;
     var intials = firstName.charAt(0);
     return intials;
+  }
+  createBase64Image() {
+    return "data:image/png;base64," + this.clientInfo.clientDisplayPic;
   }
 }
