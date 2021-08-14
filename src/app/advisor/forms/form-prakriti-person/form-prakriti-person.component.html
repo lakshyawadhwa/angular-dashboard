@@ -39,6 +39,10 @@
         </td>
       </tr>
     </ng-container>
+    <h2>Checklist</h2>
+    <ul>
+      <li *ngFor="let data of activity">{{ data }}</li>
+    </ul>
   </table>
   <button class="submit-button" (click)="submitForm()">SUBMIT</button>
 </div>

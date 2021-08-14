@@ -30,7 +30,7 @@
     </fieldset>
   </div>
   <div class="divider"></div>
-  <div mat-dialog-actions class="mb-5">
+  <div mat-dialog-actions class="view-margin-bottom">
     <h1>Advice</h1>
     <div class="button-container flex-row">
       <div id="forms-level-1">
@@ -45,28 +45,31 @@
             Level 1A- Entrance
           </button>
           <button
-            (click)="triggerForm('form-1-b')"
+            (click)="triggerForm('form-1-b-prakriti')"
             ngClass="add-button add-form"
           >
-            Level 1B- Dishabal
+            Level 1B- Prakriti
+          </button>
+          <button
+            (click)="triggerForm('form-1-b-building')"
+            ngClass="add-button add-form"
+          >
+            Level 1B- Prakriti Building
+          </button>
+          <button
+            (click)="triggerForm('form-1-b-suggestion')"
+            ngClass="add-button add-form"
+          >
+            Level 1B- Prakriti suggestion
+          </button>
+          <button
+            (click)="triggerForm('form-1-c')"
+            ngClass="add-button add-form"
+          >
+            Level 1C- Dishabal
           </button>
         </div>
       </div>
-      <button ngClass="add-button add-form" (click)="toggleShowForm(1)">
-        Level 2
-      </button>
-      <button ngClass="add-button add-form" (click)="toggleShowForm(2)">
-        Level 3
-      </button>
-      <button ngClass="add-button add-form" (click)="toggleShowForm(3)">
-        Level 4
-      </button>
-      <button ngClass="add-button add-form" (click)="toggleShowForm(4)">
-        Level 5
-      </button>
-      <button ngClass="add-button add-form" (click)="toggleShowForm(5)">
-        Level 6
-      </button>
     </div>
   </div>
 </form>

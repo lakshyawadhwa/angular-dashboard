@@ -24,7 +24,7 @@ export class FormPrakritiPersonComponent implements OnInit {
   siteDetails: SiteInterface;
   postMessage: string;
   zoneArray = this.formService.getZoneArray();
-
+  activity = ["Bedroom", "Personal Belongings", "Office /Work Area"];
   formResponses: Array<AdviceResponse> = [];
   responseArray = [];
   ngOnInit(): void {

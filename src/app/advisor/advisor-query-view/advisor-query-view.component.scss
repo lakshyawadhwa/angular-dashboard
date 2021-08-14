@@ -13,5 +13,11 @@ mat-form-field {
   div {
     position: absolute;
     display: flex;
+    flex-wrap: wrap;
+    max-width: 75%;
   }
+}
+
+.view-margin-bottom {
+  margin-bottom: 14rem;
 }

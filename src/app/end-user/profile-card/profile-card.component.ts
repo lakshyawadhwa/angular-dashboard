@@ -19,6 +19,7 @@ export class ProfileCardComponent implements OnInit {
     );
 
     window.addEventListener("storage", (event) => {
+      console.log("userinfo:", event);
       if (event.key === "userinfo") {
         this.clientInfo = JSON.parse(localStorage.getItem("userinfo"));
       }

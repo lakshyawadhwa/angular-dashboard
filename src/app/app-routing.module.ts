@@ -16,6 +16,9 @@ import { ProfileCardComponent } from "./end-user/profile-card/profile-card.compo
 import { AdvisorQueriesComponent } from "./advisor/advisor-queries/advisor-queries.component";
 import { AdvisorUserLayoutComponent } from "./common/advisor-user-layout/advisor-user-layout.component";
 import { FormLevelOneBComponent } from "./advisor/forms/form-level-one-b/form-level-one-b.component";
+import { FormPrakritiPersonComponent } from "./advisor/forms/form-prakriti-person/form-prakriti-person.component";
+import { FormPrakritiBuildingComponent } from "./advisor/forms/form-prakriti-building/form-prakriti-building.component";
+import { FormPrakritiSuggestionComponent } from "./advisor/forms/form-prakriti-suggestion/form-prakriti-suggestion.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -48,7 +51,13 @@ const routes: Routes = [
       { path: "queries", component: AdvisorQueriesComponent },
       { path: "sites", component: AdvisorSitesComponent },
       { path: "form-1-a", component: FormLevelOneComponent },
-      { path: "form-1-b", component: FormLevelOneBComponent },
+      { path: "form-1-b-prakriti", component: FormPrakritiPersonComponent },
+      { path: "form-1-b-building", component: FormPrakritiBuildingComponent },
+      {
+        path: "form-1-b-suggestion",
+        component: FormPrakritiSuggestionComponent,
+      },
+      { path: "form-1-c", component: FormLevelOneBComponent },
     ],
   },
 ];
