@@ -14,7 +14,7 @@ export const APIConfig = {
   createClient: "/client",
   postForm: "/advice",
   getForms: "/advice/",
-  uploadFile: "/files/query-pdfs",
+  uploadFile: "/files/query-pdfs/",
   uploadProfilePic: "/files/profile-pic",
   resolveQuery: "/user-query/resolve-query/",
 };
