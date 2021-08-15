@@ -1,4 +1,7 @@
 <mat-card class="query-card" *ngIf="siteDetails" (click)="openDialog()">
+  <button class="add-button" id="resolve-button" (click)="resolveQuery()">
+    Resolve Query
+  </button>
   <mat-card-title>{{ siteDetails.siteName }}</mat-card-title>
   <mat-card-subtitle>Address -{{ siteDetails.siteAddress }}</mat-card-subtitle>
 

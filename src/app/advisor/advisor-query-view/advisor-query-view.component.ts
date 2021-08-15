@@ -17,6 +17,13 @@ export class AdvisorQueryViewComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
   showForms = [false, false, false, false, false, false];
+  uploadMapArray = [
+    { name: "PartLayout", title: "Part Layout" },
+    { name: "GradedMap", title: "Graded Map" },
+    { name: "SquareGridMap", title: "Square Grid Map" },
+    { name: "AssociatedPeople", title: "Associated People" },
+  ];
+
   @Input() selectedQuery: UserQuery;
   formControl: FormControl;
   queryView: FormGroup = new FormGroup({});

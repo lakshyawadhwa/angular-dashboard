@@ -29,6 +29,18 @@
       </mat-form-field>
     </fieldset>
   </div>
+  <h2>Uploaded documents</h2>
+  <div class="flex-row">
+    <div *ngFor="let map of uploadMapArray" class="flex-column m-1">
+      <h2>{{ map.title }}</h2>
+      <app-get-uploaded-doc
+        [clientId]="data.query.client.clientId"
+        [siteId]="data.siteDetails.siteId"
+        [documentType]="map.name"
+        [queryId]="data.query.queryId"
+      ></app-get-uploaded-doc>
+    </div>
+  </div>
   <div class="divider"></div>
   <div mat-dialog-actions class="view-margin-bottom">
     <h1>Advice</h1>

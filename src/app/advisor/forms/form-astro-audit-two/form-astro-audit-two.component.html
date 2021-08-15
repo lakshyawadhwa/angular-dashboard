@@ -12,58 +12,58 @@
     <tr>
       <th *ngFor="let heading of headingArray">{{ heading }}</th>
     </tr>
-    <ng-container *ngFor="let box of boxArray" (ngSubmit)="submitForm()">
+    <ng-container *ngFor="let zone of boxArray" (ngSubmit)="submitForm()">
       <tr>
         <td aria-colspan="1">
-          {{ box }}
+          {{ zone }}
         </td>
 
         <td>
           <input
             required
             name="mvDirections"
-            value="{{ getValue('mvDirections', box) }}"
-            (change)="handleInput(box.heading, $event)"
+            value="{{ getValue('mvDirections', zone) }}"
+            (change)="handleInput(zone, $event)"
           />
         </td>
         <td>
           <input
             required
             name="planets"
-            value="{{ getValue('planets', box) }}"
-            (change)="handleInput(box.heading, $event)"
+            value="{{ getValue('planets', zone) }}"
+            (change)="handleInput(zone, $event)"
           />
         </td>
         <td>
           <input
             required
             name="influence"
-            value="{{ getValue('influence', box) }}"
-            (change)="handleInput(box.heading, $event)"
+            value="{{ getValue('influence', zone) }}"
+            (change)="handleInput(zone, $event)"
           />
         </td>
         <td>
           <input
             required
             name="presentObject"
-            value="{{ getValue('presentObject', box) }}"
-            (change)="handleInput(box.heading, $event)"
+            value="{{ getValue('presentObject', zone) }}"
+            (change)="handleInput(zone, $event)"
           />
         </td>
         <td>
           <input
             required
             name="evaluation"
-            value="{{ getValue('evaluation', box) }}"
-            (change)="handleInput(box.heading, $event)"
+            value="{{ getValue('evaluation', zone) }}"
+            (change)="handleInput(zone, $event)"
           />
         </td>
         <td>
           <input
             required
             name="suggestions"
-            value="{{ getValue('suggestions', box) }}"
-            (change)="handleInput(box.heading, $event)"
+            value="{{ getValue('suggestions', zone) }}"
+            (change)="handleInput(zone, $event)"
           />
         </td>
       </tr>

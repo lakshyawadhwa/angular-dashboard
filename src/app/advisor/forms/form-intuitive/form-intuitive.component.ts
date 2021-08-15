@@ -23,7 +23,9 @@ export class FormIntuitiveComponent implements OnInit {
   query: UserQuery;
   siteDetails: SiteInterface;
   postMessage: string;
-  zoneArray = this.formService.getZoneArray();
+  zoneArray = Array(16)
+    .fill(1)
+    .map((x, i) => i);
 
   formResponses: Array<AdviceResponse> = [];
   responseArray = [];

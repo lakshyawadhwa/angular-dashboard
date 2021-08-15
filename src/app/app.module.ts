@@ -61,6 +61,7 @@ import { FormMarmaComponent } from './advisor/forms/form-marma/form-marma.compon
 import { FormDevtaOneComponent } from './advisor/forms/form-devta-one/form-devta-one.component';
 import { FormDevtaTwoComponent } from './advisor/forms/form-devta-two/form-devta-two.component';
 import { FormIntuitiveComponent } from './advisor/forms/form-intuitive/form-intuitive.component';
+import { GetUploadedDocComponent } from './common/get-uploaded-doc/get-uploaded-doc.component';
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -103,6 +104,7 @@ import { FormIntuitiveComponent } from './advisor/forms/form-intuitive/form-intu
     FormDevtaOneComponent,
     FormDevtaTwoComponent,
     FormIntuitiveComponent,
+    GetUploadedDocComponent,
   ],
   imports: [
     BrowserModule,

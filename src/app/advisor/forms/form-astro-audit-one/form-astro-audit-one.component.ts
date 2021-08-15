@@ -70,14 +70,18 @@ export class FormAstroAuditOneComponent implements OnInit {
       }
     });
     this.formService
-      .getForm(this.query.queryId, this.siteDetails.siteId, "LEVEL_1_I_ASTRO_1")
+      .getForm(
+        this.query.queryId,
+        this.siteDetails.siteId,
+        "LEVEL_1_I_ASTRO_AUDIT_1"
+      )
       .subscribe((res) => {
         this.formResponses = res;
       });
   }
   submitForm() {
     this.responseArray.map((response) => {
-      response["level"] = "LEVEL_1_I_ASTRO_1";
+      response["level"] = "LEVEL_1_I_ASTRO_AUDIT_1";
       response["userQuery"] = this.query;
     });
     this.formService.postForm(this.responseArray).subscribe((res) => {

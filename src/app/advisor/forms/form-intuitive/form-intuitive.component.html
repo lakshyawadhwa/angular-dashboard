@@ -20,7 +20,7 @@
             required
             name="concerns"
             value="{{ getValue('concerns', zone) }}"
-            (change)="handleInput(zone.heading, $event)"
+            (change)="handleInput(zone, $event)"
           />
         </td>
         <td>
@@ -28,7 +28,7 @@
             required
             name="intuitiveDiagnosis"
             value="{{ getValue('intuitiveDiagnosis', zone) }}"
-            (change)="handleInput(zone.heading, $event)"
+            (change)="handleInput(zone, $event)"
           />
         </td>
 
@@ -37,7 +37,7 @@
             required
             name="suggestions"
             value="{{ getValue('suggestions', zone) }}"
-            (change)="handleInput(zone.heading, $event)"
+            (change)="handleInput(zone, $event)"
           />
         </td>
       </tr>

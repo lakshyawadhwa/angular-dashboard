@@ -1,3 +1,4 @@
+import { QueryService } from "src/app/services/query-service/query-service.service";
 import { SiteService } from "./../../services/site-service/site.service";
 import { MatDialog } from "@angular/material/dialog";
 import { AdvisorService } from "./../../services/advisor-service/advisor.service";
@@ -16,7 +17,8 @@ export class AdvisorQueryCardComponent implements OnInit {
     private router: Router,
     private advisorService: AdvisorService,
     private dialog: MatDialog,
-    private siteService: SiteService
+    private siteService: SiteService,
+    private queryService: QueryService
   ) {}
   @Input() query: UserQuery;
   siteDetails: SiteInterface;
@@ -43,5 +45,9 @@ export class AdvisorQueryCardComponent implements OnInit {
       data: { query: this.query, siteDetails: this.siteDetails },
       panelClass: "custom-modalbox",
     });
+  }
+  resolveQuery() {
+    event.stopPropagation();
+    this.queryService.resolveQuery(this.query.queryId).subscribe((res) => {});
   }
 }

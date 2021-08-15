@@ -16,6 +16,7 @@ export const APIConfig = {
   getForms: "/advice/",
   uploadFile: "/files/query-pdfs",
   uploadProfilePic: "/files/profile-pic",
+  resolveQuery: "/user-query/resolve-query/",
 };
 
 export default APIConfig;
