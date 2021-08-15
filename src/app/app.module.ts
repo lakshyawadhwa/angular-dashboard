@@ -62,6 +62,7 @@ import { FormDevtaOneComponent } from './advisor/forms/form-devta-one/form-devta
 import { FormDevtaTwoComponent } from './advisor/forms/form-devta-two/form-devta-two.component';
 import { FormIntuitiveComponent } from './advisor/forms/form-intuitive/form-intuitive.component';
 import { GetUploadedDocComponent } from './common/get-uploaded-doc/get-uploaded-doc.component';
+import { SnackbarComponent } from './common/snackbar/snackbar.component';
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -105,6 +106,7 @@ import { GetUploadedDocComponent } from './common/get-uploaded-doc/get-uploaded-
     FormDevtaTwoComponent,
     FormIntuitiveComponent,
     GetUploadedDocComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,

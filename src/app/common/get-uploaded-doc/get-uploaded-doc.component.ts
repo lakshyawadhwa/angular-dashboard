@@ -23,12 +23,28 @@ export class GetUploadedDocComponent implements OnInit {
       environment.url +
       APIConfig.uploadFile +
       `${this.queryId}/${this.siteId}/${this.clientId}/${this.documentType}`;
-    this.baseService.get(url).subscribe((res) => {
+    this.baseService.getFile(url).subscribe((res) => {
+      console.log(res);
+      this.generatePDF(res);
       if (res) {
-        this.fileAvailable = true;
+        this.baseService.callSnackbar.next({
+          message: "Downloading file",
+          type: "success",
+        });
       } else {
-        this.noFile = true;
+        this.baseService.callSnackbar.next({
+          message: "This document is not vaulted by Client.",
+          type: "error",
+        });
       }
     });
+  }
+  generatePDF(res) {
+    const linkSource = `data:application/pdf;base64,${res}`;
+    const downloadLink = document.createElement("a");
+    const fileName = "abc.pdf";
+    downloadLink.href = linkSource;
+    downloadLink.download = fileName;
+    downloadLink.click();
   }
 }

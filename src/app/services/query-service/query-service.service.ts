@@ -55,8 +55,13 @@ export class QueryService {
   }
   resolveQuery(queryId) {
     let url = environment.url + APIConfig.resolveQuery + queryId;
-    return this.baseService.post(url, {}).pipe(
-      tap(async (res) => {}),
+    return this.baseService.postFile(url, {}).pipe(
+      tap(async (res) => {
+        this.baseService.callSnackbar.next({
+          message: res,
+          type: "success",
+        });
+      }),
       catchError((e) => {
         console.log(e);
         throw e;

@@ -1,0 +1,8 @@
+<ng-container
+  *ngIf="snackbarObject && snackbarObject.message && snackbarObject.type"
+  ><div
+    [ngClass]="snackbarObject.type == 'success' ? 'success-msg' : 'error-msg'"
+  >
+    {{ snackbarObject.message }}
+  </div></ng-container
+>

@@ -55,3 +55,8 @@ export interface masterConcern {
   concernId: number;
   concernName: string;
 }
+
+export interface SnackbarInterface {
+  message: string;
+  type: string;
+}
