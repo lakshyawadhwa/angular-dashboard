@@ -59,10 +59,7 @@ export class FormIntuitiveComponent implements OnInit {
     });
   }
   getValue(name, zone) {
-    console.log(this.formResponses);
-    const field = this.formResponses.find(
-      (field) => field.zone === zone.heading
-    );
+    const field = this.formResponses.find((field) => field.zone == zone);
     console.log(name, zone, field);
     if (field) {
       return field[name];
