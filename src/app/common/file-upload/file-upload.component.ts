@@ -50,7 +50,11 @@ export class FileUploadComponent implements OnInit {
   uploadCall(form: FormData) {
     let url = environment.url + APIConfig.uploadFile;
     this.baseService.postFile(url, form).subscribe((res) => {
-      this.postMessage = res;
+      if (res.toLowerCase() === "file uploaded!") {
+        this.baseService.callSnackbar.next({ message: res, type: "error" });
+      } else {
+        this.baseService.callSnackbar.next({ message: res, type: "success" });
+      }
     });
   }
 }

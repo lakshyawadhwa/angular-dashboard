@@ -21,10 +21,12 @@ export class ViewSiteQueriesComponent implements OnInit {
   formControl: FormControl;
   queryArray: Array<UserQuery>;
   queryView: FormGroup = new FormGroup({});
+  noQueries = false;
   ngOnInit(): void {
     console.log(this.data);
     this.queryService.getQueriesBySite(this.data.siteId).subscribe((res) => {
       this.queryArray = res;
+      if (res.length < 1) this.noQueries = true;
     });
   }
   getDate(time) {

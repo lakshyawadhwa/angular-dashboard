@@ -42,7 +42,7 @@ export class GetUploadedDocComponent implements OnInit {
   generatePDF(res) {
     const linkSource = `data:application/pdf;base64,${res}`;
     const downloadLink = document.createElement("a");
-    const fileName = "abc.pdf";
+    const fileName = `${this.clientId}_${this.queryId}_${this.siteId}_${this.documentType}.pdf`; //ClientId_QueryId_SiteId_Part_Layout;
     downloadLink.href = linkSource;
     downloadLink.download = fileName;
     downloadLink.click();
