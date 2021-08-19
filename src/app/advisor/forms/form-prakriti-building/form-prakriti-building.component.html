@@ -10,6 +10,21 @@
   </p>
   <table>
     <tr>
+      <td>
+        <input
+          disabled
+          placeholder="Person name"
+          [(ngModel)]="clientInfo.clientName"
+        />
+      </td>
+      <td colspan="3">
+        <input
+          placeholder="Buidling/ Plot Prakriti"
+          [(ngModel)]="bldgPrakeiti"
+        />
+      </td>
+    </tr>
+    <tr>
       <th *ngFor="let heading of headingArray">{{ heading }}</th>
     </tr>
     <ng-container *ngFor="let zone of zoneArray" (ngSubmit)="submitForm()">

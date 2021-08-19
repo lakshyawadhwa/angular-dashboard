@@ -18,6 +18,16 @@ export interface clientObject {
   clientPOC: string;
   occupation: clientOccupation;
   password: string;
+  residenceLocation?: string;
+  location?: Location;
+}
+export interface Location {
+  state: string;
+  city: string;
+  subCity: string;
+  mobile: number;
+  pincode: number;
+  googleLocation: string;
 }
 export interface SiteInterface {
   siteId: number;
@@ -28,6 +38,9 @@ export interface SiteInterface {
   siteMapId: number;
   client: clientObject;
   conditionType: string;
+  location: Location;
+  plotArea: number; //sq. ft.
+  coveredArea: number; //sq. ft.
 }
 export interface AdviceResponse {
   dishabal: string | null;

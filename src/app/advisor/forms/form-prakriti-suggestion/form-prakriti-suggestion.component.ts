@@ -30,7 +30,7 @@ export class FormPrakritiSuggestionComponent implements OnInit {
   siteDetails: SiteInterface;
   postMessage: string;
   zoneArray = this.formService.getZoneArray();
-
+  clientInfo = JSON.parse(localStorage.getItem("userinfo"));
   formResponses: Array<AdviceResponse> = [];
   responseArray = [];
   ngOnInit(): void {

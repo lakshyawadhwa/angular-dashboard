@@ -10,6 +10,14 @@
   </p>
   <table>
     <tr>
+      <td>Person Name</td>
+      <td>{{ clientInfo.clientName }}</td>
+      <td>Person Prakriti</td>
+      <td><input /></td>
+      <td>Bldg. / Plot Prakriti :</td>
+      <td><input /></td>
+    </tr>
+    <tr>
       <th *ngFor="let heading of headingArray">{{ heading }}</th>
     </tr>
     <ng-container *ngFor="let zone of zoneArray" (ngSubmit)="submitForm()">
