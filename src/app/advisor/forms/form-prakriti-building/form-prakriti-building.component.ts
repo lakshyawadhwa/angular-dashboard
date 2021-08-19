@@ -24,7 +24,8 @@ export class FormPrakritiBuildingComponent implements OnInit {
   siteDetails: SiteInterface;
   postMessage: string;
   zoneArray = this.formService.getZoneArray();
-
+  bldgPrakeiti: string;
+  clientInfo = JSON.parse(localStorage.getItem("userinfo"));
   formResponses: Array<AdviceResponse> = [];
   responseArray = [];
   ngOnInit(): void {

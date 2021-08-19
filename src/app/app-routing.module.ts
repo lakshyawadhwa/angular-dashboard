@@ -31,6 +31,7 @@ import { FormAstroAuditOneComponent } from "./advisor/forms/form-astro-audit-one
 import { FormAstroAuditThreeComponent } from "./advisor/forms/form-astro-audit-three/form-astro-audit-three.component";
 import { FormAstroAuditTwoComponent } from "./advisor/forms/form-astro-audit-two/form-astro-audit-two.component";
 import { FormMarmaComponent } from "./advisor/forms/form-marma/form-marma.component";
+import { FormWrapperComponent } from "./common/form-wrapper/form-wrapper.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -62,6 +63,13 @@ const routes: Routes = [
       { path: "", component: ProfileCardComponent },
       { path: "queries", component: AdvisorQueriesComponent },
       { path: "sites", component: AdvisorSitesComponent },
+    ],
+  },
+  {
+    path: "form",
+    component: FormWrapperComponent,
+    canActivate: [AuthGuardGuard],
+    children: [
       { path: "form-1-a", component: FormLevelOneComponent },
       { path: "form-1-b-prakriti", component: FormPrakritiPersonComponent },
       { path: "form-1-b-building", component: FormPrakritiBuildingComponent },

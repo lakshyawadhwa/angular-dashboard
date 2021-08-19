@@ -63,6 +63,9 @@ import { FormDevtaTwoComponent } from './advisor/forms/form-devta-two/form-devta
 import { FormIntuitiveComponent } from './advisor/forms/form-intuitive/form-intuitive.component';
 import { GetUploadedDocComponent } from './common/get-uploaded-doc/get-uploaded-doc.component';
 import { SnackbarComponent } from './common/snackbar/snackbar.component';
+import { FormWrapperComponent } from './common/form-wrapper/form-wrapper.component';
+import { AdvisorInfoComponent } from './advisor/forms/advisor-info/advisor-info.component';
+import { QueryResolvingViewComponent } from './advisor/query-resolving-view/query-resolving-view.component';
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -107,6 +110,9 @@ import { SnackbarComponent } from './common/snackbar/snackbar.component';
     FormIntuitiveComponent,
     GetUploadedDocComponent,
     SnackbarComponent,
+    FormWrapperComponent,
+    AdvisorInfoComponent,
+    QueryResolvingViewComponent,
   ],
   imports: [
     BrowserModule,

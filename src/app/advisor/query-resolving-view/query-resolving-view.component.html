@@ -1,0 +1,21 @@
+<app-snackbar></app-snackbar>
+<form (ngSubmit)="onSubmit()">
+  <div mat-dialog-content>
+    <fieldset>
+      <mat-form-field appearance="outline" class="query-text">
+        <mat-label>Resolution Notes</mat-label>
+        <textarea
+          required
+          matInput
+          name="resolutionNotes"
+          [(ngModel)]="resolutionNotes"
+        ></textarea>
+      </mat-form-field>
+    </fieldset>
+  </div>
+  <div mat-dialog-actions class="view-margin-bottom">
+    <div class="button-container flex-row">
+      <button type="submit" class="add-button">Submit</button>
+    </div>
+  </div>
+</form>

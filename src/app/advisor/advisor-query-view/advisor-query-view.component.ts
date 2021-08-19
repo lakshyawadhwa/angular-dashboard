@@ -1,5 +1,6 @@
+import { AdvisorService } from "./../../services/advisor-service/advisor.service";
 import { Component, Inject, Input, OnInit } from "@angular/core";
-import { Form, FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { UserQuery } from "src/app/services/interfaces";
 import * as moment from "moment";
@@ -11,9 +12,9 @@ import { Router } from "@angular/router";
 })
 export class AdvisorQueryViewComponent implements OnInit {
   constructor(
-    private formBuilder: FormBuilder,
     private router: Router,
     private dialogRef: MatDialogRef<AdvisorQueryViewComponent>,
+    private advisorService: AdvisorService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
   showForms = [false, false, false, false, false, false];
@@ -38,5 +39,17 @@ export class AdvisorQueryViewComponent implements OnInit {
   triggerForm(url) {
     this.router.navigateByUrl(`/advisor/${url}`);
     this.dialogRef.close();
+  }
+  generateReport() {
+    this.advisorService
+      .generateReport(this.data.query.queryId)
+      .subscribe((res) => {
+        console.log(res);
+      });
+  }
+  sendReport() {
+    this.advisorService.sendReport(this.data.query.queryId).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

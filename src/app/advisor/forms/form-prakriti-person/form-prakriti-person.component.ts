@@ -27,6 +27,8 @@ export class FormPrakritiPersonComponent implements OnInit {
   activity = ["Bedroom", "Personal Belongings", "Office /Work Area"];
   formResponses: Array<AdviceResponse> = [];
   responseArray = [];
+  personPrakriti: string;
+  clientInfo = JSON.parse(localStorage.getItem("userinfo"));
   ngOnInit(): void {
     this.advisorService.advisorForm.subscribe((res: any) => {
       if (res.query && res.siteDetails) {

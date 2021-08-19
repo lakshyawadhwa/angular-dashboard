@@ -50,6 +50,13 @@
         <button ngClass="add-button add-form" (click)="toggleShowForm(0)">
           Level 1
         </button>
+        <h2>Generate Advice PDF</h2>
+        <button ngClass="add-button send-report" (click)="generateReport()">
+          Generate
+        </button>
+        <button ngClass="add-button send-report" (click)="sendReport()">
+          Generate & Send
+        </button>
         <div *ngIf="showForms[0]">
           <button
             (click)="triggerForm('form-1-a')"
