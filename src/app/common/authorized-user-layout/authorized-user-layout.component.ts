@@ -26,7 +26,7 @@ export class AuthorizedUserLayoutComponent implements OnInit {
     });
   }
   logout() {
-    this.authService.logout();
+    this.authService.logout("auth user layout");
     this.router.navigateByUrl("/login");
   }
 }

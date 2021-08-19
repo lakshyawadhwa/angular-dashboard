@@ -26,10 +26,7 @@ export class AuthService {
           if (response) {
             this.setSession(
               response,
-              {
-                expiresIn: 15 * 60,
-                id_token: "123",
-              },
+
               accountType
             );
           }
@@ -47,10 +44,7 @@ export class AuthService {
         return new Observable<boolean>((observer) => {
           this.setSession(
             authBody,
-            {
-              expiresIn: 15 * 60,
-              id_token: "123",
-            },
+
             accountType
           );
           observer.next(true);
@@ -61,8 +55,8 @@ export class AuthService {
       });
     }
   }
-  setSession(authBody, authResult, accountType) {
-    const expiresAt = moment().add(authResult["expiresIn"], "second");
+  setSession(authBody, accountType) {
+    const expiresAt = moment().add(15, "m");
 
     let user = {
       clientId: -1,
@@ -77,26 +71,31 @@ export class AuthService {
       },
       password: "password",
     };
-    if (accountType === "client") {
-      authBody["expires"] = expiresAt.valueOf();
-
+    localStorage.setItem(
+      "loginExpiration",
+      JSON.stringify(expiresAt.valueOf())
+    );
+    if (accountType == "client") {
       localStorage.setItem("userinfo", JSON.stringify(authBody));
     } else if (accountType == "advisor") {
-      user["expires"] = expiresAt.valueOf();
-
       localStorage.setItem("userinfo", JSON.stringify(user));
     }
   }
 
-  logout() {
+  logout(callingfn) {
     localStorage.removeItem("userinfo");
+    localStorage.removeItem("loginExpiration");
   }
 
   public isLoggedIn() {
-    if (this.getExpiration()) {
-      return moment().isSameOrBefore(this.getExpiration());
-    } else {
-      this.logout();
+    if (this.getUserFromStore()) {
+      if (this.getExpiration()) {
+        const currentTime = moment().valueOf();
+
+        return moment(currentTime).isBefore(+this.getExpiration());
+      } else {
+        // this.logout();
+      }
     }
   }
 
@@ -105,12 +104,7 @@ export class AuthService {
   }
 
   getExpiration() {
-    const userInfo = this.getUserFromStore();
-    if (userInfo) {
-      const expiration = userInfo.expires;
-      const expiresAt = expiration;
-      return moment(expiresAt);
-    }
+    return localStorage.getItem("loginExpiration");
   }
 
   getToken() {

@@ -53,9 +53,9 @@ export class QueryService {
       })
     );
   }
-  resolveQuery(queryId) {
+  resolveQuery(queryId, resolutionNotes) {
     let url = environment.url + APIConfig.resolveQuery + queryId;
-    return this.baseService.postFile(url, {}).pipe(
+    return this.baseService.postFile(url, { notes: resolutionNotes }).pipe(
       tap(async (res) => {
         this.baseService.callSnackbar.next({
           message: res,

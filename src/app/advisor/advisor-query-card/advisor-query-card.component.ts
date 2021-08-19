@@ -1,12 +1,13 @@
 import { QueryService } from "src/app/services/query-service/query-service.service";
 import { SiteService } from "./../../services/site-service/site.service";
-import { MatDialog } from "@angular/material/dialog";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { AdvisorService } from "./../../services/advisor-service/advisor.service";
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import * as moment from "moment";
 import { AdvisorQueryViewComponent } from "../advisor-query-view/advisor-query-view.component";
 import { SiteInterface, UserQuery } from "src/app/services/interfaces";
+import { QueryResolvingViewComponent } from "../query-resolving-view/query-resolving-view.component";
 @Component({
   selector: "app-advisor-query-card",
   templateUrl: "./advisor-query-card.component.html",
@@ -48,6 +49,9 @@ export class AdvisorQueryCardComponent implements OnInit {
   }
   resolveQuery() {
     event.stopPropagation();
-    this.queryService.resolveQuery(this.query.queryId).subscribe((res) => {});
+    const dialogRef = this.dialog.open(QueryResolvingViewComponent, {
+      data: this.query.queryId,
+      width: "80%",
+    });
   }
 }

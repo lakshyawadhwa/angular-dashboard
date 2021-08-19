@@ -18,7 +18,7 @@ export class AdvisorUserLayoutComponent implements OnInit {
     });
   }
   logout() {
-    this.authService.logout();
+    this.authService.logout("advisor-logout");
     this.router.navigateByUrl("/login");
   }
 }

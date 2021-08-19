@@ -17,6 +17,8 @@ export const APIConfig = {
   uploadFile: "/files/query-pdfs/",
   uploadProfilePic: "/files/profile-pic",
   resolveQuery: "/user-query/resolve-query/",
+  generateReport: "/advice/advice-pdf/",
+  sendReport: "/advice/send-advice-pdf/query-id",
 };
 
 export default APIConfig;

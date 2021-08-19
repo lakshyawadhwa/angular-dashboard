@@ -1,12 +1,25 @@
-<mat-card class="query-card" *ngIf="siteDetails" (click)="openDialog()">
-  <button class="add-button" id="resolve-button" (click)="resolveQuery()">
-    Mark Resolved
-  </button>
-  <mat-card-title>{{ siteDetails.siteName }}</mat-card-title>
-  <mat-card-subtitle>Address -{{ siteDetails.siteAddress }}</mat-card-subtitle>
+<ng-container *ngIf="query.isActive">
+  <mat-card class="query-card" *ngIf="siteDetails" (click)="openDialog()">
+    <button class="add-button" id="resolve-button" (click)="resolveQuery()">
+      Mark Resolved
+    </button>
+    <mat-card-title>{{ siteDetails.siteName }}</mat-card-title>
+    <mat-card-subtitle
+      >Address -{{ siteDetails.siteAddress }}</mat-card-subtitle
+    >
 
-  <mat-card-content>{{ getShortQuery(query.queryText) }}</mat-card-content>
-  <div class="divider"></div>
+    <mat-card-content>{{ getShortQuery(query.queryText) }}</mat-card-content>
+    <div class="divider"></div>
 
-  <mat-card-subtitle>Updated at {{ getDate() }}</mat-card-subtitle>
-</mat-card>
+    <mat-card-subtitle>Updated at {{ getDate() }}</mat-card-subtitle>
+  </mat-card>
+</ng-container>
+<ng-container *ngIf="!query.isActive">
+  <mat-card class="query-card" *ngIf="siteDetails" (click)="openDialog()">
+    <!-- Query -id  - master concern [click -> query] -->
+    <mat-card-subtitle
+      >Address -{{ query.queryId }} -
+      {{ query.masterConcern.concernName }}</mat-card-subtitle
+    >
+  </mat-card>
+</ng-container>

@@ -7,6 +7,7 @@ export interface UserQuery {
   queryUpdateDatetime: string;
   siteId: number;
   masterConcern: masterConcern;
+  isActive: boolean;
 }
 
 export interface clientObject {
