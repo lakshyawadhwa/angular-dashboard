@@ -63,13 +63,7 @@ const routes: Routes = [
       { path: "", component: ProfileCardComponent },
       { path: "queries", component: AdvisorQueriesComponent },
       { path: "sites", component: AdvisorSitesComponent },
-    ],
-  },
-  {
-    path: "form",
-    component: FormWrapperComponent,
-    canActivate: [AuthGuardGuard],
-    children: [
+
       { path: "form-1-a", component: FormLevelOneComponent },
       { path: "form-1-b-prakriti", component: FormPrakritiPersonComponent },
       { path: "form-1-b-building", component: FormPrakritiBuildingComponent },
