@@ -36,12 +36,14 @@ export class BaseService {
           type: "application/pdf", // must match the Accept type
           // type: 'application/octet-stream' // for excel
         });
-        var link = document.createElement("a");
-        link.href = window.URL.createObjectURL(blob);
-        // link.download = 'samplePDFFile.pdf';
-        link.target = "_blank";
-        link.click();
-        window.URL.revokeObjectURL(link.href);
+        if (blob.size !== 0) {
+          var link = document.createElement("a");
+          link.href = window.URL.createObjectURL(blob);
+          // link.download = 'samplePDFFile.pdf';
+          link.target = "_blank";
+          link.click();
+          window.URL.revokeObjectURL(link.href);
+        }
       }),
       catchError((e) => {
         this.processError(e);

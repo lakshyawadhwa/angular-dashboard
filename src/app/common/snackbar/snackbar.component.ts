@@ -23,6 +23,6 @@ export class SnackbarComponent implements OnInit {
   clearMessage() {
     setTimeout(() => {
       this.baseService.callSnackbar.next({ message: null, type: null });
-    }, 400000);
+    }, 4000);
   }
 }

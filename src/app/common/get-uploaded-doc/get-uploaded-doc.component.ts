@@ -24,9 +24,8 @@ export class GetUploadedDocComponent implements OnInit {
       APIConfig.uploadFile +
       `${this.queryId}/${this.siteId}/${this.clientId}/${this.documentType}`;
     this.baseService.getFile(url).subscribe((res) => {
-      console.log(res);
-      this.generatePDF(res);
-      if (res) {
+      if (res.size !== 0) {
+        this.generatePDF(res);
         this.baseService.callSnackbar.next({
           message: "Downloading file",
           type: "success",

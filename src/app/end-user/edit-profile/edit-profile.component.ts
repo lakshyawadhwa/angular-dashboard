@@ -29,9 +29,7 @@ export class EditProfileComponent implements OnInit {
     this.clientService.getOccupations().subscribe((res) => {
       this.occupationsArray = res;
     });
-    console.log("occupation", this.clientInfo);
     window.addEventListener("storage", (event) => {
-      console.log("userInfo:", event);
       if (event.key === "userInfo") {
         this.clientInfo = JSON.parse(localStorage.getItem("userInfo"));
       }

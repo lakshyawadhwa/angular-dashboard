@@ -23,11 +23,13 @@ export class ProfileCardComponent implements OnInit {
     });
   }
   editProfile() {
-    const dialogRef = this.dialog.open(EditProfileComponent, {
-      width: "80%",
-      height: "80%",
-      panelClass: "custom-modalbox",
-    });
+    if (!this.advisorAccount) {
+      const dialogRef = this.dialog.open(EditProfileComponent, {
+        width: "80%",
+        height: "80%",
+        panelClass: "custom-modalbox",
+      });
+    }
   }
   createImage() {
     let fullName = this.advisorAccount

@@ -32,7 +32,7 @@ export class SiteCardComponent implements OnInit {
     const dialogRef = this.dialog.open(ViewSiteQueriesComponent, {
       width: "80%",
       height: "80%",
-      data: { siteId: this.site.siteId },
+      data: { site: this.site },
       panelClass: "custom-modalbox",
     });
   }

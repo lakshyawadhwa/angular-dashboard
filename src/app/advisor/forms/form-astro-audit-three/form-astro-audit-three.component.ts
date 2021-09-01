@@ -91,12 +91,8 @@ export class FormAstroAuditThreeComponent implements OnInit {
     });
   }
   getValue(name, zone) {
-    const field = this.formResponses.find(
-      (field) => field.zone === zone.heading
-    );
-    if (field) {
-      return field[name];
-    }
+    const field = this.formResponses.find((field) => field.zone === zone);
+    if (field) return field[name];
   }
 
   handleInput(heading, event) {

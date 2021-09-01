@@ -1,71 +1,73 @@
 <app-snackbar></app-snackbar>
-<form [formGroup]="queryView">
-  <div mat-dialog-content>
-    <fieldset [disabled]="true">
-      <mat-form-field appearance="outline">
-        <mat-label>Query ID</mat-label>
-        <input matInput value="{{ data.query.queryId }}" />
-      </mat-form-field>
+<div>
+  <form [formGroup]="queryView">
+    <div mat-dialog-content>
+      <fieldset [disabled]="true">
+        <mat-form-field appearance="outline">
+          <mat-label>Query ID</mat-label>
+          <input matInput value="{{ data.query.queryId }}" />
+        </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label> Concern</mat-label>
-        <input matInput value="{{ data.query.masterConcern.concernName }}" />
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Last update at</mat-label>
-        <input matInput value="{{ getDate() }}" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="query-text">
-        <mat-label>Site Name</mat-label>
-        <input
-          matInput
-          value="{{ data.siteDetails.siteName }} - {{
-            data.siteDetails.siteAddress
-          }}"
-        />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="query-text">
-        <mat-label>Description</mat-label>
-        <textarea matInput value="{{ data.query.queryText }}"></textarea>
-      </mat-form-field>
-    </fieldset>
-  </div>
-  <div mat-dialog-actions>
-    <div class="upload-button-wrapper">
-      <p class="fs-22 m-0">Upload maps</p>
-      <div *ngFor="let map of uploadMapArray" class="flex-row">
-        <app-file-upload
-          [clientId]="data.query.client.clientId"
-          [siteId]="data.siteDetails.siteId"
-          [name]="map.name"
-          [title]="map.title"
-          [queryId]="data.query.queryId"
-        ></app-file-upload>
-        <app-get-uploaded-doc
-          [clientId]="data.query.client.clientId"
-          [siteId]="data.siteDetails.siteId"
-          [documentType]="map.name"
-          [queryId]="data.query.queryId"
-        ></app-get-uploaded-doc>
+        <mat-form-field appearance="outline">
+          <mat-label> Concern</mat-label>
+          <input matInput value="{{ data.query.masterConcern.concernName }}" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Last update at</mat-label>
+          <input matInput value="{{ getDate() }}" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="query-text">
+          <mat-label>Site Name</mat-label>
+          <input
+            matInput
+            value="{{ data.siteDetails.siteName }} - {{
+              data.siteDetails.siteAddress
+            }}"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="query-text">
+          <mat-label>Description</mat-label>
+          <textarea matInput value="{{ data.query.queryText }}"></textarea>
+        </mat-form-field>
+      </fieldset>
+    </div>
+    <div mat-dialog-actions id="second-div">
+      <div class="upload-button-wrapper">
+        <p class="fs-22 m-0">Upload maps</p>
+        <div *ngFor="let map of uploadMapArray" class="flex-row">
+          <app-file-upload
+            [clientId]="data.query.client.clientId"
+            [siteId]="data.siteDetails.siteId"
+            [name]="map.name"
+            [title]="map.title"
+            [queryId]="data.query.queryId"
+          ></app-file-upload>
+          <app-get-uploaded-doc
+            [clientId]="data.query.client.clientId"
+            [siteId]="data.siteDetails.siteId"
+            [documentType]="map.name"
+            [queryId]="data.query.queryId"
+          ></app-get-uploaded-doc>
+        </div>
+      </div>
+      <div class="upload-button-wrapper">
+        <p class="fs-22 m-0">Upload horoscope</p>
+        <div class="flex-row">
+          <app-file-upload
+            [clientId]="data.query.client.clientId"
+            [siteId]="data.siteDetails.siteId"
+            [name]="'AssociatedPeople'"
+            [title]="'Associated People'"
+            [queryId]="data.query.queryId"
+          ></app-file-upload>
+          <app-get-uploaded-doc
+            [clientId]="data.query.client.clientId"
+            [siteId]="data.siteDetails.siteId"
+            [documentType]="'AssociatedPeople'"
+            [queryId]="data.query.queryId"
+          ></app-get-uploaded-doc>
+        </div>
       </div>
     </div>
-    <div class="upload-button-wrapper">
-      <p class="fs-22 m-0">Upload horoscope</p>
-      <div class="flex-row">
-        <app-file-upload
-          [clientId]="data.query.client.clientId"
-          [siteId]="data.siteDetails.siteId"
-          [name]="'AssociatedPeople'"
-          [title]="'Associated People'"
-          [queryId]="data.query.queryId"
-        ></app-file-upload>
-        <app-get-uploaded-doc
-          [clientId]="data.query.client.clientId"
-          [siteId]="data.siteDetails.siteId"
-          [documentType]="'AssociatedPeople'"
-          [queryId]="data.query.queryId"
-        ></app-get-uploaded-doc>
-      </div>
-    </div>
-  </div>
-</form>
+  </form>
+</div>
