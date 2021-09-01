@@ -24,6 +24,15 @@
       <div class="divider query-divider"></div>
     </div>
   </form>
+  <ng-container *ngFor="let query of inactiveQueryArray">
+    <mat-card class="query-card">
+      <!-- Query -id  - master concern [click -> query] -->
+      <mat-card-subtitle
+        >{{ data.site.siteAddress }} -{{ query.queryId }} -
+        {{ query.masterConcern.concernName }}</mat-card-subtitle
+      >
+    </mat-card>
+  </ng-container>
 </ng-container>
 <div *ngIf="noQueries">
   <p>No queries for this site</p>

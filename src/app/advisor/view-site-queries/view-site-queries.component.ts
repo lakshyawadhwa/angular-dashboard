@@ -20,16 +20,29 @@ export class ViewSiteQueriesComponent implements OnInit {
 
   formControl: FormControl;
   queryArray: Array<UserQuery>;
+  inactiveQueryArray: Array<UserQuery>;
   queryView: FormGroup = new FormGroup({});
   noQueries = false;
   ngOnInit(): void {
-    console.log(this.data);
-    this.queryService.getQueriesBySite(this.data.siteId).subscribe((res) => {
-      this.queryArray = res;
-      if (res.length < 1) this.noQueries = true;
-    });
+    this.queryService
+      .getQueriesBySite(this.data.site.siteId)
+      .subscribe((res) => {
+        if (res.length < 1) {
+          this.noQueries = true;
+        } else {
+          this.setQueryArrays(res);
+        }
+      });
   }
   getDate(time) {
     return moment(time).format("DD-MM-YY HH:mm");
+  }
+  setQueryArrays(response: Array<UserQuery>) {
+    this.inactiveQueryArray = response.filter((query) => {
+      if (!query.active) return query;
+    });
+    this.queryArray = response.filter((query) => {
+      if (query.active) return query;
+    });
   }
 }

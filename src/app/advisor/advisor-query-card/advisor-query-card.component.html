@@ -1,4 +1,4 @@
-<ng-container *ngIf="!query.isActive">
+<ng-container *ngIf="query.active">
   <mat-card class="query-card" *ngIf="siteDetails" (click)="openDialog()">
     <button class="add-button" id="resolve-button" (click)="resolveQuery()">
       Mark Resolved
@@ -12,14 +12,5 @@
     <div class="divider"></div>
 
     <mat-card-subtitle>Updated at {{ getDate() }}</mat-card-subtitle>
-  </mat-card>
-</ng-container>
-<ng-container *ngIf="query.isActive">
-  <mat-card class="query-card" *ngIf="siteDetails" (click)="openDialog()">
-    <!-- Query -id  - master concern [click -> query] -->
-    <mat-card-subtitle
-      >{{ siteDetails.siteAddress }} -{{ query.queryId }} -
-      {{ query.masterConcern.concernName }}</mat-card-subtitle
-    >
   </mat-card>
 </ng-container>

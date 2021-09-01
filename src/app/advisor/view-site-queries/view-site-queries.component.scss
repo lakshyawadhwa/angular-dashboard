@@ -13,3 +13,10 @@ mat-form-field {
 .mat-input-element:disabled {
   color: black;
 }
+
+mat-card {
+  margin: 1rem 0;
+  box-shadow: none !important;
+  border: 1px solid #0000003b;
+  cursor: unset;
+}
