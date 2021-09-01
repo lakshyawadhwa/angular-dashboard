@@ -54,10 +54,8 @@ export class SignInComponent implements OnInit {
   }
   setAccountType() {
     if (this.accountType == "client") {
-      console.log("client");
       this.usernamePlaceholder = "Client ID";
     } else if (this.accountType == "advisor") {
-      console.log("advisor");
       this.usernamePlaceholder = "Advisor ID";
     }
   }

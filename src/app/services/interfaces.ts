@@ -22,6 +22,14 @@ export interface clientObject {
   residenceLocation?: string;
   location?: Location;
 }
+
+export interface advisorObject {
+  advisorId: number;
+  advisorName: string;
+  advisorMobile: string;
+  advisorEmail: string;
+  password: string;
+}
 export interface Location {
   state: string;
   city: string;

@@ -14,21 +14,16 @@ export class AuthService {
   constructor(private http: HttpClient, private baseService: BaseService) {}
 
   login(loginReq: FormData, accountType): Observable<any> {
-    let url = environment.url + APIConfig.clientLogin;
-    let authBody;
     let body = {
       clientId: loginReq.get("username"),
       password: loginReq.get("password"),
     };
     if (accountType === "client") {
+      let url = environment.url + APIConfig.clientLogin;
       return this.baseService.post(url, body).pipe(
         tap(async (response) => {
           if (response) {
-            this.setSession(
-              response,
-
-              accountType
-            );
+            this.setSession(response);
           }
         }),
         catchError((e) => {
@@ -37,49 +32,43 @@ export class AuthService {
         })
       );
     } else if (accountType === "advisor") {
-      if (
-        loginReq.get("username") === "admin" &&
-        loginReq.get("password") === "admin"
-      ) {
-        return new Observable<boolean>((observer) => {
-          this.setSession(
-            authBody,
+      let url = environment.url + APIConfig.advisorLogin;
+      return this.baseService.post(url, body).pipe(
+        tap(async (response) => {
+          if (response) {
+            this.setSession(response);
+          }
+        }),
+        catchError((e) => {
+          console.log(e);
+          throw e;
+        })
+      );
+      // if (
+      //   loginReq.get("username") === "admin" &&
+      //   loginReq.get("password") === "admin"
+      // ) {
+      //   return new Observable<boolean>((observer) => {
+      //     this.setSession(
+      //       authBody,
 
-            accountType
-          );
-          observer.next(true);
-        });
-      }
-      return new Observable<boolean>((observer) => {
-        observer.error(false);
-      });
+      //       accountType
+      //     );
+      //     observer.next(true);
+      //   });
+      // }
+      // return new Observable<boolean>((observer) => {
+      //   observer.error(false);
+      // });
     }
   }
-  setSession(authBody, accountType) {
+  setSession(authBody) {
     const expiresAt = moment().add(15, "m");
-
-    let user = {
-      clientId: -1,
-      clientName: "admin",
-      clientMobile: "9068622222",
-      clientEmail: "admin@mahavastu.com",
-      clientDisplayPic: "null",
-      clientPOC: "clientPOC",
-      occupation: {
-        occupationId: 1,
-        occupationName: "Advisor",
-      },
-      password: "password",
-    };
     localStorage.setItem(
       "loginExpiration",
       JSON.stringify(expiresAt.valueOf())
     );
-    if (accountType == "client") {
-      localStorage.setItem("userinfo", JSON.stringify(authBody));
-    } else if (accountType == "advisor") {
-      localStorage.setItem("userinfo", JSON.stringify(user));
-    }
+    localStorage.setItem("userinfo", JSON.stringify(authBody));
   }
 
   logout(callingfn) {
