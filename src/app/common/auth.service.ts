@@ -13,11 +13,15 @@ import { catchError, tap } from "rxjs/operators";
 export class AuthService {
   constructor(private http: HttpClient, private baseService: BaseService) {}
 
-  login(loginReq: FormData, accountType): Observable<any> {
+  login(loginReq: FormData, accountType: string): Observable<any> {
     let body = {
-      clientId: loginReq.get("username"),
       password: loginReq.get("password"),
     };
+    if (accountType === "client") {
+      body["clientId"] = loginReq.get("username");
+    } else if (accountType === "advisor") {
+      body["advisorId"] = loginReq.get("username");
+    }
     if (accountType === "client") {
       let url = environment.url + APIConfig.clientLogin;
       return this.baseService.post(url, body).pipe(
