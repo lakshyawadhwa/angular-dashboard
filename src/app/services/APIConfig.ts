@@ -1,6 +1,6 @@
 export const APIConfig = {
   clientLogin: "/client/login",
-  advisorLogin: "/advisor/login",
+  advisorLogin: "/advice/login",
   createNewSite: "/site",
   createNewQuery: "/user-query",
   getAllQueries: "/user-query",
