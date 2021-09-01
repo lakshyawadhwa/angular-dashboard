@@ -13,7 +13,7 @@ import { Router } from "@angular/router";
 export class SitesComponent implements OnInit {
   constructor(private baseService: BaseService, private router: Router) {}
   name: string;
-  clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
+  clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
 
   sitesArray: Array<SiteInterface> = [];
   ngOnInit(): void {

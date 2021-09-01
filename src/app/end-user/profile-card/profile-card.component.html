@@ -3,18 +3,22 @@
     <span class="material-icons"> edit </span>
   </button>
   <div id="main-container">
-    <div id="profileImage" *ngIf="!clientInfo.clientDisplayPic">
+    <div id="profileImage" *ngIf="!userInfo.clientDisplayPic">
       {{ createImage() }}
     </div>
     <img
-      *ngIf="clientInfo.clientDisplayPic"
+      *ngIf="userInfo.clientDisplayPic"
       class="profileImg"
       src="{{ createBase64Image() }}"
     />
 
     <div id="main-info">
-      <p class="heading-profile">{{ clientInfo.clientName }}</p>
-      <span>ID-{{ clientInfo.clientId }}</span>
+      <p class="heading-profile">
+        {{ advisorAccount ? userInfo.advisorName : userInfo.clientName }}
+      </p>
+      <span
+        >ID-{{ advisorAccount ? userInfo.advisorId : userInfo.clientId }}</span
+      >
     </div>
   </div>
   <div id="secondary-info" class="flex-column">
@@ -24,9 +28,15 @@
       <span>Occupation</span>
     </div>
     <div id="info" class="flex-column">
-      <span>{{ clientInfo.clientEmail }}</span>
-      <span>{{ clientInfo.clientMobile }}</span>
-      <span>{{ clientInfo.occupation.occupationName }}</span>
+      <span>{{
+        advisorAccount ? userInfo.advisorEmail : userInfo.clientEmail
+      }}</span>
+      <span>{{
+        advisorAccount ? userInfo.advisorMobile : userInfo.clientMobile
+      }}</span>
+      <span>{{
+        advisorAccount ? "Advisor" : userInfo.occupation.occupationName
+      }}</span>
     </div>
   </div>
 </div>

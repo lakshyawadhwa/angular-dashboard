@@ -27,7 +27,7 @@ export class AuthService {
       return this.baseService.post(url, body).pipe(
         tap(async (response) => {
           if (response) {
-            this.setSession(response);
+            this.setSession(response, accountType);
           }
         }),
         catchError((e) => {
@@ -40,7 +40,7 @@ export class AuthService {
       return this.baseService.post(url, body).pipe(
         tap(async (response) => {
           if (response) {
-            this.setSession(response);
+            this.setSession(response, accountType);
           }
         }),
         catchError((e) => {
@@ -66,17 +66,18 @@ export class AuthService {
       // });
     }
   }
-  setSession(authBody) {
+  setSession(authBody, accountType) {
     const expiresAt = moment().add(15, "m");
     localStorage.setItem(
       "loginExpiration",
       JSON.stringify(expiresAt.valueOf())
     );
-    localStorage.setItem("userinfo", JSON.stringify(authBody));
+    localStorage.setItem("accountType", accountType);
+    localStorage.setItem("userInfo", JSON.stringify(authBody));
   }
 
   logout(callingfn) {
-    localStorage.removeItem("userinfo");
+    localStorage.removeItem("userInfo");
     localStorage.removeItem("loginExpiration");
   }
 
@@ -115,8 +116,8 @@ export class AuthService {
   }
 
   getUserFromStore() {
-    // if (localStorage.getItem("userinfo") !== undefined) {
-    return JSON.parse(JSON.stringify(localStorage.getItem("userinfo")));
+    // if (localStorage.getItem("userInfo") !== undefined) {
+    return JSON.parse(JSON.stringify(localStorage.getItem("userInfo")));
     // }
   }
 }

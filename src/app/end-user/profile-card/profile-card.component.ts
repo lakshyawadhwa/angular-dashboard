@@ -10,15 +10,16 @@ import { EditProfileComponent } from "../edit-profile/edit-profile.component";
 })
 export class ProfileCardComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
-  clientInfo = JSON.parse(localStorage.getItem("userinfo"));
-
+  userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  accountType = localStorage.getItem("accountType");
+  advisorAccount = false;
   ngOnInit(): void {
-    console.log("occupation", this.clientInfo);
+    if (this.accountType === "advisor") this.advisorAccount = true;
 
     window.addEventListener("changedProfileObject", (event) => {
-      console.log("userinfo:", event);
+      console.log("userInfo:", event);
 
-      this.clientInfo = JSON.parse(localStorage.getItem("userinfo"));
+      this.userInfo = JSON.parse(localStorage.getItem("userInfo"));
     });
   }
   editProfile() {
@@ -29,11 +30,18 @@ export class ProfileCardComponent implements OnInit {
     });
   }
   createImage() {
-    var firstName = this.clientInfo.clientName;
-    var intials = firstName.charAt(0);
+    let fullName = this.advisorAccount
+      ? this.userInfo.advisorName
+      : this.userInfo.clientName;
+    let firstName = fullName.split(" ")[0];
+    let lastName = fullName.split(" ")[1];
+    let intials =
+      firstName.charAt(0).toUpperCase() +
+      " " +
+      (lastName && lastName.charAt(0).toUpperCase());
     return intials;
   }
   createBase64Image() {
-    return "data:image/png;base64," + this.clientInfo.clientDisplayPic;
+    return "data:image/png;base64," + this.userInfo.clientDisplayPic;
   }
 }

@@ -16,7 +16,7 @@ export class AdvisorSitesComponent implements OnInit {
     private router: Router
   ) {}
   name: string;
-  clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
+  clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
 
   sitesArray: Array<SiteInterface> = [];
   ngOnInit(): void {

@@ -18,7 +18,7 @@ export class UserQueriesComponent implements OnInit {
     private queryService: QueryService
   ) {}
   name: string;
-  clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
+  clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
   selectedQuery: UserQuery;
   queryArray: Array<UserQuery> = [];
   ngOnInit(): void {

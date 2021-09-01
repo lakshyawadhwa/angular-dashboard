@@ -20,7 +20,7 @@ export class EditProfileComponent implements OnInit {
   ) {}
   occupationsArray: Array<clientOccupation>;
   postResponse: boolean;
-  clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
+  clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
   selectedOccupation = this.clientInfo.occupation.occupationName;
   postMessage: string;
   formData = new FormData();
@@ -31,9 +31,9 @@ export class EditProfileComponent implements OnInit {
     });
     console.log("occupation", this.clientInfo);
     window.addEventListener("storage", (event) => {
-      console.log("userinfo:", event);
-      if (event.key === "userinfo") {
-        this.clientInfo = JSON.parse(localStorage.getItem("userinfo"));
+      console.log("userInfo:", event);
+      if (event.key === "userInfo") {
+        this.clientInfo = JSON.parse(localStorage.getItem("userInfo"));
       }
     });
   }
@@ -59,7 +59,7 @@ export class EditProfileComponent implements OnInit {
       if (this.formData.get("file")) {
         this.uploadDisplayPicture(this.formData);
       } else {
-        localStorage.setItem("userinfo", JSON.stringify(res));
+        localStorage.setItem("userInfo", JSON.stringify(res));
         window.dispatchEvent(new Event("changedProfileObject"));
         setTimeout(() => {
           this.dialogRef.close();
@@ -79,7 +79,7 @@ export class EditProfileComponent implements OnInit {
     let url = environment.url + APIConfig.uploadProfilePic;
     this.baseService.postFile(url, form).subscribe((res) => {
       this.postResponse = true;
-      localStorage.setItem("userinfo", res);
+      localStorage.setItem("userInfo", res);
       window.dispatchEvent(new Event("changedProfileObject"));
       setTimeout(() => {
         this.dialogRef.close();

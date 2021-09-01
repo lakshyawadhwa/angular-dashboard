@@ -13,7 +13,7 @@ import APIConfig from "../../services/APIConfig";
 export class UserQueryFormComponent implements OnInit {
   constructor(private baseService: BaseService, private router: Router) {}
   sites: Array<SiteInterface> = [];
-  clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
+  clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
   masterConcern: string;
   masterConcerns: Array<masterConcern> = [];
   showButtons = false;

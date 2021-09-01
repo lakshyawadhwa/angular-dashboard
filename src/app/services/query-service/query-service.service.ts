@@ -11,7 +11,7 @@ import { catchError, tap } from "rxjs/operators";
 })
 export class QueryService {
   constructor(private baseService: BaseService) {}
-  clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
+  clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
 
   getClientQueries(): Observable<Array<UserQuery>> {
     let url =

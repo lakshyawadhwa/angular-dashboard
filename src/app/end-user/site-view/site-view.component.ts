@@ -26,7 +26,7 @@ export class SiteViewComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: SiteInterface
   ) {}
   editDisable = true;
-  clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
+  clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
   siteTypes: Array<siteTypeInterface> = JSON.parse(
     localStorage.getItem("siteTypes")
   );

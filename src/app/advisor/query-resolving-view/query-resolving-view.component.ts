@@ -25,6 +25,8 @@ export class QueryResolvingViewComponent implements OnInit {
         resolveText: this.resolutionNotes,
         advisorId: this.advisorData.advisorId,
       })
-      .subscribe((res) => {});
+      .subscribe((res) => {
+        this.dialogRef.close();
+      });
   }
 }

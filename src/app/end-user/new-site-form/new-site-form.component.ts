@@ -22,7 +22,7 @@ export class NewSiteFormComponent implements OnInit {
   );
   selectedSiteType: number;
   conditionsArray: Array<string> = ["New", "Used"];
-  clientInfo: clientObject = JSON.parse(localStorage.getItem("userinfo"));
+  clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
   ngOnInit(): void {
     if (!this.siteTypes) this.getSiteTypes();
   }
