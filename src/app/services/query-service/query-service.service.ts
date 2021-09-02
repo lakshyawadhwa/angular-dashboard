@@ -54,7 +54,7 @@ export class QueryService {
     );
   }
   resolveQuery(body) {
-    let url = environment.url + APIConfig.resolveQuery;
+    let url = environment.url + APIConfig.resolveQuery + body["advisorId"];
     return this.baseService.postFile(url, body).pipe(
       tap(async (res) => {
         this.baseService.callSnackbar.next({
