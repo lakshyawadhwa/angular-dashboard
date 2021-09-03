@@ -31,6 +31,8 @@ export class FormService {
     ];
   }
   postForm(body): Observable<any> {
+    let clientInfo = JSON.parse(localStorage.getItem("userInfo"));
+    body["advisorId"] = clientInfo.advisorId;
     let url = environment.url + APIConfig.postForm;
     return this.baseService.post(url, body).pipe(tap(async (res) => {}));
   }
