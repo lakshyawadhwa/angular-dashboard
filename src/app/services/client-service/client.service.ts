@@ -21,4 +21,9 @@ export class ClientService {
       .post(environment.url + APIConfig.createClient, body)
       .pipe(tap(async (res) => {}));
   }
+  updateClient(body: clientObject): Observable<clientObject> {
+    return this.baseService
+      .put(environment.url + APIConfig.createClient, body)
+      .pipe(tap(async (res) => {}));
+  }
 }

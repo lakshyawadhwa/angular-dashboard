@@ -53,7 +53,7 @@ export class EditProfileComponent implements OnInit {
       password: this.clientInfo.password,
     };
 
-    this.clientService.postClient(body).subscribe((res: any) => {
+    this.clientService.updateClient(body).subscribe((res: any) => {
       if (this.formData.get("file")) {
         this.uploadDisplayPicture(this.formData);
       } else {
