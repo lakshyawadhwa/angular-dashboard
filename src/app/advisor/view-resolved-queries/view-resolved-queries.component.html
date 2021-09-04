@@ -3,17 +3,16 @@
     <fieldset [disabled]="true">
       <h2>Resolved by</h2>
       <mat-form-field appearance="outline">
-        <mat-label>Advisor ID</mat-label>
-        <input matInput value="{{ query.advisor.advisorId }}" />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
         <mat-label> Advisor Name</mat-label>
         <input matInput value="{{ query.advisor.advisorName }}" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Advisor Phone Number</mat-label>
         <input matInput value="{{ query.advisor.advisorMobile }}" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Advisor Email</mat-label>
+        <input matInput value="{{ query.advisor.advisorEmail }}" />
       </mat-form-field>
 
       <div class="divider query-divider"></div>

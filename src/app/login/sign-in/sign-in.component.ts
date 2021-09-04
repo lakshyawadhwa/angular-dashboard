@@ -14,7 +14,7 @@ export class SignInComponent implements OnInit {
   loginError: boolean;
   loginReq: FormData;
   accountType: string = "client";
-  usernamePlaceholder: string = "Client ID";
+  usernamePlaceholder: string = "Client Email or Phone";
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -54,9 +54,9 @@ export class SignInComponent implements OnInit {
   }
   setAccountType() {
     if (this.accountType == "client") {
-      this.usernamePlaceholder = "Client ID";
+      this.usernamePlaceholder = "Client Email or Phone";
     } else if (this.accountType == "advisor") {
-      this.usernamePlaceholder = "Advisor ID";
+      this.usernamePlaceholder = "Advisor Email or Phone";
     }
   }
   showLoginError() {
