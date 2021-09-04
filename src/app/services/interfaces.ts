@@ -8,6 +8,7 @@ export interface UserQuery {
   siteId: number;
   masterConcern: masterConcern;
   active: boolean;
+  advisor?: advisorObject;
 }
 
 export interface clientObject {

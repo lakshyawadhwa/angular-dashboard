@@ -7,8 +7,9 @@ import { MatInputModule } from "@angular/material/input";
 import { FormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatRadioModule } from "@angular/material/radio";
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { ClientIdDialogComponent } from './client-id-dialog/client-id-dialog.component';
+import { SignUpComponent } from "./sign-up/sign-up.component";
+import { ClientIdDialogComponent } from "./client-id-dialog/client-id-dialog.component";
+import { SnackbarModule } from "../common/snackbar/snackbar.module";
 
 @NgModule({
   declarations: [SignInComponent, SignUpComponent, ClientIdDialogComponent],
@@ -20,6 +21,7 @@ import { ClientIdDialogComponent } from './client-id-dialog/client-id-dialog.com
     FormsModule,
     MatButtonModule,
     MatRadioModule,
+    SnackbarModule,
   ],
 })
 export class LoginModule {}

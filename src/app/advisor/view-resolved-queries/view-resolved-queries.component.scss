@@ -20,9 +20,7 @@ mat-card {
   border: 1px solid #0000003b;
   cursor: unset;
 }
-.query-card {
-  cursor: pointer;
-  span {
-    text-transform: capitalize;
-  }
+
+input {
+  text-transform: capitalize;
 }

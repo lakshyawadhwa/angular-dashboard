@@ -14,7 +14,8 @@ import { Binary } from "@angular/compiler";
 export class SignUpComponent implements OnInit {
   constructor(
     private clientService: ClientService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private baseService: BaseService
   ) {}
   clientName: string;
   clientMobile: string;
@@ -47,7 +48,16 @@ export class SignUpComponent implements OnInit {
       password: this.password,
     };
     this.clientService.postClient(body).subscribe((res) => {
-      this.openDialog(res.clientId);
+      if (res) {
+        this.openDialog(res.clientId);
+      } else {
+        console.log("here");
+        this.baseService.callSnackbar.next({
+          message:
+            "Sign Up Unsuccessful. Email of Contact number may already be registered. Contact Admin for further enquiries.",
+          type: "error",
+        });
+      }
     });
   }
   openDialog(clientId): void {

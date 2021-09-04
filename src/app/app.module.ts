@@ -39,33 +39,34 @@ import { FormLevelOneComponent } from "./advisor/forms/form-level-one/form-level
 import { AdvisorQueriesComponent } from "./advisor/advisor-queries/advisor-queries.component";
 import { AdvisorQueryCardComponent } from "./advisor/advisor-query-card/advisor-query-card.component";
 import { AdvisorUserLayoutComponent } from "./common/advisor-user-layout/advisor-user-layout.component";
-import { AdvisorQueryViewComponent } from './advisor/advisor-query-view/advisor-query-view.component';
-import { FormLevelOneBComponent } from './advisor/forms/form-level-one-b/form-level-one-b.component';
-import { AdvisorSitesComponent } from './advisor/advisor-sites/advisor-sites.component';
-import { AdvisorSiteCardsComponent } from './advisor/advisor-site-cards/advisor-site-cards.component';
-import { ViewSiteQueriesComponent } from './advisor/view-site-queries/view-site-queries.component';
-import { FileUploadComponent } from './common/file-upload/file-upload.component';
-import { EditProfileComponent } from './end-user/edit-profile/edit-profile.component';
-import { FormPrakritiPersonComponent } from './advisor/forms/form-prakriti-person/form-prakriti-person.component';
-import { FormPrakritiBuildingComponent } from './advisor/forms/form-prakriti-building/form-prakriti-building.component';
-import { FormPrakritiSuggestionComponent } from './advisor/forms/form-prakriti-suggestion/form-prakriti-suggestion.component';
-import { FormFiveElementsComponent } from './advisor/forms/form-five-elements/form-five-elements.component';
-import { FormActivityComponent } from './advisor/forms/form-activity/form-activity.component';
-import { FormUtilityComponent } from './advisor/forms/form-utility/form-utility.component';
-import { FormObjectsComponent } from './advisor/forms/form-objects/form-objects.component';
-import { FormMvRemediesComponent } from './advisor/forms/form-mv-remedies/form-mv-remedies.component';
-import { FormAstroAuditOneComponent } from './advisor/forms/form-astro-audit-one/form-astro-audit-one.component';
-import { FormAstroAuditTwoComponent } from './advisor/forms/form-astro-audit-two/form-astro-audit-two.component';
-import { FormAstroAuditThreeComponent } from './advisor/forms/form-astro-audit-three/form-astro-audit-three.component';
-import { FormMarmaComponent } from './advisor/forms/form-marma/form-marma.component';
-import { FormDevtaOneComponent } from './advisor/forms/form-devta-one/form-devta-one.component';
-import { FormDevtaTwoComponent } from './advisor/forms/form-devta-two/form-devta-two.component';
-import { FormIntuitiveComponent } from './advisor/forms/form-intuitive/form-intuitive.component';
-import { GetUploadedDocComponent } from './common/get-uploaded-doc/get-uploaded-doc.component';
-import { SnackbarComponent } from './common/snackbar/snackbar.component';
-import { FormWrapperComponent } from './common/form-wrapper/form-wrapper.component';
-import { AdvisorInfoComponent } from './advisor/forms/advisor-info/advisor-info.component';
-import { QueryResolvingViewComponent } from './advisor/query-resolving-view/query-resolving-view.component';
+import { AdvisorQueryViewComponent } from "./advisor/advisor-query-view/advisor-query-view.component";
+import { FormLevelOneBComponent } from "./advisor/forms/form-level-one-b/form-level-one-b.component";
+import { AdvisorSitesComponent } from "./advisor/advisor-sites/advisor-sites.component";
+import { AdvisorSiteCardsComponent } from "./advisor/advisor-site-cards/advisor-site-cards.component";
+import { ViewSiteQueriesComponent } from "./advisor/view-site-queries/view-site-queries.component";
+import { FileUploadComponent } from "./common/file-upload/file-upload.component";
+import { EditProfileComponent } from "./end-user/edit-profile/edit-profile.component";
+import { FormPrakritiPersonComponent } from "./advisor/forms/form-prakriti-person/form-prakriti-person.component";
+import { FormPrakritiBuildingComponent } from "./advisor/forms/form-prakriti-building/form-prakriti-building.component";
+import { FormPrakritiSuggestionComponent } from "./advisor/forms/form-prakriti-suggestion/form-prakriti-suggestion.component";
+import { FormFiveElementsComponent } from "./advisor/forms/form-five-elements/form-five-elements.component";
+import { FormActivityComponent } from "./advisor/forms/form-activity/form-activity.component";
+import { FormUtilityComponent } from "./advisor/forms/form-utility/form-utility.component";
+import { FormObjectsComponent } from "./advisor/forms/form-objects/form-objects.component";
+import { FormMvRemediesComponent } from "./advisor/forms/form-mv-remedies/form-mv-remedies.component";
+import { FormAstroAuditOneComponent } from "./advisor/forms/form-astro-audit-one/form-astro-audit-one.component";
+import { FormAstroAuditTwoComponent } from "./advisor/forms/form-astro-audit-two/form-astro-audit-two.component";
+import { FormAstroAuditThreeComponent } from "./advisor/forms/form-astro-audit-three/form-astro-audit-three.component";
+import { FormMarmaComponent } from "./advisor/forms/form-marma/form-marma.component";
+import { FormDevtaOneComponent } from "./advisor/forms/form-devta-one/form-devta-one.component";
+import { FormDevtaTwoComponent } from "./advisor/forms/form-devta-two/form-devta-two.component";
+import { FormIntuitiveComponent } from "./advisor/forms/form-intuitive/form-intuitive.component";
+import { GetUploadedDocComponent } from "./common/get-uploaded-doc/get-uploaded-doc.component";
+import { FormWrapperComponent } from "./common/form-wrapper/form-wrapper.component";
+import { AdvisorInfoComponent } from "./advisor/forms/advisor-info/advisor-info.component";
+import { QueryResolvingViewComponent } from "./advisor/query-resolving-view/query-resolving-view.component";
+import { SnackbarModule } from "./common/snackbar/snackbar.module";
+import { ViewResolvedQueriesComponent } from './advisor/view-resolved-queries/view-resolved-queries.component';
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -109,10 +110,10 @@ import { QueryResolvingViewComponent } from './advisor/query-resolving-view/quer
     FormDevtaTwoComponent,
     FormIntuitiveComponent,
     GetUploadedDocComponent,
-    SnackbarComponent,
     FormWrapperComponent,
     AdvisorInfoComponent,
     QueryResolvingViewComponent,
+    ViewResolvedQueriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -135,6 +136,7 @@ import { QueryResolvingViewComponent } from './advisor/query-resolving-view/quer
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    SnackbarModule,
   ],
   exports: [LoginModule, HttpClientModule, MainModule],
   providers: [

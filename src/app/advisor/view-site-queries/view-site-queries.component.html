@@ -25,7 +25,10 @@
     </div>
   </form>
   <ng-container *ngFor="let query of inactiveQueryArray">
-    <mat-card class="query-card">
+    <mat-card
+      class="query-card"
+      (click)="accountType === 'advisor' && openResolvedQueryView(query)"
+    >
       <!-- Query -id  - master concern [click -> query] -->
       <mat-card-subtitle
         >{{ data.site.siteAddress }} -{{ query.queryId }} -
