@@ -38,6 +38,7 @@ const routes: Routes = [
   {
     path: "login",
     component: AnonymousUserLayoutComponent,
+    data: { accountType: null },
     children: [
       { path: "", component: SignInComponent },
       { path: "sign-up", component: SignUpComponent },
@@ -47,6 +48,7 @@ const routes: Routes = [
     path: "client",
     component: AuthorizedUserLayoutComponent,
     canActivate: [AuthGuardGuard],
+    data: { accountType: "client" },
     children: [
       { path: "", component: ProfileCardComponent },
       { path: "queries", component: EndUserComponent },
@@ -59,6 +61,7 @@ const routes: Routes = [
     path: "advisor",
     component: AdvisorUserLayoutComponent,
     canActivate: [AuthGuardGuard],
+    data: { accountType: "client" },
     children: [
       { path: "", component: ProfileCardComponent },
       { path: "queries", component: AdvisorQueriesComponent },

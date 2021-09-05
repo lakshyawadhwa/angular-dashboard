@@ -5,7 +5,7 @@ import { AuthService } from "../auth.service";
 @Component({
   selector: "app-authorized-user-layout",
   templateUrl: "./authorized-user-layout.component.html",
-  styleUrls: ["./authorized-user-layout.component.scss"],
+  styleUrls: ["../styles/common-layout.component.scss"],
 })
 export class AuthorizedUserLayoutComponent implements OnInit {
   isExpanded = false;

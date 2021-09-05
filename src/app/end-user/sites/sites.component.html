@@ -1,4 +1,4 @@
-<div id="container">
+<div class="card-container-wrapper">
   <header>
     <h1>Sites</h1>
     <button class="add-button" (click)="openNewSite()">New Site</button>
@@ -8,7 +8,7 @@
   <main>
     <div id="filters"></div>
     <section>
-      <div class="member-container m-top" *ngFor="let site of sitesArray">
+      <div class="card-container m-top" *ngFor="let site of sitesArray">
         <app-site-card [site]="site" [clientInfo]="clientInfo"></app-site-card>
       </div>
     </section>

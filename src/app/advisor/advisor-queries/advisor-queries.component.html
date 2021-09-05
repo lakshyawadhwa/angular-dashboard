@@ -1,6 +1,7 @@
-<h1>Advisor Queries</h1>
+<div class="card-container-wrapper">
+  <h1>Advisor Queries</h1>
 
-<app-advisor-query-card
-  *ngFor="let query of queries"
-  [query]="query"
-></app-advisor-query-card>
+  <div class="card-container" *ngFor="let query of queries">
+    <app-advisor-query-card [query]="query"></app-advisor-query-card>
+  </div>
+</div>

@@ -1,8 +1,11 @@
 #container {
-	header {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-	}
+  width: calc(100vw - 40px);
+  flex-direction: column;
+  display: flex;
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

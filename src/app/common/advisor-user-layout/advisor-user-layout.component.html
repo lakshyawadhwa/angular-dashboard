@@ -1,11 +1,15 @@
-<mat-drawer-container>
-  <mat-drawer #drawer mode="side" [opened]="true">
+<mat-drawer-container autosize>
+  <mat-drawer #drawer mode="side">
     <div class="header">
       <span class="fs-22 fw-600">Advisor Portal</span>
     </div>
 
     <mat-nav-list>
-      <mat-list-item routerLink="/advisor" routerLinkActive="active">
+      <mat-list-item
+        routerLink="/advisor"
+        routerLinkActive="active"
+        (click)="drawer.close()"
+      >
         <div class="list-item">
           <mat-icon>account_circle</mat-icon>
           <span
@@ -20,7 +24,11 @@
     </mat-nav-list>
     <h2>Sites</h2>
     <mat-nav-list>
-      <mat-list-item routerLink="sites" routerLinkActive="active">
+      <mat-list-item
+        routerLink="sites"
+        routerLinkActive="active"
+        (click)="drawer.close()"
+      >
         <div class="list-item">
           <mat-icon>maps_home_work</mat-icon>
           <span mat-line routerLinkActive="active" class="fs-22 fw-600 pd-l3"
@@ -31,7 +39,11 @@
     </mat-nav-list>
     <h2>Queries</h2>
     <mat-nav-list>
-      <mat-list-item routerLink="queries" routerLinkActive="active">
+      <mat-list-item
+        routerLink="queries"
+        routerLinkActive="active"
+        (click)="drawer.close()"
+      >
         <div class="list-item">
           <mat-icon>question_answer</mat-icon>
           <span mat-line routerLinkActive="active" class="fs-22 fw-600 pd-l3"
@@ -41,8 +53,15 @@
       </mat-list-item>
     </mat-nav-list>
   </mat-drawer>
+
   <mat-drawer-content>
     <mat-toolbar>
+      <div class="example-sidenav-content">
+        <button type="button" mat-button (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+
       <span class="toolbar-spacer"></span>
       <button mat-icon-button (click)="logout()">
         <mat-icon>person_outline</mat-icon>

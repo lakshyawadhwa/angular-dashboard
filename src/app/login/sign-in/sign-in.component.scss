@@ -13,6 +13,7 @@ main {
       flex-direction: column;
       align-items: center;
       justify-content: center;
+
       p {
         font-size: 36px;
         font-weight: 800;
@@ -75,4 +76,36 @@ main {
   padding-left: 0;
   font-weight: 900;
   color: steelblue;
+}
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+  main {
+    flex-direction: column;
+    div {
+      &.left-div {
+        max-height: 33%;
+        width: 100%;
+        justify-content: flex-start;
+        img {
+          height: 100%;
+        }
+      }
+      &.right-div {
+        width: 100%;
+        mat-card-content {
+          top: 0;
+          padding: 0;
+          .login-button {
+            font-size: unset;
+            padding: unset;
+            width: 100%;
+            padding: 0px 44%;
+            margin: 0;
+          }
+          input {
+            font-size: unset !important;
+          }
+        }
+      }
+    }
+  }
 }

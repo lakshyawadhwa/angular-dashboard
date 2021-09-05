@@ -34,7 +34,10 @@
     <div mat-dialog-actions id="second-div">
       <div class="upload-button-wrapper">
         <p class="fs-22 m-0">Upload maps</p>
-        <div *ngFor="let map of uploadMapArray" class="flex-row">
+        <div
+          *ngFor="let map of uploadMapArray"
+          class="flex-row mobile-flex-column"
+        >
           <app-file-upload
             [clientId]="data.query.client.clientId"
             [siteId]="data.siteDetails.siteId"
@@ -52,7 +55,7 @@
       </div>
       <div class="upload-button-wrapper">
         <p class="fs-22 m-0">Upload horoscope</p>
-        <div class="flex-row">
+        <div class="flex-row mobile-flex-column">
           <app-file-upload
             [clientId]="data.query.client.clientId"
             [siteId]="data.siteDetails.siteId"

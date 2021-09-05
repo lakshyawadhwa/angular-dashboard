@@ -9,6 +9,9 @@ app-file-upload {
   flex-direction: column;
   width: 31%;
   margin: 1rem 2rem 1rem 0;
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+    width: 100%;
+  }
 }
 .upload-button-wrapper {
   border: 1px solid black;

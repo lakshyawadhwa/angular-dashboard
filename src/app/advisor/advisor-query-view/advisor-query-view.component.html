@@ -31,7 +31,7 @@
     </fieldset>
   </div>
   <h2>Uploaded documents</h2>
-  <div class="flex-row">
+  <div class="flex-row mobile-flex-column">
     <div *ngFor="let map of uploadMapArray" class="flex-column m-1">
       <h2>{{ map.title }}</h2>
       <app-get-uploaded-doc
