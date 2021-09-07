@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { DeviceDetectorService } from "ngx-device-detector";
 import { AuthService } from "../auth.service";
 
 @Component({
@@ -12,11 +13,12 @@ export class AuthorizedUserLayoutComponent implements OnInit {
 
   public now: Date = new Date();
 
-  constructor(public authService: AuthService, private router: Router) {
-    // setInterval(() => {
-    //   this.now = new Date();
-    // }, 1);
-  }
+  constructor(
+    public authService: AuthService,
+    private router: Router,
+    public deviceService: DeviceDetectorService
+  ) {}
+  isMobile = this.deviceService.isMobile();
 
   ngOnInit(): void {
     window.addEventListener("storage", (event) => {

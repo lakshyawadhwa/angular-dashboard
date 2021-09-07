@@ -66,7 +66,11 @@ import { FormWrapperComponent } from "./common/form-wrapper/form-wrapper.compone
 import { AdvisorInfoComponent } from "./advisor/forms/advisor-info/advisor-info.component";
 import { QueryResolvingViewComponent } from "./advisor/query-resolving-view/query-resolving-view.component";
 import { SnackbarModule } from "./common/snackbar/snackbar.module";
-import { ViewResolvedQueriesComponent } from './advisor/view-resolved-queries/view-resolved-queries.component';
+import { ViewResolvedQueriesComponent } from "./advisor/view-resolved-queries/view-resolved-queries.component";
+import { ForgotPasswordComponent } from "./common/forgot-password/forgot-password.component";
+import { MatMenuModule } from "@angular/material/menu";
+import { FooterComponent } from './common/footer/footer.component';
+
 @NgModule({
   declarations: [
     EndUserComponent,
@@ -114,6 +118,8 @@ import { ViewResolvedQueriesComponent } from './advisor/view-resolved-queries/vi
     AdvisorInfoComponent,
     QueryResolvingViewComponent,
     ViewResolvedQueriesComponent,
+    ForgotPasswordComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -137,6 +143,7 @@ import { ViewResolvedQueriesComponent } from './advisor/view-resolved-queries/vi
     FormsModule,
     ReactiveFormsModule,
     SnackbarModule,
+    MatMenuModule,
   ],
   exports: [LoginModule, HttpClientModule, MainModule],
   providers: [

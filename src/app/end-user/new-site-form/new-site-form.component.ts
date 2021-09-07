@@ -17,6 +17,7 @@ export class NewSiteFormComponent implements OnInit {
   conditionType: string;
   siteAddress: string;
   siteGeo: string;
+  accountType = localStorage.getItem("accountType");
   siteTypes: Array<siteTypeInterface> = JSON.parse(
     localStorage.getItem("siteTypes")
   );
@@ -50,9 +51,7 @@ export class NewSiteFormComponent implements OnInit {
       conditionType: this.conditionType,
     };
     this.baseService.post(url, body).subscribe((res) => {
-      console.log(res);
-      // window.open(`/client/existing`, "_self");
-      this.router.navigate(["/client/existing"]);
+      this.router.navigate([`/${this.accountType}/existing`]);
     });
   }
   getSelectedSiteType() {

@@ -20,6 +20,8 @@ export const APIConfig = {
   resolveQuery: "/user-query/resolve-query/",
   generateReport: "/advice/advice-pdf/",
   sendReport: "/advice/send-advice-pdf/query-id",
+  forgotPassword: "client/forgot-password",
 };
 
 export default APIConfig;
+// {"clientEmail" : "ojas.wadhwa@gmail.com"}

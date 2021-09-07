@@ -25,6 +25,6 @@ export class AdvisorSitesComponent implements OnInit {
     });
   }
   openNewSite() {
-    this.router.navigateByUrl("/client/new");
+    this.router.navigateByUrl("/advisor/new");
   }
 }

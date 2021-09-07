@@ -1,7 +1,9 @@
+import { MatDialog } from "@angular/material/dialog";
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "src/app/common/auth.service";
 import { Router } from "@angular/router";
 import { Location } from "@angular/common";
+import { ForgotPasswordComponent } from "src/app/common/forgot-password/forgot-password.component";
 
 @Component({
   selector: "app-sign-in",
@@ -18,7 +20,8 @@ export class SignInComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private dialogRef: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -76,5 +79,10 @@ export class SignInComponent implements OnInit {
   }
   signUp() {
     this.router.navigateByUrl("/login/sign-up");
+  }
+  forgotPassword() {
+    this.dialogRef.open(ForgotPasswordComponent, {
+      width: "60%",
+    });
   }
 }

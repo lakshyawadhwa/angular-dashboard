@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { DeviceDetectorService } from "ngx-device-detector";
 import { AuthService } from "../auth.service";
 
 @Component({
@@ -8,7 +9,13 @@ import { AuthService } from "../auth.service";
   styleUrls: ["../styles/common-layout.component.scss"],
 })
 export class AdvisorUserLayoutComponent implements OnInit {
-  constructor(public authService: AuthService, private router: Router) {}
+  constructor(
+    public authService: AuthService,
+    private router: Router,
+    public deviceService: DeviceDetectorService
+  ) {}
+  isMobile = this.deviceService.isMobile();
+
   openDrawer = false;
   ngOnInit(): void {
     window.addEventListener("storage", (event) => {

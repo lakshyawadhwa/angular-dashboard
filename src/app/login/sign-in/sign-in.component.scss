@@ -63,9 +63,12 @@ main {
   }
 }
 .example-radio-group {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 40%;
+  margin-right: 100%;
+  margin-bottom: 1rem;
 }
 
 #sign-up {
@@ -108,4 +111,7 @@ main {
       }
     }
   }
+}
+#forgot {
+  margin-right: 100%;
 }

@@ -85,6 +85,9 @@ body {
 .mb-0 {
   margin-bottom: 0 !important;
 }
+.mr-100 {
+  margin-right: 100% !important;
+}
 .pd-l1 {
   padding-left: 1rem !important;
 }
@@ -303,7 +306,9 @@ ul {
   }
 }
 .card-container-wrapper {
-  width: calc(100vw - 40px);
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+    width: calc(100vw - 40px);
+  }
   flex-direction: column;
   display: flex;
   header {

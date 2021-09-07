@@ -12,10 +12,10 @@ export class UserNewQueryDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<UserNewQueryDialogComponent>,
     private router: Router
   ) {}
-
+  accountType = localStorage.getItem("accountType");
   ngOnInit(): void {}
   openForm(formType) {
-    this.router.navigateByUrl(`/client/${formType}`);
+    this.router.navigateByUrl(`/${this.accountType}/${formType}`);
     this.dialogRef.close();
   }
 }

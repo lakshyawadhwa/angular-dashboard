@@ -3,7 +3,7 @@
     Query: {{ query.queryId }} - {{ query.masterConcern.concernName }}
   </h1>
   <h1 *ngIf="siteDetails">
-    Site: {{ siteDetails.siteName }} - {{ siteDetails.siteAddress }}
+    Site: {{ siteDetails.siteName }} - {{ siteDetails.address.address }}
   </h1>
   <p class="success-msg" *ngIf="postMessage">
     {{ postMessage }}

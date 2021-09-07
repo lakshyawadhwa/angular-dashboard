@@ -9,6 +9,8 @@ export interface UserQuery {
   masterConcern: masterConcern;
   active: boolean;
   advisor?: advisorObject;
+  location?: string;
+  fileNo?: string;
 }
 
 export interface clientObject {
@@ -20,8 +22,7 @@ export interface clientObject {
   clientPOC: string;
   occupation: clientOccupation;
   password: string;
-  residenceLocation?: string;
-  location?: Location;
+  address?: Address;
 }
 
 export interface advisorObject {
@@ -31,26 +32,30 @@ export interface advisorObject {
   advisorEmail: string;
   password: string;
 }
-export interface Location {
+export interface Address {
   state: string;
   city: string;
-  subCity: string;
   mobile: number;
-  pincode: number;
+  pincode: string;
   googleLocation: string;
+  addressId: number;
+  address: string;
+  siteGeo: string;
+  subCity: string;
+  country: string;
 }
+
 export interface SiteInterface {
   siteId: number;
   siteName: string;
-  siteAddress: string;
-  siteGeo: string;
   siteType: siteTypeInterface;
   siteMapId: number;
   client: clientObject;
   conditionType: string;
   location: Location;
-  plotArea: number; //sq. ft.
-  coveredArea: number; //sq. ft.
+  plotArea: string; //sq. ft.
+  coveredArea: string; //sq. ft.
+  address: Address;
 }
 export interface AdviceResponse {
   dishabal: string | null;

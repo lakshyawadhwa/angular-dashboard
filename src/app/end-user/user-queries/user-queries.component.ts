@@ -32,7 +32,6 @@ export class UserQueriesComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(UserNewQueryDialogComponent, {
       width: "250px",
-      data: { name: this.name },
     });
   }
 }

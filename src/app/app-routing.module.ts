@@ -66,7 +66,8 @@ const routes: Routes = [
       { path: "", component: ProfileCardComponent },
       { path: "queries", component: AdvisorQueriesComponent },
       { path: "sites", component: AdvisorSitesComponent },
-
+      { path: "existing", component: UserQueryFormComponent },
+      { path: "new", component: NewSiteFormComponent },
       { path: "form-1-a", component: FormLevelOneComponent },
       { path: "form-1-b-prakriti", component: FormPrakritiPersonComponent },
       { path: "form-1-b-building", component: FormPrakritiBuildingComponent },

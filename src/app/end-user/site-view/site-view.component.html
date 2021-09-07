@@ -37,8 +37,8 @@
         <mat-label>Site Geo</mat-label>
         <input
           matInput
-          value="{{ data.siteGeo }}"
-          [(ngModel)]="data.siteGeo"
+          value="{{ data.address.siteGeo }}"
+          [(ngModel)]="data.address.siteGeo"
           name="sitegeo"
         />
       </mat-form-field>
@@ -76,8 +76,8 @@
         <mat-label>Description</mat-label>
         <input
           matInput
-          value="{{ data.siteAddress }}"
-          [(ngModel)]="data.siteAddress"
+          value="{{ data.address.address }}"
+          [(ngModel)]="data.address.address"
           name="siteAddress"
         />
       </mat-form-field>

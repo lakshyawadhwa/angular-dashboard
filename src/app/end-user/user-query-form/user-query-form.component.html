@@ -9,7 +9,7 @@
         name="selectedSite"
       >
         <option *ngFor="let site of sites" [value]="site.siteId">
-          {{ site.siteName }} - {{ site.siteAddress }}
+          {{ site.siteName }} - {{ site.address.address }}
         </option>
       </select>
     </div>

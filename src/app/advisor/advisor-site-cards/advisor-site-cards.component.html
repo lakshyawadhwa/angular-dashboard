@@ -1,9 +1,9 @@
 <mat-card class="site-card">
   <mat-card-title> {{ site.siteName }} </mat-card-title>
-  <mat-card-subtitle>{{ site.siteAddress }}</mat-card-subtitle>
+  <mat-card-subtitle>{{ site.address.address }}</mat-card-subtitle>
 
   <div class="divider"></div>
-  <mat-card-content>{{ site.siteGeo }}</mat-card-content>
+  <mat-card-content>{{ site.address.siteGeo }}</mat-card-content>
   <button ngClass="add-button view-query" (click)="openDialog()">
     View queries
   </button>
