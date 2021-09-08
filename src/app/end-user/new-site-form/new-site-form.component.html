@@ -58,6 +58,33 @@
         </option>
       </select>
     </div>
+    <div class="form-group" *ngIf="advisorAccount">
+      <label>Client Email</label>
+      <input
+        [value]="clientEmail"
+        [(ngModel)]="clientEmail"
+        class="form-control"
+        name="clientEmail"
+      />
+    </div>
+    <div class="form-group" *ngIf="advisorAccount">
+      <label>Location of File</label>
+      <input
+        [value]="locationOfFile"
+        [(ngModel)]="locationOfFile"
+        class="form-control"
+        name="clientEmail"
+      />
+    </div>
+    <div class="form-group" *ngIf="advisorAccount">
+      <label>File Number</label>
+      <input
+        [value]="fileNumber"
+        [(ngModel)]="fileNumber"
+        class="form-control"
+        name="clientEmail"
+      />
+    </div>
   </form>
 </div>
 <div mat-dialog-actions>

@@ -19,7 +19,8 @@ export class UserQueryFormComponent implements OnInit {
   showButtons = false;
   selectedSite: number;
   queryText: string = "";
-
+  advisorAccount = localStorage.getItem("accountType") === "advisor";
+  clientEmail: string;
   ngOnInit(): void {
     let url =
       environment.url + APIConfig.getSiteByClient + this.clientInfo.clientId;
@@ -37,11 +38,11 @@ export class UserQueryFormComponent implements OnInit {
   }
 
   submitQuery() {
-    console.log(this.selectedSite, this.queryText);
     let url = environment.url + APIConfig.createNewQuery;
     let body = {
       client: {
         clientId: this.clientInfo.clientId,
+        ...(this.advisorAccount && { clientEmail: this.clientEmail }),
       },
       queryText: this.queryText,
       siteId: this.selectedSite,

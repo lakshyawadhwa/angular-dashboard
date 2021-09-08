@@ -18,6 +18,10 @@ export class NewSiteFormComponent implements OnInit {
   siteAddress: string;
   siteGeo: string;
   accountType = localStorage.getItem("accountType");
+  advisorAccount = this.accountType === "advisor";
+  clientEmail: string;
+  locationOfFile: string;
+  fileNumber: string;
   siteTypes: Array<siteTypeInterface> = JSON.parse(
     localStorage.getItem("siteTypes")
   );
@@ -45,11 +49,15 @@ export class NewSiteFormComponent implements OnInit {
         siteTypeId: this.selectedSiteType,
       },
       siteMapId: 1,
+      ...(this.advisorAccount && { locationOfFile: this.locationOfFile }),
+      ...(this.advisorAccount && { fileNumber: this.fileNumber }),
       client: {
         clientId: this.clientInfo.clientId,
+        ...(this.advisorAccount && { clientEmail: this.clientEmail }),
       },
       conditionType: this.conditionType,
     };
+
     this.baseService.post(url, body).subscribe((res) => {
       this.router.navigate([`/${this.accountType}/existing`]);
     });

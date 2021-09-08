@@ -9,8 +9,6 @@ export interface UserQuery {
   masterConcern: masterConcern;
   active: boolean;
   advisor?: advisorObject;
-  location?: string;
-  fileNo?: string;
 }
 
 export interface clientObject {
@@ -56,6 +54,8 @@ export interface SiteInterface {
   plotArea: string; //sq. ft.
   coveredArea: string; //sq. ft.
   address: Address;
+  locationOfFile?: string;
+  fileNumber?: string;
 }
 export interface AdviceResponse {
   dishabal: string | null;
