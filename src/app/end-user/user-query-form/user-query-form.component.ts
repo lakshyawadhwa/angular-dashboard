@@ -1,3 +1,4 @@
+import { QueryService } from "src/app/services/query-service/query-service.service";
 import { Router } from "@angular/router";
 import { clientObject, SiteInterface } from "./../../services/interfaces";
 import { Component, OnInit } from "@angular/core";
@@ -11,7 +12,11 @@ import APIConfig from "../../services/APIConfig";
   styleUrls: ["./user-query-form.component.scss"],
 })
 export class UserQueryFormComponent implements OnInit {
-  constructor(private baseService: BaseService, private router: Router) {}
+  constructor(
+    private baseService: BaseService,
+    private router: Router,
+    private queryService: QueryService
+  ) {}
   sites: Array<SiteInterface> = [];
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
   masterConcern: string;
@@ -31,8 +36,7 @@ export class UserQueryFormComponent implements OnInit {
   }
 
   getMasterConcerns() {
-    let url = environment.url + APIConfig.masterConcerns;
-    this.baseService.get(url).subscribe((res) => {
+    this.queryService.getMasterConcerns().subscribe((res) => {
       this.masterConcerns = res;
     });
   }

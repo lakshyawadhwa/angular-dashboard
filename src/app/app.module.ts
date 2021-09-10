@@ -70,6 +70,7 @@ import { ViewResolvedQueriesComponent } from "./advisor/view-resolved-queries/vi
 import { ForgotPasswordComponent } from "./common/forgot-password/forgot-password.component";
 import { MatMenuModule } from "@angular/material/menu";
 import { FooterComponent } from './common/footer/footer.component';
+import { FilterComponent } from './common/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -120,6 +121,7 @@ import { FooterComponent } from './common/footer/footer.component';
     ViewResolvedQueriesComponent,
     ForgotPasswordComponent,
     FooterComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,

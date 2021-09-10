@@ -1,0 +1,53 @@
+<button mat-button [matMenuTriggerFor]="filters">Filters</button>
+<mat-menu #filters="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="site">Site Filters</button>
+  <button mat-menu-item [matMenuTriggerFor]="query">Query Filters</button>
+  <button mat-menu-item [matMenuTriggerFor]="client">Client Filters</button>
+</mat-menu>
+
+<mat-menu #site="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="location">Location</button>
+  <button mat-menu-item [matMenuTriggerFor]="type">Type</button>
+  <button mat-menu-item (click)="setSearchType('size')">Size</button>
+</mat-menu>
+
+<mat-menu #query="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="concern">Concern</button>
+</mat-menu>
+<mat-menu #client="matMenu">
+  <button mat-menu-item (click)="setSearchType('name')">Name</button>
+  <button mat-menu-item (click)="setSearchType('mobile')">Mobile</button>
+  <button mat-menu-item (click)="setSearchType('email')">Email</button>
+</mat-menu>
+
+<mat-menu #location="matMenu">
+  <button mat-menu-item (click)="setSearchType('country')">Country</button>
+  <button mat-menu-item (click)="setSearchType('state')">State</button>
+  <button mat-menu-item (click)="setSearchType('city')">City</button>
+  <button mat-menu-item (click)="setSearchType('subCity')">Sub City</button>
+</mat-menu>
+
+<mat-menu #type="matMenu"> </mat-menu>
+
+<mat-menu #concern="matMenu">
+  <button
+    mat-menu-item
+    (click)="setSearchType(concern.concernName)"
+    *ngFor="let concern of masterConcerns"
+  >
+    {{ concern.concernName }}
+  </button>
+</mat-menu>
+
+<mat-form-field class="example-form-field" appearance="fill" *ngIf="searchType">
+  <input matInput type="text" [(ngModel)]="searchText" />
+  <button
+    *ngIf="searchText"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="sendSearchQuery()"
+  >
+    <mat-icon>search</mat-icon>
+  </button>
+</mat-form-field>

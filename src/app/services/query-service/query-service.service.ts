@@ -1,7 +1,7 @@
 import { BaseService } from "./../base-service/base.service";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
-import { clientObject, UserQuery } from "../interfaces";
+import { clientObject, masterConcern, UserQuery } from "../interfaces";
 import { environment } from "src/environments/environment";
 import APIConfig from "../APIConfig";
 import { catchError, tap } from "rxjs/operators";
@@ -47,6 +47,16 @@ export class QueryService {
         // console.log("Assigning Queries: " + res);
         // this.queryArray = res;
       }),
+      catchError((e) => {
+        console.log(e);
+        throw e;
+      })
+    );
+  }
+  getMasterConcerns(): Observable<Array<masterConcern>> {
+    let url = environment.url + APIConfig.masterConcerns;
+    return this.baseService.get(url).pipe(
+      tap(async (res: Array<masterConcern>) => {}),
       catchError((e) => {
         console.log(e);
         throw e;

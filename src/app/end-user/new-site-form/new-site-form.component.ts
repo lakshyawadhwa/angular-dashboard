@@ -1,4 +1,4 @@
-import { siteTypeInterface } from "./../../services/interfaces";
+import { Address, siteTypeInterface } from "./../../services/interfaces";
 import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import APIConfig from "src/app/services/APIConfig";
@@ -15,7 +15,7 @@ export class NewSiteFormComponent implements OnInit {
   constructor(private baseService: BaseService, private router: Router) {}
   siteName: string;
   conditionType: string;
-  siteAddress: string;
+  siteAddress: Address;
   siteGeo: string;
   accountType = localStorage.getItem("accountType");
   advisorAccount = this.accountType === "advisor";
@@ -43,8 +43,7 @@ export class NewSiteFormComponent implements OnInit {
     let body = {
       siteId: null,
       siteName: this.siteName,
-      siteAddress: this.siteAddress,
-      siteGeo: this.siteGeo,
+      address: this.siteAddress,
       siteType: {
         siteTypeId: this.selectedSiteType,
       },
