@@ -74,7 +74,7 @@
     </mat-form-field>
     <mat-form-field appearance="standard">
       <mat-label>Site Geo</mat-label>
-      <input required matInput [(ngModel)]="address.siteGeo" name="name" />
+      <input matInput [(ngModel)]="address.siteGeo" name="name" />
     </mat-form-field>
     <mat-form-field appearance="standard">
       <mat-label>Pincode</mat-label>
@@ -88,6 +88,8 @@
       />
     </mat-form-field>
     <mat-form-field>
+      <mat-label>Password</mat-label>
+
       <input
         required
         matInput
