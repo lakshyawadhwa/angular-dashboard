@@ -2,6 +2,7 @@
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem;
+  width: 100%;
 }
 form {
   max-height: 90vh;
@@ -9,6 +10,7 @@ form {
 
 #second-div {
   padding-bottom: 2rem;
+  width: 100%;
   mat-form-field {
     margin: 1rem;
   }
