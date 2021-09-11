@@ -22,6 +22,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { AuthRequestInterceptor } from "./common/auth-request.interceptor";
 import { MainModule } from "./main/main.module";
 import { MatStepperModule } from "@angular/material/stepper";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { EndUserComponent } from "./end-user/end-user.component";
 import { UserQueriesComponent } from "./end-user/user-queries/user-queries.component";
 import { QueryCardComponent } from "./end-user/query-card/query-card.component";
@@ -69,8 +70,8 @@ import { SnackbarModule } from "./common/snackbar/snackbar.module";
 import { ViewResolvedQueriesComponent } from "./advisor/view-resolved-queries/view-resolved-queries.component";
 import { ForgotPasswordComponent } from "./common/forgot-password/forgot-password.component";
 import { MatMenuModule } from "@angular/material/menu";
-import { FooterComponent } from './common/footer/footer.component';
-import { FilterComponent } from './common/filter/filter.component';
+import { FooterComponent } from "./common/footer/footer.component";
+import { FilterComponent } from "./common/filter/filter.component";
 
 @NgModule({
   declarations: [
@@ -146,6 +147,7 @@ import { FilterComponent } from './common/filter/filter.component';
     ReactiveFormsModule,
     SnackbarModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
   ],
   exports: [LoginModule, HttpClientModule, MainModule],
   providers: [

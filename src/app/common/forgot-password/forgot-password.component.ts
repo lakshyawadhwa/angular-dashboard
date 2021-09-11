@@ -20,20 +20,22 @@ export class ForgotPasswordComponent implements OnInit {
 
   ngOnInit(): void {}
   emailID: string;
+  showLoader = false;
   onSubmit() {
     console.log(this.emailID);
     if (this.emailID) {
+      this.showLoader = true;
       this.clientService
         .forgotPassword({
           clientEmail: this.emailID,
         })
         .subscribe((res: string) => {
-          console.log(res);
+          this.showLoader = false;
           this.baseService.callSnackbar.next({
             message: res,
             type: "success",
           });
-          this.dialogRef.close();
+          // this.dialogRef.close();
         });
     }
   }
