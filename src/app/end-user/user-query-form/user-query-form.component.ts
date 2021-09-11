@@ -52,7 +52,7 @@ export class UserQueryFormComponent implements OnInit {
         ...(!this.advisorAccount && { clientId: this.userInfo.clientId }),
         ...(this.advisorAccount && { clientEmail: this.clientEmail }),
       },
-      ...(this.advisorAccount && { advisor: this.userInfo }),
+      ...(this.advisorAccount && { createdByAdvisor: this.userInfo }),
       queryText: this.queryText,
       siteId: this.selectedSite,
       horoId: 1,

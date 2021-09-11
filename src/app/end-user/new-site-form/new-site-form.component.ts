@@ -67,7 +67,7 @@ export class NewSiteFormComponent implements OnInit {
         ...(!this.advisorAccount && { clientId: this.userInfo.clientId }),
         ...(this.advisorAccount && { clientEmail: this.clientEmail }),
       },
-      ...(this.advisorAccount && { advisor: this.userInfo }),
+      ...(this.advisorAccount && { createdByAdvisor: this.userInfo }),
       conditionType: this.conditionType,
     };
 
