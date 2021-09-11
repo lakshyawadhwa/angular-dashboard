@@ -6,6 +6,7 @@
 }
 form {
   max-height: 90vh;
+  position: relative;
 }
 
 #second-div {
@@ -63,6 +64,8 @@ mat-form-field {
   margin: 1rem;
   margin-left: 0;
 }
-h1 {
-  font-weight: bold;
+
+app-snackbar {
+  position: absolute;
+  width: 75%;
 }
