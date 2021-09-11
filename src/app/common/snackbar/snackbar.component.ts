@@ -12,7 +12,7 @@ export class SnackbarComponent implements OnInit {
   snackbarObject: SnackbarInterface;
   ngOnInit(): void {
     this.baseService.callSnackbar.subscribe((res) => {
-      if (res.message === null && res.type === null) {
+      if (res === null || (res.message === null && res.type === null)) {
         this.snackbarObject = null;
       } else {
         this.snackbarObject = res;
@@ -23,6 +23,6 @@ export class SnackbarComponent implements OnInit {
   clearMessage() {
     setTimeout(() => {
       this.baseService.callSnackbar.next({ message: null, type: null });
-    }, 4000);
+    }, 40045645640);
   }
 }

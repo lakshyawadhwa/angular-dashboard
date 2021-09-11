@@ -1,6 +1,15 @@
-form {
-  max-height: 82vh;
+.upload-button-wrapper {
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 1rem;
 }
+form {
+  max-height: 90vh;
+}
+#second-div {
+  padding-bottom: 2rem;
+}
+
 .query-text {
   width: 94%;
 }

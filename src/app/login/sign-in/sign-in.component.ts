@@ -1,3 +1,4 @@
+import { BaseService } from "./../../services/base-service/base.service";
 import { MatDialog } from "@angular/material/dialog";
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "src/app/common/auth.service";
@@ -21,7 +22,8 @@ export class SignInComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private location: Location,
-    private dialogRef: MatDialog
+    private dialogRef: MatDialog,
+    private baseService: BaseService
   ) {}
 
   ngOnInit(): void {
@@ -76,6 +78,7 @@ export class SignInComponent implements OnInit {
       this.location.go("/advisor");
       this.router.navigate(["/advisor"]);
     }
+    this.baseService.callSnackbar.next(null);
   }
   signUp() {
     this.router.navigateByUrl("/login/sign-up");

@@ -32,7 +32,7 @@ export class GetUploadedDocComponent implements OnInit {
         });
       } else {
         this.baseService.callSnackbar.next({
-          message: "This document is not vaulted by Client.",
+          message: "This document is not uploaded.",
           type: "error",
         });
       }

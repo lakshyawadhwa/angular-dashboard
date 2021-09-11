@@ -32,14 +32,46 @@
   </div>
   <h2>Uploaded documents</h2>
   <div class="flex-row mobile-flex-column">
-    <div *ngFor="let map of uploadMapArray" class="flex-column m-1">
-      <h2>{{ map.title }}</h2>
-      <app-get-uploaded-doc
-        [clientId]="data.query.client.clientId"
-        [siteId]="data.siteDetails.siteId"
-        [documentType]="map.name"
-        [queryId]="data.query.queryId"
-      ></app-get-uploaded-doc>
+    <div mat-dialog-actions id="second-div">
+      <div class="upload-button-wrapper">
+        <p class="fs-22 m-0">Upload maps</p>
+        <div
+          *ngFor="let map of uploadMapArray"
+          class="flex-row mobile-flex-column"
+        >
+          <app-file-upload
+            [clientId]="data.query.client.clientId"
+            [siteId]="data.siteDetails.siteId"
+            [name]="map.name"
+            [title]="map.title"
+            [queryId]="data.query.queryId"
+          ></app-file-upload>
+          <app-get-uploaded-doc
+            [clientId]="data.query.client.clientId"
+            [siteId]="data.siteDetails.siteId"
+            [documentType]="map.name"
+            [queryId]="data.query.queryId"
+          ></app-get-uploaded-doc>
+        </div>
+      </div>
+      <div class="upload-button-wrapper">
+        <p class="fs-22 m-0">Upload horoscope</p>
+        <div class="flex-row mobile-flex-column">
+          <app-file-upload
+            [clientId]="data.query.client.clientId"
+            [siteId]="data.siteDetails.siteId"
+            [name]="'AssociatedPeople'"
+            [title]="'Associated People'"
+            [queryId]="data.query.queryId"
+          ></app-file-upload>
+          <app-get-uploaded-doc
+            [clientId]="data.query.client.clientId"
+            [siteId]="data.siteDetails.siteId"
+            [documentType]="'AssociatedPeople'"
+            [queryId]="data.query.queryId"
+          ></app-get-uploaded-doc>
+        </div>
+      </div>
     </div>
   </div>
   <div class="divider"></div>

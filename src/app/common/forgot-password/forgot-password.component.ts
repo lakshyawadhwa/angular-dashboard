@@ -28,6 +28,7 @@ export class ForgotPasswordComponent implements OnInit {
           clientEmail: this.emailID,
         })
         .subscribe((res: string) => {
+          console.log(res);
           this.baseService.callSnackbar.next({
             message: res,
             type: "success",
