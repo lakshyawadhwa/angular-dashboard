@@ -15,8 +15,7 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(
     private clientService: ClientService,
     private baseService: BaseService,
-    private dialogRef: MatDialogRef<ForgotPasswordComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: EditProfileComponent
+    private dialogRef: MatDialogRef<ForgotPasswordComponent>
   ) {}
 
   ngOnInit(): void {}

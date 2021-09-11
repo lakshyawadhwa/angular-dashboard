@@ -20,7 +20,7 @@ export const APIConfig = {
   resolveQuery: "/user-query/resolve-query/",
   generateReport: "/advice/advice-pdf/",
   sendReport: "/advice/send-advice-pdf/query-id",
-  forgotPassword: "client/forgot-password",
+  forgotPassword: "/client/forgot-password",
   getAdviceMetadata: "/advice/metedata-for-query/",
 };
 
