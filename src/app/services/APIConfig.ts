@@ -21,7 +21,7 @@ export const APIConfig = {
   generateReport: "/advice/advice-pdf/",
   sendReport: "/advice/send-advice-pdf/query-id",
   forgotPassword: "client/forgot-password",
+  getAdviceMetadata: "/advice/metedata-for-query/",
 };
 
 export default APIConfig;
-// {"clientEmail" : "ojas.wadhwa@gmail.com"}

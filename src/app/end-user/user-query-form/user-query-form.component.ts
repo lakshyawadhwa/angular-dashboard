@@ -18,7 +18,7 @@ export class UserQueryFormComponent implements OnInit {
     private queryService: QueryService
   ) {}
   sites: Array<SiteInterface> = [];
-  clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
+  userInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
   masterConcern: string;
   masterConcerns: Array<masterConcern> = [];
   showButtons = false;
@@ -28,7 +28,11 @@ export class UserQueryFormComponent implements OnInit {
   clientEmail: string;
   ngOnInit(): void {
     let url =
-      environment.url + APIConfig.getSiteByClient + this.clientInfo.clientId;
+      environment.url +
+      (this.advisorAccount
+        ? APIConfig.getAllSites
+        : APIConfig.getSiteByClient + this.userInfo.clientId);
+    console.log(url);
     this.baseService.get(url).subscribe((res) => {
       this.sites = res;
     });
@@ -45,9 +49,10 @@ export class UserQueryFormComponent implements OnInit {
     let url = environment.url + APIConfig.createNewQuery;
     let body = {
       client: {
-        clientId: this.clientInfo.clientId,
+        ...(!this.advisorAccount && { clientId: this.userInfo.clientId }),
         ...(this.advisorAccount && { clientEmail: this.clientEmail }),
       },
+      ...(this.advisorAccount && { advisor: this.userInfo }),
       queryText: this.queryText,
       siteId: this.selectedSite,
       horoId: 1,

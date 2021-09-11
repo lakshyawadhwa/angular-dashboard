@@ -17,7 +17,7 @@
       <mat-list-item
         routerLink="sites"
         routerLinkActive="active"
-        (click)="isMobile && drawer.close()"
+        (click)="drawer.close()"
       >
         <div class="list-item">
           <mat-icon>maps_home_work</mat-icon>
@@ -32,7 +32,7 @@
       <mat-list-item
         routerLink="queries"
         routerLinkActive="active"
-        (click)="isMobile && drawer.close()"
+        (click)="drawer.close()"
       >
         <div class="list-item">
           <mat-icon>question_answer</mat-icon>
@@ -47,7 +47,7 @@
   <mat-drawer-content>
     <mat-toolbar>
       <div class="example-sidenav-content">
-        <button type="button" mat-button (click)="isMobile && drawer.toggle()">
+        <button type="button" mat-button (click)="drawer.toggle()">
           <mat-icon>menu</mat-icon>
         </button>
       </div>

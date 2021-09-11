@@ -13,7 +13,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Last update at</mat-label>
-        <input matInput value="{{ getDate() }}" />
+        <input matInput value="{{ getDate(data.query.queryUpdateDatetime) }}" />
       </mat-form-field>
       <mat-form-field appearance="outline" class="query-text">
         <mat-label>Site Name</mat-label>
@@ -173,6 +173,15 @@
           </div>
         </div>
       </div>
+    </div>
+    <div>
+      <p *ngFor="let advice of adviceMetadata">
+        {{ advice.analysis }} posted by {{ advice.advisor.advisorName }} ({{
+          advice.advisor.advisorMobile
+        }}
+        - {{ advice.advisor.advisorEmail }}) on
+        {{ getDate(advice.adviceUpdateDatetime) }}
+      </p>
     </div>
   </div>
 </form>

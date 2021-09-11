@@ -2,7 +2,7 @@ import { ClientService } from "./../../services/client-service/client.service";
 import { MatDialog } from "@angular/material/dialog";
 import { BaseService } from "./../../services/base-service/base.service";
 import { Component, OnInit } from "@angular/core";
-import { clientOccupation } from "src/app/services/interfaces";
+import { Address, clientOccupation } from "src/app/services/interfaces";
 import { ClientIdDialogComponent } from "../client-id-dialog/client-id-dialog.component";
 import { Binary } from "@angular/compiler";
 
@@ -24,6 +24,16 @@ export class SignUpComponent implements OnInit {
   occupationsArray: Array<clientOccupation>;
   selectedOccupation: string;
   password: string;
+  address: Address = {
+    address: "",
+    state: "",
+    city: "",
+    subCity: "",
+    country: "",
+    pincode: "",
+    siteGeo: "",
+    addressId: null,
+  };
   clientDisplayPic: any;
   ngOnInit(): void {
     this.clientService.getOccupations().subscribe((res) => {

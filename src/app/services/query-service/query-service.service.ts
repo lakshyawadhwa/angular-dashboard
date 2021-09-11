@@ -1,7 +1,12 @@
 import { BaseService } from "./../base-service/base.service";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
-import { clientObject, masterConcern, UserQuery } from "../interfaces";
+import {
+  AdviceMetadata,
+  clientObject,
+  masterConcern,
+  UserQuery,
+} from "../interfaces";
 import { environment } from "src/environments/environment";
 import APIConfig from "../APIConfig";
 import { catchError, tap } from "rxjs/operators";
@@ -63,6 +68,7 @@ export class QueryService {
       })
     );
   }
+
   resolveQuery(body) {
     let url = environment.url + APIConfig.resolveQuery + body["advisorId"];
     return this.baseService.postFile(url, body).pipe(
@@ -72,6 +78,17 @@ export class QueryService {
           type: "success",
         });
       }),
+      catchError((e) => {
+        console.log(e);
+        throw e;
+      })
+    );
+  }
+
+  getAdviceForQuery(queryId): Observable<Array<AdviceMetadata>> {
+    let url = environment.url + APIConfig.getAdviceMetadata + queryId;
+    return this.baseService.get(url).pipe(
+      tap(async (res: Array<AdviceMetadata>) => {}),
       catchError((e) => {
         console.log(e);
         throw e;

@@ -15,7 +15,16 @@ export class NewSiteFormComponent implements OnInit {
   constructor(private baseService: BaseService, private router: Router) {}
   siteName: string;
   conditionType: string;
-  siteAddress: Address;
+  siteAddress: Address = {
+    address: "",
+    state: "",
+    city: "",
+    subCity: "",
+    country: "",
+    pincode: "",
+    siteGeo: "",
+    addressId: null,
+  };
   siteGeo: string;
   accountType = localStorage.getItem("accountType");
   advisorAccount = this.accountType === "advisor";
@@ -27,7 +36,7 @@ export class NewSiteFormComponent implements OnInit {
   );
   selectedSiteType: number;
   conditionsArray: Array<string> = ["New", "Used"];
-  clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
+  userInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
   ngOnInit(): void {
     if (!this.siteTypes) this.getSiteTypes();
   }
@@ -51,9 +60,10 @@ export class NewSiteFormComponent implements OnInit {
       ...(this.advisorAccount && { locationOfFile: this.locationOfFile }),
       ...(this.advisorAccount && { fileNumber: this.fileNumber }),
       client: {
-        clientId: this.clientInfo.clientId,
+        ...(!this.advisorAccount && { clientId: this.userInfo.clientId }),
         ...(this.advisorAccount && { clientEmail: this.clientEmail }),
       },
+      ...(this.advisorAccount && { advisor: this.userInfo }),
       conditionType: this.conditionType,
     };
 

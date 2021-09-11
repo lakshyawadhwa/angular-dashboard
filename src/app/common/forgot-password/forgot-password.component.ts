@@ -13,18 +13,18 @@ import APIConfig from "src/app/services/APIConfig";
 })
 export class ForgotPasswordComponent implements OnInit {
   constructor(
-    private ClientService: ClientService,
+    private clientService: ClientService,
+    private baseService: BaseService,
     private dialogRef: MatDialogRef<ForgotPasswordComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: EditProfileComponent,
-    private baseService: BaseService
+    @Inject(MAT_DIALOG_DATA) public data: EditProfileComponent
   ) {}
 
   ngOnInit(): void {}
   emailID: string;
   onSubmit() {
     if (this.emailID) {
-      this.baseService
-        .post(APIConfig.forgotPassword, {
+      this.clientService
+        .forgotPassword({
           clientEmail: this.emailID,
         })
         .subscribe((res) => {
@@ -35,5 +35,4 @@ export class ForgotPasswordComponent implements OnInit {
         });
     }
   }
-  //body= {"clientEmail" : "ojas.wadhwa@gmail.com"}
 }

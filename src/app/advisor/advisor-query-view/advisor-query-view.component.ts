@@ -1,8 +1,9 @@
+import { QueryService } from "src/app/services/query-service/query-service.service";
 import { AdvisorService } from "./../../services/advisor-service/advisor.service";
 import { Component, Inject, Input, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { UserQuery } from "src/app/services/interfaces";
+import { AdviceMetadata, UserQuery } from "src/app/services/interfaces";
 import * as moment from "moment";
 import { Router } from "@angular/router";
 @Component({
@@ -15,6 +16,7 @@ export class AdvisorQueryViewComponent implements OnInit {
     private router: Router,
     private dialogRef: MatDialogRef<AdvisorQueryViewComponent>,
     private advisorService: AdvisorService,
+    private queryService: QueryService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
   showForms = [false, false, false, false, false, false];
@@ -24,13 +26,17 @@ export class AdvisorQueryViewComponent implements OnInit {
     { name: "SquareGridMap", title: "Square Grid Map" },
     { name: "AssociatedPeople", title: "Associated People" },
   ];
-
+  adviceMetadata: Array<AdviceMetadata>;
   @Input() selectedQuery: UserQuery;
   formControl: FormControl;
   queryView: FormGroup = new FormGroup({});
-  ngOnInit(): void {}
-  getDate() {
-    return moment(this.data.query.queryUpdateDatetime).format("DD-MM-YY HH:mm");
+  ngOnInit(): void {
+    this.queryService
+      .getAdviceForQuery(this.selectedQuery.queryId)
+      .subscribe((res) => (this.adviceMetadata = res));
+  }
+  getDate(time) {
+    return moment(time).format("DD-MM-YY HH:mm");
   }
   toggleShowForm(index) {
     this.showForms.map((form) => form === false);

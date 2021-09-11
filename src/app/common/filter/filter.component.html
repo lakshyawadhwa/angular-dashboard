@@ -1,4 +1,6 @@
-<button mat-button [matMenuTriggerFor]="filters">Filters</button>
+<button mat-button class="m-1" [matMenuTriggerFor]="filters">
+  <h1>Filters</h1>
+</button>
 <mat-menu #filters="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="site">Site Filters</button>
   <button mat-menu-item [matMenuTriggerFor]="query">Query Filters</button>
@@ -27,27 +29,48 @@
   <button mat-menu-item (click)="setSearchType('subCity')">Sub City</button>
 </mat-menu>
 
-<mat-menu #type="matMenu"> </mat-menu>
+<mat-menu #type="matMenu">
+  <button
+    mat-menu-item
+    (click)="setSiteType(siteType)"
+    *ngFor="let siteType of siteTypes"
+  >
+    {{ siteType.siteTypeName }}
+  </button></mat-menu
+>
 
 <mat-menu #concern="matMenu">
   <button
     mat-menu-item
-    (click)="setSearchType(concern.concernName)"
+    (click)="setConcern(concern)"
     *ngFor="let concern of masterConcerns"
   >
     {{ concern.concernName }}
   </button>
 </mat-menu>
-
-<mat-form-field class="example-form-field" appearance="fill" *ngIf="searchType">
-  <input matInput type="text" [(ngModel)]="searchText" />
-  <button
-    *ngIf="searchText"
-    matSuffix
-    mat-icon-button
-    aria-label="Clear"
-    (click)="sendSearchQuery()"
+<form *ngIf="filterArray.length > 0" (ngSubmit)="sendSearchQuery()">
+  <mat-form-field
+    class="m-1"
+    appearance="fill"
+    *ngFor="let searchFilter of filterArray"
   >
+    <mat-label>{{ searchFilter.searchType }}</mat-label>
+    <input
+      matInput
+      type="text"
+      (change)="getInput($event, searchFilter.searchType)"
+      value="{{ searchFilter.searchText }}"
+    />
+    <button
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="removeSearchQuery(searchFilter.searchType)"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button matSuffix mat-icon-button aria-label="Clear" type="submit">
     <mat-icon>search</mat-icon>
   </button>
-</mat-form-field>
+</form>

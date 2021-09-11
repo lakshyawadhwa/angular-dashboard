@@ -33,9 +33,7 @@ export interface advisorObject {
 export interface Address {
   state: string;
   city: string;
-  mobile: number;
   pincode: string;
-  googleLocation: string;
   addressId: number;
   address: string;
   siteGeo: string;
@@ -87,4 +85,9 @@ export interface masterConcern {
 export interface SnackbarInterface {
   message: string;
   type: string;
+}
+export interface AdviceMetadata {
+  analysis: string;
+  advisor: advisorObject;
+  adviceUpdateDatetime: string;
 }

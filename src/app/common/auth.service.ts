@@ -79,6 +79,7 @@ export class AuthService {
   logout(callingfn) {
     localStorage.removeItem("userInfo");
     localStorage.removeItem("loginExpiration");
+    localStorage.removeItem("accountType");
   }
 
   public isLoggedIn() {

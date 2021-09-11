@@ -53,7 +53,41 @@
       </select>
     </mat-form-field>
     <mat-form-field appearance="standard">
-      <mat-label>Password</mat-label>
+      <mat-label>Residence Location</mat-label>
+      <input required matInput [(ngModel)]="address.address" name="name" />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Country</mat-label>
+      <input required matInput [(ngModel)]="address.country" name="name" />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>State</mat-label>
+      <input required matInput [(ngModel)]="address.state" name="name" />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>City</mat-label>
+      <input required matInput [(ngModel)]="address.city" name="name" />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Sub City</mat-label>
+      <input required matInput [(ngModel)]="address.subCity" name="name" />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Site Geo</mat-label>
+      <input required matInput [(ngModel)]="address.siteGeo" name="name" />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Pincode</mat-label>
+      <input
+        required
+        matInput
+        [(ngModel)]="address.pincode"
+        name="name"
+        type="number"
+        max="999999"
+      />
+    </mat-form-field>
+    <mat-form-field>
       <input
         required
         matInput
