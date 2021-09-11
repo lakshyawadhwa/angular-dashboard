@@ -6,8 +6,21 @@
 form {
   max-height: 90vh;
 }
+
 #second-div {
   padding-bottom: 2rem;
+  mat-form-field {
+    margin: 1rem;
+  }
+  app-file-upload {
+    display: inline-flex;
+    flex-direction: column;
+    width: 31%;
+    margin: 1rem 2rem 1rem 0;
+    @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+      width: 100%;
+    }
+  }
 }
 
 .query-text {
@@ -48,4 +61,7 @@ mat-form-field {
   margin: 1rem;
   margin-left: 0;
   background-color: var(--color-primary-light);
+}
+h1 {
+  font-weight: bold;
 }

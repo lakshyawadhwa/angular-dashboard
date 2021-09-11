@@ -30,7 +30,9 @@
       </mat-form-field>
     </fieldset>
   </div>
-  <h2>Uploaded documents</h2>
+  <div class="divider"></div>
+
+  <h1>Uploaded documents</h1>
   <div class="flex-row mobile-flex-column">
     <div mat-dialog-actions id="second-div">
       <div class="upload-button-wrapper">
@@ -82,13 +84,16 @@
         <button ngClass="add-button add-form" (click)="toggleShowForm(0)">
           Level 1
         </button>
-        <h2>Generate Advice PDF</h2>
+        <h1>Generate Advice PDF</h1>
+
         <button ngClass="add-button send-report" (click)="generateReport()">
           Generate
         </button>
-        <button ngClass="add-button send-report" (click)="sendReport()">
+        <div class="divider"></div>
+
+        <!-- <button ngClass="add-button send-report" (click)="sendReport()">
           Generate & Send
-        </button>
+        </button> -->
         <div *ngIf="showForms[0]">
           <button
             (click)="triggerForm('form-1-k')"
@@ -206,6 +211,8 @@
         </div>
       </div>
     </div>
+    <div class="divider"></div>
+
     <div>
       <form [formGroup]="adviceData">
         <div mat-dialog-content>
