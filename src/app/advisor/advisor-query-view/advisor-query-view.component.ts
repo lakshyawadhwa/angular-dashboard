@@ -32,7 +32,7 @@ export class AdvisorQueryViewComponent implements OnInit {
   queryView: FormGroup = new FormGroup({});
   ngOnInit(): void {
     this.queryService
-      .getAdviceForQuery(this.selectedQuery.queryId)
+      .getAdviceForQuery(this.data.query.queryId)
       .subscribe((res) => (this.adviceMetadata = res));
   }
   getDate(time) {
