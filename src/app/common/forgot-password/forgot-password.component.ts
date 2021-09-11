@@ -33,6 +33,7 @@ export class ForgotPasswordComponent implements OnInit {
             message: res,
             type: "success",
           });
+          this.dialogRef.close();
         });
     }
   }
