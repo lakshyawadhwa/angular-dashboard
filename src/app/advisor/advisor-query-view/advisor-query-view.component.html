@@ -32,11 +32,11 @@
   </div>
   <div class="divider"></div>
 
-  <h1>Uploaded documents</h1>
+  <h2>Uploaded documents</h2>
   <div class="flex-row mobile-flex-column">
     <div mat-dialog-actions id="second-div">
       <div class="upload-button-wrapper">
-        <p class="fs-22 m-0">Upload maps</p>
+        <p class="fs-18 fw-600 m-0">Upload maps</p>
         <div
           *ngFor="let map of uploadMapArray"
           class="flex-row mobile-flex-column"
@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="upload-button-wrapper">
-        <p class="fs-22 m-0">Upload horoscope</p>
+        <p class="fs-18 fw-600 m-0">Upload horoscope</p>
         <div class="flex-row mobile-flex-column">
           <app-file-upload
             [clientId]="data.query.client.clientId"
@@ -78,22 +78,13 @@
   </div>
   <div class="divider"></div>
   <div mat-dialog-actions class="view-margin-bottom">
-    <h1>Advice</h1>
+    <h2>Advice</h2>
     <div class="button-container flex-row">
       <div id="forms-level-1">
         <button ngClass="add-button add-form" (click)="toggleShowForm(0)">
           Level 1
         </button>
-        <h1>Generate Advice PDF</h1>
 
-        <button ngClass="add-button send-report" (click)="generateReport()">
-          Generate
-        </button>
-        <div class="divider"></div>
-
-        <!-- <button ngClass="add-button send-report" (click)="sendReport()">
-          Generate & Send
-        </button> -->
         <div *ngIf="showForms[0]">
           <button
             (click)="triggerForm('form-1-k')"
@@ -210,6 +201,15 @@
           </div>
         </div>
       </div>
+      <h2>Generate Advice PDF</h2>
+      <button ngClass="add-button send-report" (click)="generateReport()">
+        Generate
+      </button>
+      <div class="divider"></div>
+
+      <!-- <button ngClass="add-button send-report" (click)="sendReport()">
+          Generate & Send
+        </button> -->
     </div>
     <div class="divider"></div>
 
