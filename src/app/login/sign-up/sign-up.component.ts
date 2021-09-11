@@ -56,6 +56,7 @@ export class SignUpComponent implements OnInit {
       clientPOC: "clientPOC",
       occupation: this.getOccupationObject(),
       password: this.password,
+      address: this.address,
     };
     this.clientService.postClient(body).subscribe((res) => {
       if (res) {
