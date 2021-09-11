@@ -20,6 +20,7 @@ export class AdvisorQueryViewComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
   showForms = [false, false, false, false, false, false];
+  adviceData;
   uploadMapArray = [
     { name: "PartLayout", title: "Part Layout" },
     { name: "GradedMap", title: "Graded Map" },

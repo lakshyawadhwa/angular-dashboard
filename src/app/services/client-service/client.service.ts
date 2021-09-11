@@ -26,9 +26,9 @@ export class ClientService {
       .put(environment.url + APIConfig.createClient, body)
       .pipe(tap(async (res) => {}));
   }
-  forgotPassword(body): Observable<clientObject> {
+  forgotPassword(body): Observable<string> {
     return this.baseService
-      .post(environment.url + APIConfig.forgotPassword, body)
+      .postFile(environment.url + APIConfig.forgotPassword, body)
       .pipe(tap(async (res) => {}));
   }
 }

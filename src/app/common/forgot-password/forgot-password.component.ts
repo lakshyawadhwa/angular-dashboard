@@ -22,14 +22,15 @@ export class ForgotPasswordComponent implements OnInit {
   ngOnInit(): void {}
   emailID: string;
   onSubmit() {
+    console.log(this.emailID);
     if (this.emailID) {
       this.clientService
         .forgotPassword({
           clientEmail: this.emailID,
         })
-        .subscribe((res) => {
+        .subscribe((res: string) => {
           this.baseService.callSnackbar.next({
-            message: "Please check your email to recover your passowrd",
+            message: res,
             type: "success",
           });
         });

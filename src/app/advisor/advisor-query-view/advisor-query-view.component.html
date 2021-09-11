@@ -175,13 +175,36 @@
       </div>
     </div>
     <div>
-      <p *ngFor="let advice of adviceMetadata">
-        {{ advice.analysis }} posted by {{ advice.advisor.advisorName }} ({{
-          advice.advisor.advisorMobile
-        }}
-        - {{ advice.advisor.advisorEmail }}) on
-        {{ getDate(advice.adviceUpdateDatetime) }}
-      </p>
+      <form [formGroup]="adviceData">
+        <div mat-dialog-content>
+          <fieldset [disabled]="true" *ngFor="let advice of adviceMetadata">
+            <mat-form-field appearance="outline">
+              <mat-label>Analysis</mat-label>
+              <input matInput value="{{ advice.analysis }}" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label> Advisor Name</mat-label>
+              <input matInput value="{{ advice.advisor.advisorName }}" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label> Advisor Mobile</mat-label>
+              <input matInput value="{{ advice.advisor.advisorMobile }}" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label> Advisor Email</mat-label>
+              <input matInput value="{{ advice.advisor.advisorEmail }}" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Last update at</mat-label>
+              <input
+                matInput
+                value="{{ getDate(advice.adviceUpdateDatetime) }}"
+              />
+            </mat-form-field>
+          </fieldset>
+        </div>
+      </form>
     </div>
   </div>
 </form>
