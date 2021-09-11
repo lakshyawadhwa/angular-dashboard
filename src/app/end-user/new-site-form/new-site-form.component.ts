@@ -21,7 +21,7 @@ export class NewSiteFormComponent implements OnInit {
     city: "",
     subCity: "",
     country: "",
-    pincode: "",
+    pinCode: "",
     siteGeo: "",
     addressId: null,
   };

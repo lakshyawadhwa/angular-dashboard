@@ -30,7 +30,7 @@ export class SignUpComponent implements OnInit {
     city: "",
     subCity: "",
     country: "",
-    pincode: "",
+    pinCode: "",
     siteGeo: "",
     addressId: null,
   };

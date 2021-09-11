@@ -33,7 +33,7 @@ export interface advisorObject {
 export interface Address {
   state: string;
   city: string;
-  pincode: string;
+  pinCode: string;
   addressId: number;
   address: string;
   siteGeo: string;
