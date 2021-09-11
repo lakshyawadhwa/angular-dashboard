@@ -26,7 +26,6 @@ export class AdvisorQueryViewComponent implements OnInit {
     { name: "PartLayout", title: "Part Layout" },
     { name: "GradedMap", title: "Graded Map" },
     { name: "SquareGridMap", title: "Square Grid Map" },
-    { name: "AssociatedPeople", title: "Associated People" },
   ];
   adviceMetadata: Array<AdviceMetadata>;
   @Input() selectedQuery: UserQuery;
