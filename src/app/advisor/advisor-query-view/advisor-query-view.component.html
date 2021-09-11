@@ -81,11 +81,11 @@
     <h2 class="fs-26 fw-600">Advice</h2>
     <div class="button-container flex-row">
       <div id="forms-level-1">
-        <button ngClass="add-button add-form" (click)="toggleShowForm(0)">
+        <button ngClass="add-button add-form" (click)="toggleShowForm()">
           Level 1
         </button>
 
-        <div *ngIf="showForms[0]">
+        <div *ngIf="showForms">
           <button
             (click)="triggerForm('form-1-k')"
             ngClass="add-button add-form"

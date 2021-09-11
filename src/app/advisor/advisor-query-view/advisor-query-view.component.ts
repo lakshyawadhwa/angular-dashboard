@@ -19,7 +19,8 @@ export class AdvisorQueryViewComponent implements OnInit {
     private queryService: QueryService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
-  showForms = [false, false, false, false, false, false];
+  // showForms = [false, false, false, false, false, false];
+  showForms = false;
   adviceData;
   uploadMapArray = [
     { name: "PartLayout", title: "Part Layout" },
@@ -39,9 +40,10 @@ export class AdvisorQueryViewComponent implements OnInit {
   getDate(time) {
     return moment(time).format("DD-MM-YY HH:mm");
   }
-  toggleShowForm(index) {
-    this.showForms.map((form) => form === false);
-    this.showForms[index] = true;
+  toggleShowForm() {
+    this.showForms = !this.showForms;
+    // this.showForms.map((form) => form === false);
+    // this.showForms[index] = true;
   }
   triggerForm(url) {
     this.router.navigateByUrl(`/advisor/${url}`);
