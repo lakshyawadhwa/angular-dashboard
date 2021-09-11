@@ -3,7 +3,11 @@ import { FormGroup } from "@angular/forms";
 import { FormControl } from "@angular/forms";
 import { Component, Inject, Input, OnInit } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { SiteInterface, UserQuery } from "src/app/services/interfaces";
+import {
+  AdviceMetadata,
+  SiteInterface,
+  UserQuery,
+} from "src/app/services/interfaces";
 import * as moment from "moment";
 @Component({
   selector: "app-view-resolved-queries",
@@ -16,10 +20,15 @@ export class ViewResolvedQueriesComponent implements OnInit {
     public dialogRef: MatDialogRef<ViewResolvedQueriesComponent>,
     public queryService: QueryService
   ) {}
-
+  adviceMetadata: Array<AdviceMetadata>;
+  adviceData: FormGroup;
   queryView: FormGroup = new FormGroup({});
   query = this.data.query;
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.queryService
+      .getAdviceForQuery(this.data.query.queryId)
+      .subscribe((res) => (this.adviceMetadata = res));
+  }
   getDate(time) {
     return moment(time).format("DD-MM-YY HH:mm");
   }
