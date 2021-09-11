@@ -61,7 +61,7 @@ const routes: Routes = [
     path: "advisor",
     component: AdvisorUserLayoutComponent,
     canActivate: [AuthGuardGuard],
-    data: { accountType: "client" },
+    data: { accountType: "advisor" },
     children: [
       { path: "", component: ProfileCardComponent },
       { path: "queries", component: AdvisorQueriesComponent },

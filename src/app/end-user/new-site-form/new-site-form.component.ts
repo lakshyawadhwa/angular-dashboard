@@ -30,6 +30,8 @@ export class NewSiteFormComponent implements OnInit {
   advisorAccount = this.accountType === "advisor";
   clientEmail: string;
   locationOfFile: string;
+  plotArea: string;
+  coveredArea: string;
   fileNumber: string;
   siteTypes: Array<siteTypeInterface> = JSON.parse(
     localStorage.getItem("siteTypes")
@@ -53,6 +55,8 @@ export class NewSiteFormComponent implements OnInit {
       siteId: null,
       siteName: this.siteName,
       address: this.siteAddress,
+      plotArea: this.plotArea,
+      coveredArea: this.coveredArea,
       siteType: {
         siteTypeId: this.selectedSiteType,
       },
