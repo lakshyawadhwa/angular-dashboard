@@ -28,8 +28,10 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     document.addEventListener("keydown", (e) => {
-      e.preventDefault();
-      return false;
+      if (e.key === "Enter") {
+        e.preventDefault();
+        return false;
+      }
     });
     // if (this.authService.isLoggedIn()) this.router.navigateByUrl("/client");
   }
