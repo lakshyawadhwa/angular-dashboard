@@ -23,9 +23,15 @@
   <button mat-menu-item [matMenuTriggerFor]="concern">Concern</button>
 </mat-menu>
 <mat-menu #client="matMenu">
-  <button mat-menu-item (click)="setSearchType('name')">Name</button>
-  <button mat-menu-item (click)="setSearchType('mobile')">Mobile</button>
-  <button mat-menu-item (click)="setSearchType('email')">Email</button>
+  <button mat-menu-item (click)="setSearchType('clientName')">
+    Client Name
+  </button>
+  <button mat-menu-item (click)="setSearchType('clientPhone')">
+    Client Phone
+  </button>
+  <button mat-menu-item (click)="setSearchType('clientEmail')">
+    Client Email
+  </button>
 </mat-menu>
 
 <mat-menu #location="matMenu">
