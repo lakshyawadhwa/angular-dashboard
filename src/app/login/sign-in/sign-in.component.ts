@@ -27,9 +27,10 @@ export class SignInComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // document.addEventListener("keydown", ($event) =>
-    //   this.keyDownFunction($event)
-    // );
+    document.addEventListener("keydown", (e) => {
+      e.preventDefault();
+      return false;
+    });
     // if (this.authService.isLoggedIn()) this.router.navigateByUrl("/client");
   }
 
@@ -52,11 +53,11 @@ export class SignInComponent implements OnInit {
       }
     );
   }
-  keyDownFunction(event) {
-    if (event.keyCode === 13) {
-      this.signIn();
-    }
-  }
+  // keyDownFunction(event) {
+  //   if (event.keyCode === 13) {
+  //     this.signIn();
+  //   }
+  // }
   setAccountType() {
     if (this.accountType == "client") {
       this.usernamePlaceholder = "Client Email or Phone";
