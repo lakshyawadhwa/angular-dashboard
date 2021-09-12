@@ -1,10 +1,11 @@
 <div mat-dialog-content>
   <h1>Add New Site</h1>
-  <form>
+  <form ngNativeValidate (ngSubmit)="submitNew()">
     <br />
     <div class="form-group">
       <label>Site Name</label>
       <input
+        required
         [value]="siteName"
         [(ngModel)]="siteName"
         class="form-control"
@@ -15,6 +16,7 @@
     <div class="form-group">
       <label>Address</label>
       <input
+        required
         [value]="siteAddress.address"
         [(ngModel)]="siteAddress.address"
         class="form-control"
@@ -24,6 +26,7 @@
     <div class="form-group">
       <label>Country</label>
       <input
+        required
         [value]="siteAddress.country"
         [(ngModel)]="siteAddress.country"
         class="form-control"
@@ -33,6 +36,7 @@
     <div class="form-group">
       <label>State</label>
       <input
+        required
         [value]="siteAddress.state"
         [(ngModel)]="siteAddress.state"
         class="form-control"
@@ -42,6 +46,7 @@
     <div class="form-group">
       <label>City</label>
       <input
+        required
         [value]="siteAddress.city"
         [(ngModel)]="siteAddress.city"
         class="form-control"
@@ -51,6 +56,7 @@
     <div class="form-group">
       <label>Sub City</label>
       <input
+        required
         [value]="siteAddress.subCity"
         [(ngModel)]="siteAddress.subCity"
         class="form-control"
@@ -58,8 +64,9 @@
       />
     </div>
     <div class="form-group">
-      <label>pinCode</label>
+      <label>Pincode</label>
       <input
+        required
         [value]="siteAddress.pinCode"
         [(ngModel)]="siteAddress.pinCode"
         class="form-control"
@@ -80,6 +87,7 @@
     <div class="form-group">
       <label>Condition Type</label>
       <select
+        required
         [(value)]="conditionType"
         [(ngModel)]="conditionType"
         name="condition"
@@ -93,6 +101,7 @@
     <div class="form-group">
       <label>Site Type</label>
       <select
+        required
         [(value)]="selectedSiteType"
         [(ngModel)]="selectedSiteType"
         name="siteType"
@@ -108,6 +117,7 @@
     <div class="form-group" *ngIf="advisorAccount">
       <label>Client Email/ Phone Number</label>
       <input
+        required
         [value]="clientEmail"
         [(ngModel)]="clientEmail"
         class="form-control"
@@ -117,6 +127,7 @@
     <div class="form-group">
       <label>Plot Area (Sq ft.)</label>
       <input
+        required
         [value]="plotArea"
         [(ngModel)]="plotArea"
         class="form-control"
@@ -127,6 +138,7 @@
     <div class="form-group">
       <label>Covered Area (Sq ft.)</label>
       <input
+        required
         [value]="coveredArea"
         [(ngModel)]="coveredArea"
         class="form-control"
@@ -137,6 +149,7 @@
     <div class="form-group" *ngIf="advisorAccount">
       <label>Location of File</label>
       <input
+        required
         [value]="locationOfFile"
         [(ngModel)]="locationOfFile"
         class="form-control"
@@ -146,14 +159,13 @@
     <div class="form-group" *ngIf="advisorAccount">
       <label>File Number</label>
       <input
+        required
         [value]="fileNumber"
         [(ngModel)]="fileNumber"
         class="form-control"
         name="clientEmail"
       />
     </div>
+    <button class="submit-button" type="submit">Submit</button>
   </form>
-</div>
-<div mat-dialog-actions>
-  <button class="submit-button" (click)="submitNew()">Submit</button>
 </div>
