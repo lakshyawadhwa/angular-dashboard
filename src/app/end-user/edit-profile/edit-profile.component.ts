@@ -25,16 +25,7 @@ export class EditProfileComponent implements OnInit {
   selectedOccupation = this.clientInfo.occupation.occupationName;
   postMessage: string;
   formData = new FormData();
-  address: Address = {
-    address: "",
-    state: "",
-    city: "",
-    subCity: "",
-    country: "",
-    pinCode: "",
-    siteGeo: "",
-    addressId: null,
-  };
+  address: Address = this.clientInfo.address;
   ngOnInit(): void {
     this.clientService.getOccupations().subscribe((res) => {
       this.occupationsArray = res;
