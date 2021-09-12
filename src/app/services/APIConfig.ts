@@ -24,6 +24,7 @@ export const APIConfig = {
   getAdviceMetadata: "/advice/metedata-for-query/",
   searchQueries: "/user-query/search",
   searchSites: "/site/search",
+  basicStats: "/user-query/basic-query-stats",
 };
 
 export default APIConfig;

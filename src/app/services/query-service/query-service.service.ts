@@ -108,4 +108,14 @@ export class QueryService {
       })
     );
   }
+  getQueryStats(): Observable<any> {
+    let url = environment.url + APIConfig.basicStats;
+    return this.baseService.get(url).pipe(
+      tap(async (res: Array<any>) => {}),
+      catchError((e) => {
+        console.log(e);
+        throw e;
+      })
+    );
+  }
 }

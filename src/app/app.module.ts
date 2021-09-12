@@ -72,6 +72,7 @@ import { ForgotPasswordComponent } from "./common/forgot-password/forgot-passwor
 import { MatMenuModule } from "@angular/material/menu";
 import { FooterComponent } from "./common/footer/footer.component";
 import { FilterComponent } from "./common/filter/filter.component";
+import { BasicStatsComponent } from "./common/basic-stats/basic-stats.component";
 
 @NgModule({
   declarations: [
@@ -123,6 +124,7 @@ import { FilterComponent } from "./common/filter/filter.component";
     ForgotPasswordComponent,
     FooterComponent,
     FilterComponent,
+    BasicStatsComponent,
   ],
   imports: [
     BrowserModule,
