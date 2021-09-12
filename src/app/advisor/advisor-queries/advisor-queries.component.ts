@@ -17,7 +17,7 @@ export class AdvisorQueriesComponent implements OnInit {
       this.queries = res;
     });
     this.queryService.loadNewQueries.subscribe((res) => {
-      if (!res) this.queries = res;
+      this.queries = res;
     });
   }
   openDialog(): void {

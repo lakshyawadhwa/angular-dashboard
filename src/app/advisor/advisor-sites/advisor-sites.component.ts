@@ -23,7 +23,7 @@ export class AdvisorSitesComponent implements OnInit {
       this.sitesArray = res;
     });
     this.siteService.loadNewSites.subscribe((res) => {
-      if (!res) this.sitesArray = res;
+      if (res) this.sitesArray = res;
     });
   }
   openNewSite() {

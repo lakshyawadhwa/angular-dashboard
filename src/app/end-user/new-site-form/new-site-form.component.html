@@ -115,21 +115,23 @@
       />
     </div>
     <div class="form-group">
-      <label>Plot Area</label>
+      <label>Plot Area (Sq ft.)</label>
       <input
         [value]="plotArea"
         [(ngModel)]="plotArea"
         class="form-control"
         name="clientEmail"
+        type="number"
       />
     </div>
     <div class="form-group">
-      <label>Covered Area</label>
+      <label>Covered Area (Sq ft.)</label>
       <input
         [value]="coveredArea"
         [(ngModel)]="coveredArea"
         class="form-control"
         name="clientEmail"
+        type="number"
       />
     </div>
     <div class="form-group" *ngIf="advisorAccount">

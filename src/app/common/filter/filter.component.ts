@@ -28,8 +28,7 @@ export class FilterComponent implements OnInit {
   }
 
   setSearchType(type: string) {
-    console.log(this.filterArray);
-    if (this.filterArray.length <= 2)
+    if (this.filterArray.length <= 4)
       this.filterArray.push({ searchType: type, searchText: "" });
   }
   getInput(event, searchType) {
@@ -48,7 +47,7 @@ export class FilterComponent implements OnInit {
     this.filterArray.splice(index, 1);
   }
   setSiteType(siteType) {
-    if (this.filterArray.length <= 2) {
+    if (this.filterArray.length <= 4) {
       this.filterArray.push({
         searchType: "siteType",
         searchText: siteType.siteTypeName,
@@ -56,22 +55,28 @@ export class FilterComponent implements OnInit {
     }
   }
   setConcern(concern) {
-    if (this.filterArray.length <= 2) {
+    if (this.filterArray.length <= 4) {
       this.filterArray.push({
-        searchType: "concern",
+        searchType: "queryConcern",
         searchText: concern.concernName,
       });
     }
   }
+  getLabel(text) {
+    return text.replace(/([A-Z])/g, " $1").trim();
+  }
 
   sendSearchQuery() {
     let baseSearchObject = {
-      Country: "",
-      City: "",
-      State: "",
-      SubCity: "",
-      Type: "",
-      minSize: "",
+      country: "",
+      city: "",
+      state: "",
+      subCity: "",
+      siteType: "",
+      minCoveredAreaSize: "",
+      maxCoveredAreaSize: "",
+      minPlotAreaSize: "",
+      maxPlotAreaSize: "",
       clientPhone: "",
       clientEmail: "",
       clientName: "",

@@ -3,14 +3,20 @@
 </button>
 <mat-menu #filters="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="site">Site Filters</button>
-  <button mat-menu-item [matMenuTriggerFor]="query">Query Filters</button>
+  <button
+    mat-menu-item
+    [matMenuTriggerFor]="query"
+    *ngIf="dataType === 'queries'"
+  >
+    Query Filters
+  </button>
   <button mat-menu-item [matMenuTriggerFor]="client">Client Filters</button>
 </mat-menu>
 
 <mat-menu #site="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="location">Location</button>
   <button mat-menu-item [matMenuTriggerFor]="type">Type</button>
-  <button mat-menu-item (click)="setSearchType('size')">Size</button>
+  <button mat-menu-item [mat-menu-trigger-for]="size">Size</button>
 </mat-menu>
 
 <mat-menu #query="matMenu">
@@ -28,7 +34,20 @@
   <button mat-menu-item (click)="setSearchType('city')">City</button>
   <button mat-menu-item (click)="setSearchType('subCity')">Sub City</button>
 </mat-menu>
-
+<mat-menu #size="matMenu">
+  <button mat-menu-item (click)="setSearchType('minCoveredAreaSize')">
+    Min Covered Area Size
+  </button>
+  <button mat-menu-item (click)="setSearchType('maxCoveredAreaSize')">
+    Max Covered Area Size
+  </button>
+  <button mat-menu-item (click)="setSearchType('minPlotAreaSize')">
+    Min Plot Area Size
+  </button>
+  <button mat-menu-item (click)="setSearchType('maxPlotAreaSize')">
+    Max Plot Area Size
+  </button>
+</mat-menu>
 <mat-menu #type="matMenu">
   <button
     mat-menu-item
@@ -54,7 +73,7 @@
     appearance="fill"
     *ngFor="let searchFilter of filterArray"
   >
-    <mat-label>{{ searchFilter.searchType }}</mat-label>
+    <mat-label>{{ getLabel(searchFilter.searchType) }}</mat-label>
     <input
       matInput
       type="text"

@@ -55,8 +55,8 @@ export class NewSiteFormComponent implements OnInit {
       siteId: null,
       siteName: this.siteName,
       address: this.siteAddress,
-      plotArea: this.plotArea,
-      coveredArea: this.coveredArea,
+      plotArea: `${this.plotArea}`,
+      coveredArea: `${this.coveredArea}`,
       siteType: {
         siteTypeId: this.selectedSiteType,
       },
