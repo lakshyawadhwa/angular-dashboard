@@ -1,5 +1,5 @@
 <form>
-  <p class="success-msg" *ngIf="postResponse">Your details hav ebeen updated</p>
+  <p class="success-msg" *ngIf="postResponse">Your details have been updated</p>
   <div mat-dialog-content>
     <fieldset>
       <mat-form-field appearance="outline">
@@ -64,6 +64,42 @@
           [(ngModel)]="clientInfo.password"
           name="password"
           type="password"
+        />
+      </mat-form-field>
+      <br />
+      <p class="fs-22">Address</p>
+      <mat-form-field appearance="standard">
+        <mat-label>Residence Location</mat-label>
+        <input required matInput [(ngModel)]="address.address" name="name" />
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Country</mat-label>
+        <input required matInput [(ngModel)]="address.country" name="name" />
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>State</mat-label>
+        <input required matInput [(ngModel)]="address.state" name="name" />
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>City</mat-label>
+        <input required matInput [(ngModel)]="address.city" name="name" />
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Sub City</mat-label>
+        <input required matInput [(ngModel)]="address.subCity" name="name" />
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Site Geo</mat-label>
+        <input matInput [(ngModel)]="address.siteGeo" name="name" />
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Pincode</mat-label>
+        <input
+          required
+          matInput
+          [(ngModel)]="address.pinCode"
+          name="name"
+          type="text"
         />
       </mat-form-field>
     </fieldset>

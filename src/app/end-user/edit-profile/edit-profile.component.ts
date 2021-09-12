@@ -1,3 +1,4 @@
+import { Address } from "./../../services/interfaces";
 import { BaseService } from "src/app/services/base-service/base.service";
 import { ClientService } from "./../../services/client-service/client.service";
 import { Component, Inject, OnInit } from "@angular/core";
@@ -24,7 +25,16 @@ export class EditProfileComponent implements OnInit {
   selectedOccupation = this.clientInfo.occupation.occupationName;
   postMessage: string;
   formData = new FormData();
-
+  address: Address = {
+    address: "",
+    state: "",
+    city: "",
+    subCity: "",
+    country: "",
+    pinCode: "",
+    siteGeo: "",
+    addressId: null,
+  };
   ngOnInit(): void {
     this.clientService.getOccupations().subscribe((res) => {
       this.occupationsArray = res;
@@ -48,9 +58,10 @@ export class EditProfileComponent implements OnInit {
       clientMobile: this.clientInfo.clientMobile,
       clientEmail: this.clientInfo.clientEmail,
       clientDisplayPic: this.clientInfo.clientDisplayPic,
-      clientPOC: "clientPOC",
+      clientPOC: this.clientInfo.clientPOC,
       occupation: this.getOccupationObject(),
       password: this.clientInfo.password,
+      address: this.address,
     };
 
     this.clientService.updateClient(body).subscribe((res: any) => {
