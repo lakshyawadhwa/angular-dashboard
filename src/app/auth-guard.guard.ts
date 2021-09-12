@@ -38,8 +38,6 @@ export class AuthGuardGuard implements CanActivate {
       }
       return this.authService.isLoggedIn();
     } else {
-      window.location.reload();
-      this.authService.logout("auth-guard");
       this.router.navigate(["/login"]);
     }
     return false;

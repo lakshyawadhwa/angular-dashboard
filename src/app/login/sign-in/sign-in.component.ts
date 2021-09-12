@@ -30,7 +30,7 @@ export class SignInComponent implements OnInit {
     document.addEventListener("keydown", ($event) =>
       this.keyDownFunction($event)
     );
-    if (this.authService.isLoggedIn()) this.router.navigateByUrl("/client");
+    // if (this.authService.isLoggedIn()) this.router.navigateByUrl("/client");
   }
 
   signIn() {

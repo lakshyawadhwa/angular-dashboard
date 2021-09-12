@@ -15,54 +15,63 @@
             </button>
           </span>
         </div>
-        <mat-form-field class="full-width">
-          <input
-            matInput
-            [(ngModel)]="username"
-            placeholder="{{ usernamePlaceholder }}"
-            class="username"
-          />
-        </mat-form-field>
-        <br />
-        <mat-form-field class="full-width">
-          <input
-            matInput
-            [(ngModel)]="password"
-            placeholder="Password"
-            type="password"
-            class="username"
-          />
-        </mat-form-field>
-        <mat-error *ngIf="loginError" ngClass="error-msg">
-          Your username or password is incorrect
-        </mat-error>
+        <form (ngSubmit)="signIn()" #loginForm="ngForm">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              [(ngModel)]="username"
+              placeholder="{{ usernamePlaceholder }}"
+              class="username"
+              name="usernamee"
+              required
+            />
+          </mat-form-field>
+          <br />
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              [(ngModel)]="password"
+              placeholder="Password"
+              type="password"
+              class="username"
+              name="password"
+              required
+            />
+          </mat-form-field>
 
-        <br />
-        <mat-radio-group
-          aria-labelledby="example-radio-group-label"
-          class="example-radio-group"
-          [(ngModel)]="accountType"
-          (ngModelChange)="setAccountType()"
-        >
-          <mat-radio-button value="client">Client</mat-radio-button>
-          <mat-radio-button value="advisor">Advisor</mat-radio-button>
-        </mat-radio-group>
-        <br />
-        <button
-          class="mat-card-subtitle mr-100 m-bottom"
-          id="sign-up"
-          (click)="forgotPassword()"
-        >
-          Forgot Password?
-        </button>
-        <button
-          mat-flat-button
-          color="primary"
-          (click)="signIn()"
-          class="login-button"
-        >
-          Login
-        </button>
+          <mat-error *ngIf="loginError" ngClass="error-msg">
+            Your username or password is incorrect
+          </mat-error>
+
+          <br />
+          <mat-radio-group
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group"
+            [(ngModel)]="accountType"
+            (ngModelChange)="setAccountType()"
+            name="accountType"
+          >
+            <mat-radio-button value="client">Client</mat-radio-button>
+            <mat-radio-button value="advisor">Advisor</mat-radio-button>
+          </mat-radio-group>
+          <br />
+          <button
+            class="mat-card-subtitle mr-100 m-bottom"
+            id="sign-up"
+            (click)="forgotPassword()"
+          >
+            Forgot Password?
+          </button>
+          <button
+            mat-flat-button
+            color="primary"
+            class="login-button"
+            type="submit"
+            [disabled]="loginForm.form.invalid"
+          >
+            Login
+          </button>
+        </form>
       </mat-card-content>
     </mat-card>
   </div>

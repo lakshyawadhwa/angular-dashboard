@@ -64,6 +64,7 @@ export class AuthService {
     localStorage.removeItem("userInfo");
     localStorage.removeItem("loginExpiration");
     localStorage.removeItem("accountType");
+    window.location.reload();
   }
 
   public isLoggedIn() {
