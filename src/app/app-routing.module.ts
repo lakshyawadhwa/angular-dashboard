@@ -33,6 +33,7 @@ import { FormAstroAuditTwoComponent } from "./advisor/forms/form-astro-audit-two
 import { FormMarmaComponent } from "./advisor/forms/form-marma/form-marma.component";
 import { FormWrapperComponent } from "./common/form-wrapper/form-wrapper.component";
 const routes: Routes = [
+  { path: "", redirectTo: "/login", pathMatch: "full" },
   {
     path: "login",
     component: AnonymousUserLayoutComponent,
