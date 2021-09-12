@@ -33,7 +33,6 @@ import { FormAstroAuditTwoComponent } from "./advisor/forms/form-astro-audit-two
 import { FormMarmaComponent } from "./advisor/forms/form-marma/form-marma.component";
 import { FormWrapperComponent } from "./common/form-wrapper/form-wrapper.component";
 const routes: Routes = [
-  { path: "", redirectTo: "/login", pathMatch: "full" },
   {
     path: "login",
     component: AnonymousUserLayoutComponent,
@@ -50,6 +49,7 @@ const routes: Routes = [
     data: { accountType: "client" },
     children: [
       { path: "", component: ProfileCardComponent },
+      { path: "profile", component: ProfileCardComponent },
       { path: "queries", component: EndUserComponent },
       { path: "existing", component: UserQueryFormComponent },
       { path: "new", component: NewSiteFormComponent },
@@ -63,6 +63,7 @@ const routes: Routes = [
     data: { accountType: "advisor" },
     children: [
       { path: "", component: ProfileCardComponent },
+      { path: "profile", component: ProfileCardComponent },
       { path: "queries", component: AdvisorQueriesComponent },
       { path: "sites", component: AdvisorSitesComponent },
       { path: "existing", component: UserQueryFormComponent },

@@ -27,9 +27,9 @@ export class SignInComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    document.addEventListener("keydown", ($event) =>
-      this.keyDownFunction($event)
-    );
+    // document.addEventListener("keydown", ($event) =>
+    //   this.keyDownFunction($event)
+    // );
     // if (this.authService.isLoggedIn()) this.router.navigateByUrl("/client");
   }
 
