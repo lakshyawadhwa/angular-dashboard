@@ -22,6 +22,8 @@ export const APIConfig = {
   sendReport: "/advice/send-advice-pdf/query-id",
   forgotPassword: "/client/forgot-password",
   getAdviceMetadata: "/advice/metedata-for-query/",
+  searchQueries: "/user-query/search",
+  searchSites: "/site/search",
 };
 
 export default APIConfig;

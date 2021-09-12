@@ -3,6 +3,8 @@
     <h1>Advisor Queries</h1>
     <button class="add-button" (click)="openDialog()">New Query</button>
   </header>
+  <app-filter [dataType]="'queries'"></app-filter>
+
   <div class="card-container" *ngFor="let query of queries">
     <app-advisor-query-card [query]="query"></app-advisor-query-card>
   </div>

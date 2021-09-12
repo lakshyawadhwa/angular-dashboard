@@ -17,11 +17,13 @@ export class AdvisorSitesComponent implements OnInit {
   ) {}
   name: string;
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
-
   sitesArray: Array<SiteInterface> = [];
   ngOnInit(): void {
     this.siteService.getAllSites().subscribe((res) => {
       this.sitesArray = res;
+    });
+    this.siteService.loadNewSites.subscribe((res) => {
+      if (!res) this.sitesArray = res;
     });
   }
   openNewSite() {

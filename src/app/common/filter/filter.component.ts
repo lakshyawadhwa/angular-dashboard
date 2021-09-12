@@ -1,5 +1,6 @@
+import { SiteService } from "./../../services/site-service/site.service";
 import { QueryService } from "src/app/services/query-service/query-service.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { masterConcern, siteTypeInterface } from "src/app/services/interfaces";
 
 @Component({
@@ -8,7 +9,11 @@ import { masterConcern, siteTypeInterface } from "src/app/services/interfaces";
   styleUrls: ["./filter.component.scss"],
 })
 export class FilterComponent implements OnInit {
-  constructor(private queryService: QueryService) {}
+  constructor(
+    private queryService: QueryService,
+    private siteService: SiteService
+  ) {}
+  @Input() dataType: string;
   searchText: string;
   masterConcerns: Array<masterConcern>;
   filterArray: Array<{ searchType: string; searchText: string }> = [];
@@ -35,9 +40,7 @@ export class FilterComponent implements OnInit {
       }
     });
   }
-  sendSearchQuery() {
-    console.log(this.filterArray);
-  }
+
   removeSearchQuery(type) {
     const index = this.filterArray.findIndex((filter) => {
       filter.searchType === type;
@@ -59,5 +62,34 @@ export class FilterComponent implements OnInit {
         searchText: concern.concernName,
       });
     }
+  }
+
+  sendSearchQuery() {
+    let baseSearchObject = {
+      Country: "",
+      City: "",
+      State: "",
+      SubCity: "",
+      Type: "",
+      minSize: "",
+      clientPhone: "",
+      clientEmail: "",
+      clientName: "",
+      queryConcern: "",
+    };
+    this.filterArray.forEach((filter) => {
+      baseSearchObject[filter.searchType] = filter.searchText;
+    });
+    if (this.dataType === "queries") {
+      this.searchQueries(baseSearchObject);
+    } else if (this.dataType === "sites") {
+      this.searchSites(baseSearchObject);
+    }
+  }
+  searchQueries(baseSearchObject) {
+    this.queryService.searchQueries(baseSearchObject).subscribe((res) => {});
+  }
+  searchSites(baseSearchObject) {
+    this.siteService.searchSites(baseSearchObject).subscribe((res) => {});
   }
 }

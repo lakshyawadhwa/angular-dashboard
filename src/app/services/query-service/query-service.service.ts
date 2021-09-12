@@ -1,5 +1,5 @@
 import { BaseService } from "./../base-service/base.service";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 import {
   AdviceMetadata,
@@ -17,7 +17,7 @@ import { catchError, tap } from "rxjs/operators";
 export class QueryService {
   constructor(private baseService: BaseService) {}
   clientInfo: clientObject = JSON.parse(localStorage.getItem("userInfo"));
-
+  loadNewQueries = new BehaviorSubject(null as Array<UserQuery>);
   getClientQueries(): Observable<Array<UserQuery>> {
     let url =
       environment.url + APIConfig.getClientQueries + this.clientInfo.clientId;
@@ -89,6 +89,19 @@ export class QueryService {
     let url = environment.url + APIConfig.getAdviceMetadata + queryId;
     return this.baseService.get(url).pipe(
       tap(async (res: Array<AdviceMetadata>) => {}),
+      catchError((e) => {
+        console.log(e);
+        throw e;
+      })
+    );
+  }
+
+  searchQueries(body): Observable<Array<UserQuery>> {
+    let url = environment.url + APIConfig.searchQueries;
+    return this.baseService.post(url, body).pipe(
+      tap(async (res: Array<UserQuery>) => {
+        this.loadNewQueries.next(res);
+      }),
       catchError((e) => {
         console.log(e);
         throw e;
