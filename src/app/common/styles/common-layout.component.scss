@@ -1,8 +1,11 @@
 mat-drawer {
   color: var(--color-primary-light);
   width: 15%;
-  background-color: #faf2ee;
-
+  background-color: var(--mahavastu-main);
+  &.advisor-background {
+    background-color: var(--color-advisor-background);
+    color: var(--color-advisor-text);
+  }
   @media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
     width: 70%;
   }
@@ -14,7 +17,6 @@ mat-drawer {
     padding: 30px;
     width: 100%;
     min-height: 100px;
-    border-bottom: 1px solid var(--color-white-shade);
   }
 
   section {

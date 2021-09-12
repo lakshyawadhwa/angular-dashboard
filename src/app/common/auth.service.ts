@@ -48,22 +48,6 @@ export class AuthService {
           throw e;
         })
       );
-      // if (
-      //   loginReq.get("username") === "admin" &&
-      //   loginReq.get("password") === "admin"
-      // ) {
-      //   return new Observable<boolean>((observer) => {
-      //     this.setSession(
-      //       authBody,
-
-      //       accountType
-      //     );
-      //     observer.next(true);
-      //   });
-      // }
-      // return new Observable<boolean>((observer) => {
-      //   observer.error(false);
-      // });
     }
   }
   setSession(authBody, accountType) {
@@ -72,8 +56,8 @@ export class AuthService {
       "loginExpiration",
       JSON.stringify(expiresAt.valueOf())
     );
-    localStorage.setItem("accountType", accountType);
     localStorage.setItem("userInfo", JSON.stringify(authBody));
+    localStorage.setItem("accountType", accountType);
   }
 
   logout(callingfn) {

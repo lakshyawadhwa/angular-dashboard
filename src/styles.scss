@@ -35,6 +35,8 @@ body {
   --color-primary: #2176ff;
   --color-primary-dark: #002f7a;
   --color-primary-light: #478eff;
+  --color-advisor-text: #925c00;
+  --color-advisor-background: #dceae6;
   --color-gray-light: #e5e5e5;
   --color-gray-dark: #353535;
   --color-white-shade: #fdfffc;
@@ -322,4 +324,8 @@ ul {
     justify-content: space-between;
     align-items: center;
   }
+}
+
+.pointer-none {
+  pointer-events: none;
 }

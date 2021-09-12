@@ -1,13 +1,18 @@
 <mat-drawer-container autosize>
-  <mat-drawer #drawer mode="side" [opened]="!isMobile">
+  <mat-drawer
+    #drawer
+    mode="side"
+    class="advisor-background"
+    [opened]="!isMobile"
+  >
     <div class="header">
       <span class="fs-22 fw-600">Advisor Portal</span>
     </div>
     <mat-nav-list>
-      <mat-list-item>
+      <mat-list-item class="pointer-none">
         <img
           class="mahavastu-logo"
-          src="../../../assets/images/login-background.jpg"
+          src="../../../assets/images/login-background.png"
         />
       </mat-list-item>
     </mat-nav-list>

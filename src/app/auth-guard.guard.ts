@@ -14,7 +14,7 @@ import { AuthService } from "./common/auth.service";
 })
 export class AuthGuardGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
-  accountType = localStorage.getItem("accountType");
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -23,19 +23,22 @@ export class AuthGuardGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    let accountType = localStorage.getItem("accountType");
     let role = next.data.accountType;
+
     if (this.authService.isLoggedIn()) {
-      if (role === this.accountType) {
+      if (role === accountType) {
         return this.authService.isLoggedIn();
       } else {
-        if (this.accountType === "advisor") {
+        if (accountType === "advisor") {
           this.router.navigate(["/advisor"]);
-        } else if (this.accountType === "client") {
+        } else if (accountType === "client") {
           this.router.navigate(["/client"]);
         }
       }
       return this.authService.isLoggedIn();
     } else {
+      window.location.reload();
       this.authService.logout("auth-guard");
       this.router.navigate(["/login"]);
     }

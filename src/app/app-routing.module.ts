@@ -32,7 +32,6 @@ import { FormAstroAuditThreeComponent } from "./advisor/forms/form-astro-audit-t
 import { FormAstroAuditTwoComponent } from "./advisor/forms/form-astro-audit-two/form-astro-audit-two.component";
 import { FormMarmaComponent } from "./advisor/forms/form-marma/form-marma.component";
 import { FormWrapperComponent } from "./common/form-wrapper/form-wrapper.component";
-
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
   {
