@@ -12,10 +12,20 @@
     padding: 1rem 0;
     font-size: 12px;
   }
-  .view-query {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    background-color: #007fff;
+
+  div {
+    display: flex;
+    position: relative;
+    width: 100%;
+    .view-query {
+      bottom: 1rem;
+      right: 1rem;
+      background-color: #007fff;
+    }
+    .notes {
+      bottom: 1rem;
+      left: 1rem;
+      background-color: #007fff;
+    }
   }
 }

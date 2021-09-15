@@ -73,6 +73,11 @@ import { MatMenuModule } from "@angular/material/menu";
 import { FooterComponent } from "./common/footer/footer.component";
 import { FilterComponent } from "./common/filter/filter.component";
 import { BasicStatsComponent } from "./common/basic-stats/basic-stats.component";
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule,
+} from "@angular-material-components/datetime-picker";
 
 @NgModule({
   declarations: [
@@ -150,6 +155,9 @@ import { BasicStatsComponent } from "./common/basic-stats/basic-stats.component"
     SnackbarModule,
     MatMenuModule,
     MatProgressSpinnerModule,
+    NgxMatDatetimePickerModule,
+    NgxMatNativeDateModule,
+    NgxMatTimepickerModule,
   ],
   exports: [LoginModule, HttpClientModule, MainModule],
   providers: [

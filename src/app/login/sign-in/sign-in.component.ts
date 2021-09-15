@@ -55,11 +55,7 @@ export class SignInComponent implements OnInit {
       }
     );
   }
-  // keyDownFunction(event) {
-  //   if (event.keyCode === 13) {
-  //     this.signIn();
-  //   }
-  // }
+
   setAccountType() {
     if (this.accountType == "client") {
       this.usernamePlaceholder = "Client Email or Phone";

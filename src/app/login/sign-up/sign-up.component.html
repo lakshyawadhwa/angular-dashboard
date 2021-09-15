@@ -52,6 +52,7 @@
         </option>
       </select>
     </mat-form-field>
+
     <mat-form-field appearance="standard">
       <mat-label>Residence Location</mat-label>
       <input required matInput [(ngModel)]="address.address" name="name" />
@@ -96,6 +97,65 @@
         [(ngModel)]="password"
         name="password"
         type="password"
+      />
+    </mat-form-field>
+    <h2>Place Of Birth</h2>
+    <mat-form-field appearance="standard">
+      <mat-label>Country</mat-label>
+      <select
+        required
+        matNativeControl
+        value="{{ selectedCountry }}"
+        [(ngModel)]="selectedCountry"
+        name="countryOfBirth"
+        (change)="onCountrySelect($event.target.value)"
+      >
+        <option *ngFor="let country of countriesArray" [value]="country.code">
+          {{ country.name }}
+        </option>
+      </select>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>State</mat-label>
+      <select
+        required
+        matNativeControl
+        value="{{ selectedState }}"
+        [(ngModel)]="selectedState"
+        name="stateOfBirth"
+      >
+        <option *ngFor="let state of stateArray" [value]="state.stateId">
+          {{ state.name }}
+        </option>
+      </select>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>City</mat-label>
+      <input required matInput [(ngModel)]="cityOfBirth" name="cityOfBirth" />
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Choose your birthdate</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="dob"
+        (dateChange)="setDate($event)"
+        name="dateofbirth"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <label for="time">Select your birthtime</label>
+      <input
+        type="time"
+        id="time"
+        name="time"
+        matInput
+        [(ngModel)]="tob"
+        (change)="setTime($event)"
+        name="timeofbirth"
       />
     </mat-form-field>
   </div>

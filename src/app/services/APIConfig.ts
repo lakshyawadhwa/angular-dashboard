@@ -25,6 +25,9 @@ export const APIConfig = {
   searchQueries: "/user-query/search",
   searchSites: "/site/search",
   basicStats: "/user-query/basic-query-stats",
+  getAllCountries: "/address/all-countries",
+  getAllStates: "/address/all-states/",
+  getPatri: "/site/owner-patri/",
 };
 
 export default APIConfig;

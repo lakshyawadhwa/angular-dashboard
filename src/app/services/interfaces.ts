@@ -21,6 +21,29 @@ export interface clientObject {
   occupation: clientOccupation;
   password: string;
   address?: Address;
+  placeOfBirth?: {
+    addressId: number;
+    address: string;
+    siteGeo: string;
+    subCity: string;
+    city: string;
+    state: string;
+    country: string;
+    pinCode: string;
+  };
+  timeStampOfBirth?: string;
+}
+export interface countryObject {
+  countryId: number;
+  code: string;
+  name: string;
+  isStateList: number;
+}
+export interface stateObject {
+  stateId: string;
+  code: string;
+  name: string;
+  counCode: string;
 }
 
 export interface advisorObject {

@@ -31,4 +31,14 @@ export class ClientService {
       .postFile(environment.url + APIConfig.forgotPassword, body)
       .pipe(tap(async (res) => {}));
   }
+  getAllCountries(): Observable<Array<any>> {
+    return this.baseService
+      .get(environment.url + APIConfig.getAllCountries)
+      .pipe(tap(async (res) => {}));
+  }
+  getAllStates(countryCode): Observable<Array<any>> {
+    return this.baseService
+      .get(environment.url + APIConfig.getAllStates + countryCode)
+      .pipe(tap(async (res) => {}));
+  }
 }
