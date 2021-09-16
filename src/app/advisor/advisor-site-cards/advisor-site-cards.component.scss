@@ -1,5 +1,6 @@
 .site-card {
   cursor: pointer;
+  padding-top: 3rem;
   .button-container {
     display: flex;
     align-items: center;
@@ -14,17 +15,16 @@
   }
 
   div {
-    display: flex;
-    position: relative;
-    width: 100%;
     .view-query {
+      position: absolute;
       bottom: 1rem;
       right: 1rem;
       background-color: #007fff;
     }
     .notes {
-      bottom: 1rem;
-      left: 1rem;
+      top: 1rem;
+      right: 1rem;
+      position: absolute;
       background-color: #007fff;
     }
   }
