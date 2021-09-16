@@ -70,27 +70,32 @@
       <p class="fs-22">Address</p>
       <mat-form-field appearance="standard">
         <mat-label>Residence Location</mat-label>
-        <input required matInput [(ngModel)]="address.address" name="name" />
+        <input
+          required
+          matInput
+          [(ngModel)]="address.address"
+          name="Residence"
+        />
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Country</mat-label>
-        <input required matInput [(ngModel)]="address.country" name="name" />
+        <input required matInput [(ngModel)]="address.country" name="Country" />
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>State</mat-label>
-        <input required matInput [(ngModel)]="address.state" name="name" />
+        <input required matInput [(ngModel)]="address.state" name="State" />
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>City</mat-label>
-        <input required matInput [(ngModel)]="address.city" name="name" />
+        <input required matInput [(ngModel)]="address.city" name="City" />
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Sub City</mat-label>
-        <input required matInput [(ngModel)]="address.subCity" name="name" />
+        <input required matInput [(ngModel)]="address.subCity" name="SubCity" />
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Site Geo</mat-label>
-        <input matInput [(ngModel)]="address.siteGeo" name="name" />
+        <input matInput [(ngModel)]="address.siteGeo" name="Geo" />
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Pincode</mat-label>
@@ -98,7 +103,7 @@
           required
           matInput
           [(ngModel)]="address.pinCode"
-          name="name"
+          name="Pincode"
           type="text"
         />
       </mat-form-field>
