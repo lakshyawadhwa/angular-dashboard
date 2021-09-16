@@ -125,7 +125,7 @@
         [(ngModel)]="selectedState"
         name="stateOfBirth"
       >
-        <option *ngFor="let state of stateArray" [value]="state.stateId">
+        <option *ngFor="let state of stateArray" [value]="state.code">
           {{ state.name }}
         </option>
       </select>
@@ -164,4 +164,4 @@
   <div class="m-1">
     <app-snackbar></app-snackbar>
   </div>
-</form>
+</formngNativeValidate>

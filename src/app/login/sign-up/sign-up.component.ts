@@ -76,13 +76,14 @@ export class SignUpComponent implements OnInit {
   }
   setDate(event) {
     this.dob = moment(event.value).format("YYYY-MM-DD");
+    console.log(this.dob);
   }
   setTime(event) {
     this.tob = event.target.value;
+    console.log(this.tob);
   }
 
   submitClient() {
-    console.log(this.tob, this.dob);
     let body = {
       clientId: null,
       clientName: this.clientName,
@@ -106,7 +107,7 @@ export class SignUpComponent implements OnInit {
       timeStampOfBirth: `${this.dob},${this.tob}:00`,
     };
     //1993-09-08,16:18:00
-
+    console.log("timeStampOfBirth:", body["timeStampOfBirth"]);
     this.clientService.postClient(body).subscribe((res) => {
       if (res) {
         this.openDialog(res.clientId);

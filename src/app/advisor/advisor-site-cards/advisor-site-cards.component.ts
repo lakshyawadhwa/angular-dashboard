@@ -1,6 +1,5 @@
 import { APIConfig } from "src/app/services/APIConfig";
-import { environment } from "./../../../environments/environment.prod";
-import { SiteService } from "./../../services/site-service/site.service";
+import { environment } from "./../../../environments/environment";
 import { BaseService } from "src/app/services/base-service/base.service";
 import { Component, Input, OnInit } from "@angular/core";
 import { clientObject, SiteInterface } from "src/app/services/interfaces";
