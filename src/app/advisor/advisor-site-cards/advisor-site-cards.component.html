@@ -15,4 +15,5 @@
     </button>
   </div>
 </mat-card>
-<mat-progress-spinner [mode]="'indeterminate'"> </mat-progress-spinner>
+<mat-progress-spinner *ngIf="showLoader" [mode]="'indeterminate'">
+</mat-progress-spinner>
