@@ -15,6 +15,7 @@ export class AdvisorSiteCardsComponent implements OnInit {
   constructor(public dialog: MatDialog, private baseService: BaseService) {}
   @Input() site: SiteInterface;
   @Input() clientInfo: clientObject;
+  showLoader = false;
   ngOnInit(): void {
     console.log(this.site, "site page");
   }
@@ -28,9 +29,11 @@ export class AdvisorSiteCardsComponent implements OnInit {
   }
 
   getPatri(siteId) {
+    this.showLoader = true;
     this.baseService
       .getFile(environment.url + APIConfig.getPatri + siteId)
       .subscribe((res) => {
+        this.showLoader = false;
         if (res.size !== 0) {
           this.generatePDF(res);
         } else {
